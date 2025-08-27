@@ -46,6 +46,20 @@ const OrderNow: React.FC = () => {
     }
   }, [searchParams]);
 
+  // Update material when variant changes to ensure compatibility
+  useEffect(() => {
+    const selectedSeries = productSeries.find(s => s.id === formData.variant);
+    if (selectedSeries && selectedSeries.availableMaterials.length > 0) {
+      // Check if current material is still valid for the new series
+      if (!selectedSeries.availableMaterials.includes(formData.material)) {
+        setFormData(prev => ({
+          ...prev,
+          material: selectedSeries.availableMaterials[0]
+        }));
+      }
+    }
+  }, [formData.variant]);
+
   const PRICING_CONFIG = {
     basePerSet: 500000,
     deliveryPerSet: 15000,

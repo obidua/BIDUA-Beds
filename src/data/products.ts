@@ -25,7 +25,7 @@ export const products: Product[] = [
     ],
     specifications: {
       dimensions: '2060 × 1140 × 2400 mm (L × W × H)',
-      materials: 'Taiwan Chi-Mei flame-retardant ABS + high-quality metal',
+      materials: 'Taiwan Chi-Mei V0 Fire-retardant ABS + high-quality metal',
       colors: 'White, Pink, Yellow, Black, Blue, Green, Orange, Grey',
       ratedVoltage: '110–240V (universal)',
       lightingPower: '12V low-voltage system',
@@ -57,7 +57,7 @@ export const products: Product[] = [
     ],
     specifications: {
       dimensions: '2060 × 1580 × 2400 mm (L × W × H)',
-      materials: 'Taiwan Chi-Mei flame-retardant ABS + high-quality metal',
+      materials: 'Taiwan Chi-Mei V0 Fire-retardant ABS + high-quality metal',
       colors: 'White, Pink, Yellow, Black, Blue, Green, Orange, Grey',
       ratedVoltage: '110–240V (universal)',
       lightingPower: '12V low-voltage system',
@@ -89,7 +89,7 @@ export const products: Product[] = [
     ],
     specifications: {
       dimensions: '2060 × 1140 × 2400 mm (L × W × H)',
-      materials: 'Taiwan Chi-Mei flame-retardant ABS + high-quality metal',
+      materials: 'Taiwan Chi-Mei V0 Fire-retardant ABS + high-quality metal',
       colors: 'White, Pink, Yellow, Black, Blue, Green, Orange, Grey',
       ratedVoltage: '110–240V (universal)',
       lightingPower: '12V low-voltage system',
@@ -153,7 +153,7 @@ export const products: Product[] = [
     ],
     specifications: {
       dimensions: '2150 × 1150 × 2400 mm (L × W × H)',
-      materials: 'Eco-board + V0 fire-retardant grade ABS + high-quality metal',
+      materials: 'Eco-board + Taiwan Chi-Mei V0 Fire-retardant ABS + high-quality metal',
       colors: 'White, Pink, Yellow, Black, Blue, Green, Orange, Grey',
       ratedVoltage: '110–240V (universal)',
       lightingPower: '12V low-voltage system',
@@ -181,7 +181,7 @@ export const productSeries: ProductSeriesDetail[] = [
       { variant: 'Double', dimensions: 'L2060 × W1580 × H2400 mm' },
       { variant: 'Big Bed', dimensions: 'L2060 × W1950 × H2400 mm (ladder 300 mm)' }
     ],
-    material: 'Taiwan Chi Mei flame-retardant ABS + high-quality metal',
+    material: 'Taiwan Chi Mei V0 Fire-retardant ABS + high-quality metal',
     features: [
       'Intelligent LED multifunction',
       'Stainless steel handle',
@@ -193,7 +193,7 @@ export const productSeries: ProductSeriesDetail[] = [
       'Hotels', 'Airports', 'Dormitories', 'Sauna clubs', 'Youth hostels', 
       'Family apartments', 'Schools', 'Hospitals', 'Companies', 'Capsule hotels'
     ],
-    availableMaterials: ['ABS']
+    availableMaterials: ['ABS V0 Fire-retardant']
   },
   {
     id: 'space', 
@@ -212,7 +212,7 @@ export const productSeries: ProductSeriesDetail[] = [
       { variant: 'Double', dimensions: 'L2060 × W1580 × H2400 mm' },
       { variant: 'Big Bed', dimensions: 'L2060 × W1950 × H2400 mm (ladder 300 mm)' }
     ],
-    material: 'Taiwan Chi Mei flame-retardant ABS + high-quality metal',
+    material: 'Taiwan Chi Mei V0 Fire-retardant ABS + high-quality metal',
     features: [
       'Capsule number LED',
       'Stainless steel handle',
@@ -224,7 +224,7 @@ export const productSeries: ProductSeriesDetail[] = [
       'Hotels', 'Airports', 'Dormitories', 'Youth hostels', 
       'Schools', 'Hospitals', 'Companies', 'Capsule hotels'
     ],
-    availableMaterials: ['ABS']
+    availableMaterials: ['ABS V0 Fire-retardant']
   },
   {
     id: 'explore',
@@ -243,7 +243,7 @@ export const productSeries: ProductSeriesDetail[] = [
       { variant: 'Double', dimensions: 'L2060 × W1580 × H2400 mm' },
       { variant: 'Big Bed', dimensions: 'L2060 × W1950 × H2400 mm (ladder 300 mm)' }
     ],
-    material: 'Taiwan Chi Mei flame-retardant ABS + high-quality metal',
+    material: 'Taiwan Chi Mei V0 Fire-retardant ABS + high-quality metal',
     features: [
       'Capsule number LED',
       'Stainless steel handle',
@@ -255,7 +255,7 @@ export const productSeries: ProductSeriesDetail[] = [
       'Hotels', 'Airports', 'Dormitories', 'Sauna clubs', 
       'Schools', 'Hospitals', 'Capsule hotels'
     ],
-    availableMaterials: ['ABS']
+    availableMaterials: ['ABS V0 Fire-retardant']
   },
   {
     id: 'cosmos',
@@ -274,7 +274,7 @@ export const productSeries: ProductSeriesDetail[] = [
       { variant: 'Double', dimensions: 'L2060 × W1580 × H2400 mm' },
       { variant: 'Ladder', dimensions: '300 mm' }
     ],
-    material: 'Taiwan Chi Mei flame-retardant ABS + high-quality metal',
+    material: 'Taiwan Chi Mei V0 Fire-retardant ABS + high-quality metal',
     features: [
       'Capsule number LED',
       'Stainless steel handle',
@@ -286,7 +286,7 @@ export const productSeries: ProductSeriesDetail[] = [
       'Hotels', 'Airports', 'Dormitories', 'Youth hostels', 'Family apartments',
       'Schools', 'Hospitals', 'Capsule hotels'
     ],
-    availableMaterials: ['ABS']
+    availableMaterials: ['ABS V0 Fire-retardant']
   },
   {
     id: 'future',
@@ -305,7 +305,7 @@ export const productSeries: ProductSeriesDetail[] = [
       { variant: 'Vertical Single', dimensions: 'L2060 × W1140 × H2400 mm' },
       { variant: 'Ladder', dimensions: '300 mm' }
     ],
-    material: 'Taiwan Chi Mei flame-retardant ABS + high-quality metal',
+    material: 'Taiwan Chi Mei V0 Fire-retardant ABS + high-quality metal',
     features: [
       'Capsule number LED',
       'Stainless steel handle',
@@ -317,7 +317,7 @@ export const productSeries: ProductSeriesDetail[] = [
     applications: [
       'Hotels', 'Airports', 'Dormitories', 'Schools', 'Hospitals', 'Capsule hotels'
     ],
-    availableMaterials: ['ABS']
+    availableMaterials: ['ABS V0 Fire-retardant']
   },
   {
     id: 'esports',
@@ -334,7 +334,7 @@ export const productSeries: ProductSeriesDetail[] = [
     sizes: [
       { variant: 'Horizontal Single', dimensions: 'L2150 × W1150 × H2400 mm (ladder 180 mm)' }
     ],
-    material: 'Environmental protection board + Taiwan Chi Mei flame-retardant ABS + high-quality metal',
+    material: 'Environmental protection board + Taiwan Chi Mei V0 Fire-retardant ABS + high-quality metal',
     features: [
       'Stainless steel handle',
       'Door blue light',
@@ -346,7 +346,7 @@ export const productSeries: ProductSeriesDetail[] = [
       'Hotels', 'Airports', 'Dormitories', 'Youth hostels', 'Family apartments',
       'Schools', 'Hospitals', 'Capsule hotels'
     ],
-    availableMaterials: ['ABS', 'Wood']
+    availableMaterials: ['ABS V0 Fire-retardant', 'Wood (eco multi-layer board)']
   },
   {
     id: 'wooden',
@@ -373,7 +373,7 @@ export const productSeries: ProductSeriesDetail[] = [
       'Hotels', 'Airports', 'Dormitories', 'Youth hostels', 'Family apartments',
       'Schools', 'Hospitals', 'Capsule hotels'
     ],
-    availableMaterials: ['Wood']
+    availableMaterials: ['Wood (eco multi-layer board)']
   },
   {
     id: 'lounge',
@@ -391,7 +391,7 @@ export const productSeries: ProductSeriesDetail[] = [
       { variant: 'Small', dimensions: 'L1580 × W2150 × H2450 mm' },
       { variant: 'Large', dimensions: 'L2180 × W2150 × H2450 mm' }
     ],
-    material: 'Taiwan Chi Mei flame-retardant ABS + high-quality metal',
+    material: 'Taiwan Chi Mei V0 Fire-retardant ABS + high-quality metal',
     features: [
       'Door blue light',
       'Intelligent door lock',
@@ -402,6 +402,6 @@ export const productSeries: ProductSeriesDetail[] = [
       'Airports', 'Family apartments', 'Hospitals', 'Companies', 
       'Internet bars', 'Livestream studios'
     ],
-    availableMaterials: ['ABS']
+    availableMaterials: ['ABS V0 Fire-retardant']
   }
 ];
