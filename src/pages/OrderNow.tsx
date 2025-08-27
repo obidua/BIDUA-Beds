@@ -7,7 +7,7 @@ const OrderNow: React.FC = () => {
   const [searchParams] = useSearchParams();
   const [formData, setFormData] = useState({
     variant: productSeries[0].id,
-    qty: 1,
+    qty: 1 as number | '',
     color: 'White',
     material: 'ABS',
     optPanels: false,
@@ -79,7 +79,7 @@ const OrderNow: React.FC = () => {
   };
 
   const calculatePricing = () => {
-    const qty = Math.max(1, formData.qty);
+    const qty = Math.max(1, typeof formData.qty === 'number' ? formData.qty : 0);
     const base = PRICING_CONFIG.basePerSet * qty;
     const delivery = PRICING_CONFIG.deliveryPerSet * qty;
 
@@ -107,7 +107,7 @@ const OrderNow: React.FC = () => {
     setFormData(prev => ({
       ...prev,
       [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : 
-              name === 'qty' ? parseInt(value) || 1 : value
+              name === 'qty' ? (value === '' ? '' : Math.max(0, parseInt(value) || 0)) : value
     }));
   };
 
@@ -131,10 +131,12 @@ const OrderNow: React.FC = () => {
     if (formData.optCard) selectedOptions.push('Card Access');
     if (formData.optTable) selectedOptions.push('Foldable Side Table');
 
+    const displayQty = typeof formData.qty === 'number' ? formData.qty : 0;
+
     return `Capsule Beds Enquiry
 
 Series: ${seriesName}
-Qty (sets): ${formData.qty}
+Qty (sets): ${displayQty}
 Color: ${formData.color}
 Material: ${formData.material}
 Add-ons: ${selectedOptions.length ? selectedOptions.join(', ') : 'None'}
@@ -269,7 +271,7 @@ Access notes: ${formData.custNotes || '-'}`;
                       name="qty"
                       value={formData.qty}
                       onChange={handleInputChange}
-                      min="1"
+                      min="0"
                       className="w-full bg-gray-100 dark:bg-gray-700/50 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-cyan-400 transition-colors"
                       required
                     />
@@ -448,7 +450,7 @@ Access notes: ${formData.custNotes || '-'}`;
                     </div>
                     <div className="flex justify-between">
                       <span>Quantity:</span>
-                      <span>{formData.qty} set{formData.qty > 1 ? 's' : ''} (1 set = 2 pods)</span>
+                      <span>{typeof formData.qty === 'number' ? formData.qty : 0} set{(typeof formData.qty === 'number' ? formData.qty : 0) !== 1 ? 's' : ''} (1 set = 2 pods)</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Color:</span>
