@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
   BookOpen, 
@@ -25,8 +25,17 @@ const Catalogue: React.FC = () => {
   const [selectedSeries, setSelectedSeries] = useState<string>('all');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [searchTerm, setSearchTerm] = useState('');
+  const [searchParams] = useSearchParams();
   const allProductsRef = useRef<HTMLElement>(null);
   const seriesRefs = useRef<Map<string, HTMLDivElement>>(new Map());
+
+  // Check for series parameter in URL and set initial selection
+  useEffect(() => {
+    const seriesParam = searchParams.get('series');
+    if (seriesParam && productSeries.find(s => s.id === seriesParam)) {
+      setSelectedSeries(seriesParam);
+    }
+  }, [searchParams]);
 
   // Filter products based on selected series and search term
   const filteredProducts = products.filter(product => {
@@ -397,6 +406,22 @@ const Catalogue: React.FC = () => {
                           <Package className="h-5 w-5 text-cyan-400 mr-2" />
                           Available Models in This Series
                         </h4>
+                        <div className="mb-6">
+                          <button
+                            onClick={() => {
+                              setSelectedSeries(series.id);
+                              setTimeout(() => {
+                                allProductsRef.current?.scrollIntoView({ 
+                                  behavior: 'smooth', 
+                                  block: 'start' 
+                                });
+                              }, 100);
+                            }}
+                            className="bg-gradient-to-r from-purple-500 to-indigo-600 text-white py-2 px-6 rounded-lg hover:from-purple-400 hover:to-indigo-500 transition-all duration-200 text-sm font-semibold shadow-md hover:shadow-purple-500/25"
+                          >
+                            View All {series.name} Models Below
+                          </button>
+                        </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                           {seriesProducts.map((product, productIndex) => (
                             <motion.div
