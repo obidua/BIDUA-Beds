@@ -27,6 +27,7 @@ export interface ProductSeriesDetail {
   id: string;
   name: string;
   description: string;
+  images: string[];
   models: string[];
   colors: string[];
   sizes: {
