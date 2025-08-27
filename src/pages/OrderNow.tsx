@@ -1,21 +1,38 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { ShoppingCart, Package, Truck, Shield, Calculator, MessageCircle, Mail } from 'lucide-react';
-import { products, productSeries } from '../data/products';
+import { ShoppingCart, Package, Truck, Shield, Calculator, MessageCircle, Plus, Trash2, X } from 'lucide-react';
+import { productSeries } from '../data/products';
+
+interface CartItem {
+  id: string;
+  seriesId: string;
+  qty: number | '';
+  color: string;
+  material: string;
+  optPanels: boolean;
+  optTV: boolean;
+  optBedding: boolean;
+  optSafe: boolean;
+  optCard: boolean;
+  optTable: boolean;
+}
+
+interface CustomerDetails {
+  custName: string;
+  custPhone: string;
+  custEmail: string;
+  custCompany: string;
+  custGST: string;
+  custCity: string;
+  custAddr: string;
+  custNotes: string;
+}
 
 const OrderNow: React.FC = () => {
   const [searchParams] = useSearchParams();
-  const [formData, setFormData] = useState({
-    variant: productSeries[0].id,
-    qty: 1 as number | '',
-    color: 'White',
-    material: 'ABS',
-    optPanels: false,
-    optTV: false,
-    optBedding: false,
-    optSafe: false,
-    optCard: false,
-    optTable: false,
+  
+  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [customerDetails, setCustomerDetails] = useState<CustomerDetails>({
     custName: '',
     custPhone: '',
     custEmail: '',
@@ -35,30 +52,39 @@ const OrderNow: React.FC = () => {
     total: 0
   });
 
-  // Set initial variant based on URL parameter
+  // Initialize cart with URL parameter or default item
   useEffect(() => {
     const seriesParam = searchParams.get('series');
-    if (seriesParam && productSeries.find(s => s.id === seriesParam)) {
-      setFormData(prev => ({
-        ...prev,
-        variant: seriesParam
-      }));
-    }
+    const defaultItem: CartItem = {
+      id: Date.now().toString(),
+      seriesId: seriesParam && productSeries.find(s => s.id === seriesParam) ? seriesParam : productSeries[0].id,
+      qty: 1,
+      color: 'White',
+      material: 'ABS',
+      optPanels: false,
+      optTV: false,
+      optBedding: false,
+      optSafe: false,
+      optCard: false,
+      optTable: false
+    };
+    setCartItems([defaultItem]);
   }, [searchParams]);
 
-  // Update material when variant changes to ensure compatibility
+  // Update material when series changes to ensure compatibility
   useEffect(() => {
-    const selectedSeries = productSeries.find(s => s.id === formData.variant);
-    if (selectedSeries && selectedSeries.availableMaterials.length > 0) {
-      // Check if current material is still valid for the new series
-      if (!selectedSeries.availableMaterials.includes(formData.material)) {
-        setFormData(prev => ({
-          ...prev,
-          material: selectedSeries.availableMaterials[0]
-        }));
-      }
-    }
-  }, [formData.variant]);
+    setCartItems(prevItems => 
+      prevItems.map(item => {
+        const selectedSeries = productSeries.find(s => s.id === item.seriesId);
+        if (selectedSeries && selectedSeries.availableMaterials.length > 0) {
+          if (!selectedSeries.availableMaterials.includes(item.material)) {
+            return { ...item, material: selectedSeries.availableMaterials[0] };
+          }
+        }
+        return item;
+      })
+    );
+  }, [cartItems.map(item => item.seriesId).join(',')]);
 
   const PRICING_CONFIG = {
     basePerSet: 500000,
@@ -79,89 +105,139 @@ const OrderNow: React.FC = () => {
   };
 
   const calculatePricing = () => {
-    const qty = Math.max(1, typeof formData.qty === 'number' ? formData.qty : 0);
-    const base = PRICING_CONFIG.basePerSet * qty;
-    const delivery = PRICING_CONFIG.deliveryPerSet * qty;
+    let totalBase = 0;
+    let totalDelivery = 0;
+    let totalOptions = 0;
 
-    let options = 0;
-    if (formData.optPanels) options += PRICING_CONFIG.options.panels * qty;
-    if (formData.optTV) options += PRICING_CONFIG.options.tv * qty;
-    if (formData.optBedding) options += PRICING_CONFIG.options.bedding * qty;
-    if (formData.optSafe) options += PRICING_CONFIG.options.safe * qty;
-    if (formData.optCard) options += PRICING_CONFIG.options.card * qty;
-    if (formData.optTable) options += PRICING_CONFIG.options.table * qty;
+    cartItems.forEach(item => {
+      const qty = Math.max(1, typeof item.qty === 'number' ? item.qty : 0);
+      const base = PRICING_CONFIG.basePerSet * qty;
+      const delivery = PRICING_CONFIG.deliveryPerSet * qty;
 
-    const taxable = base + delivery + options;
+      let options = 0;
+      if (item.optPanels) options += PRICING_CONFIG.options.panels * qty;
+      if (item.optTV) options += PRICING_CONFIG.options.tv * qty;
+      if (item.optBedding) options += PRICING_CONFIG.options.bedding * qty;
+      if (item.optSafe) options += PRICING_CONFIG.options.safe * qty;
+      if (item.optCard) options += PRICING_CONFIG.options.card * qty;
+      if (item.optTable) options += PRICING_CONFIG.options.table * qty;
+
+      totalBase += base;
+      totalDelivery += delivery;
+      totalOptions += options;
+    });
+
+    const taxable = totalBase + totalDelivery + totalOptions;
     const gst = Math.round(taxable * PRICING_CONFIG.gstRate);
     const total = taxable + gst;
 
-    setPricing({ base, delivery, options, taxable, gst, total });
+    setPricing({ 
+      base: totalBase, 
+      delivery: totalDelivery, 
+      options: totalOptions, 
+      taxable, 
+      gst, 
+      total 
+    });
   };
 
   useEffect(() => {
     calculatePricing();
-  }, [formData]);
+  }, [cartItems]);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    const { name, value, type } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : 
-              name === 'qty' ? (value === '' ? '' : Math.max(0, parseInt(value) || 0)) : value
-    }));
+  const addCartItem = () => {
+    const newItem: CartItem = {
+      id: Date.now().toString(),
+      seriesId: productSeries[0].id,
+      qty: 1,
+      color: 'White',
+      material: 'ABS',
+      optPanels: false,
+      optTV: false,
+      optBedding: false,
+      optSafe: false,
+      optCard: false,
+      optTable: false
+    };
+    setCartItems(prev => [...prev, newItem]);
   };
 
-  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, checked } = e.target;
-    setFormData(prev => ({
+  const removeCartItem = (id: string) => {
+    if (cartItems.length > 1) {
+      setCartItems(prev => prev.filter(item => item.id !== id));
+    }
+  };
+
+  const updateCartItem = (id: string, field: keyof CartItem, value: any) => {
+    setCartItems(prev => 
+      prev.map(item => 
+        item.id === id ? { ...item, [field]: value } : item
+      )
+    );
+  };
+
+  const handleCustomerChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setCustomerDetails(prev => ({
       ...prev,
-      [name]: checked
+      [name]: value
     }));
   };
 
   const generateMessage = () => {
-    const selectedSeries = productSeries.find(s => s.id === formData.variant);
-    const seriesName = selectedSeries ? selectedSeries.name : 'Unknown Series';
+    let message = 'Capsule Beds Enquiry\n\n';
     
-    const selectedOptions = [];
-    if (formData.optPanels) selectedOptions.push('Panels');
-    if (formData.optTV) selectedOptions.push('TV Module');
-    if (formData.optBedding) selectedOptions.push('Bedding Set');
-    if (formData.optSafe) selectedOptions.push('Safe Box');
-    if (formData.optCard) selectedOptions.push('Card Access');
-    if (formData.optTable) selectedOptions.push('Foldable Side Table');
+    // Add each cart item
+    cartItems.forEach((item, index) => {
+      const selectedSeries = productSeries.find(s => s.id === item.seriesId);
+      const seriesName = selectedSeries ? selectedSeries.name : 'Unknown Series';
+      
+      const selectedOptions = [];
+      if (item.optPanels) selectedOptions.push('Panels');
+      if (item.optTV) selectedOptions.push('TV Module');
+      if (item.optBedding) selectedOptions.push('Bedding Set');
+      if (item.optSafe) selectedOptions.push('Safe Box');
+      if (item.optCard) selectedOptions.push('Card Access');
+      if (item.optTable) selectedOptions.push('Foldable Side Table');
 
-    const displayQty = typeof formData.qty === 'number' ? formData.qty : 0;
+      const displayQty = typeof item.qty === 'number' ? item.qty : 0;
 
-    return `Capsule Beds Enquiry
+      message += `Product ${index + 1}:\n`;
+      message += `Series: ${seriesName}\n`;
+      message += `Qty (sets): ${displayQty}\n`;
+      message += `Color: ${item.color}\n`;
+      message += `Material: ${item.material}\n`;
+      message += `Add-ons: ${selectedOptions.length ? selectedOptions.join(', ') : 'None'}\n\n`;
+    });
 
-Series: ${seriesName}
-Qty (sets): ${displayQty}
-Color: ${formData.color}
-Material: ${formData.material}
-Add-ons: ${selectedOptions.length ? selectedOptions.join(', ') : 'None'}
+    message += `Total Price (ex-GST): ₹${formatNumber(pricing.taxable)}\n`;
+    message += `GST @18%: ₹${formatNumber(pricing.gst)}\n`;
+    message += `Total (incl. GST): ₹${formatNumber(pricing.total)}\n\n`;
 
-Price (ex-GST): ₹${formatNumber(pricing.taxable)}
-GST @18%: ₹${formatNumber(pricing.gst)}
-Total (incl. GST): ₹${formatNumber(pricing.total)}
+    message += `Buyer:\n`;
+    message += `Name: ${customerDetails.custName}\n`;
+    message += `Phone: ${customerDetails.custPhone}\n`;
+    message += `Email: ${customerDetails.custEmail}\n`;
+    message += `Company: ${customerDetails.custCompany || '-'}\n`;
+    message += `GSTIN: ${customerDetails.custGST || '-'}\n`;
+    message += `City/State: ${customerDetails.custCity}\n`;
+    message += `Address: ${customerDetails.custAddr}\n`;
+    message += `Access notes: ${customerDetails.custNotes || '-'}`;
 
-Buyer:
-Name: ${formData.custName}
-Phone: ${formData.custPhone}
-Email: ${formData.custEmail}
-Company: ${formData.custCompany || '-'}
-GSTIN: ${formData.custGST || '-'}
-City/State: ${formData.custCity}
-Address: ${formData.custAddr}
-Access notes: ${formData.custNotes || '-'}`;
+    return message;
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
     // Basic validation
-    if (!formData.custName || !formData.custPhone || !formData.custEmail || !formData.custCity || !formData.custAddr) {
+    if (!customerDetails.custName || !customerDetails.custPhone || !customerDetails.custEmail || !customerDetails.custCity || !customerDetails.custAddr) {
       alert('Please fill Name, Phone, Email, City/State and Delivery Address.');
+      return;
+    }
+
+    if (cartItems.length === 0) {
+      alert('Please add at least one product to your inquiry.');
       return;
     }
 
@@ -177,17 +253,23 @@ Access notes: ${formData.custNotes || '-'}`;
     }
   };
 
+  const getTotalQuantity = () => {
+    return cartItems.reduce((total, item) => {
+      return total + (typeof item.qty === 'number' ? item.qty : 0);
+    }, 0);
+  };
+
   return (
     <div className="min-h-screen bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl">
       {/* Header */}
       <section className="py-20 bg-gradient-to-br from-gray-50 via-blue-50/30 to-cyan-50/40 dark:from-gray-900 dark:via-blue-900/20 dark:to-cyan-900/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-            Buy Capsule <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Beds</span>
+            Multi-Product <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Inquiry</span>
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8">
-            Hotel-grade sleeping pods with intelligent LED controls, secure lock, fresh-air ventilation and compact footprint. 
-            Choose model, color and options—send your enquiry and our team will contact you with a GST invoice and delivery date.
+            Select multiple capsule bed configurations and get a comprehensive quote for your entire project. 
+            Add different series, quantities, and options to create your perfect solution.
           </p>
           
           {/* Key Badges */}
@@ -208,137 +290,145 @@ Access notes: ${formData.custNotes || '-'}`;
         </div>
       </section>
 
-      {/* Product Cards */}
-      <section className="py-12 bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            {/* Dynamic Product Cards */}
-            {products.slice(0, 4).map((product, index) => (
-              <div key={product.id} className="bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-200 dark:border-cyan-500/20 shadow-xl">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{product.name}</h3>
-                <div className="space-y-3 text-gray-600 dark:text-gray-300">
-                  <p><strong>Size:</strong> {product.specifications.dimensions}</p>
-                  <p><strong>Material:</strong> {product.specifications.materials}</p>
-                  <p><strong>Colors:</strong> {product.specifications.colors}</p>
-                  <p><strong>Power:</strong> {product.specifications.ratedVoltage}</p>
-                  <p><strong>Ventilation:</strong> {product.specifications.freshAirVentilation}</p>
+      {/* Order Form */}
+      <section className="py-12 bg-gray-50/70 dark:bg-gray-900/70 backdrop-blur-xl">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl border border-gray-200 dark:border-cyan-500/20 overflow-hidden shadow-2xl">
+            <div className="p-8">
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center space-x-3">
+                  <ShoppingCart className="h-8 w-8 text-cyan-400" />
+                  <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Product Selection</h2>
                 </div>
-                <div className="mt-4">
-                  <span className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-4 py-2 rounded-full text-sm font-bold">
-                    {product.price}
+                <div className="bg-cyan-500/20 border border-cyan-400/40 rounded-full px-4 py-2">
+                  <span className="text-cyan-600 dark:text-cyan-400 font-semibold">
+                    {cartItems.length} Product{cartItems.length !== 1 ? 's' : ''} • {getTotalQuantity()} Total Sets
                   </span>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Order Form */}
-      <section className="py-12 bg-gray-50/70 dark:bg-gray-900/70 backdrop-blur-xl">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl border border-gray-200 dark:border-cyan-500/20 overflow-hidden shadow-2xl">
-            <div className="p-8">
-              <div className="flex items-center space-x-3 mb-6">
-                <ShoppingCart className="h-8 w-8 text-cyan-400" />
-                <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Configure & Enquire</h2>
-              </div>
-              <p className="text-gray-600 dark:text-gray-300 mb-8">Choose your model and options. We'll WhatsApp/email you a formal GST quote and delivery date.</p>
 
               <form onSubmit={handleSubmit} className="space-y-8">
-                {/* Product Configuration */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-gray-900 dark:text-white font-medium mb-2">Variant</label>
-                    <select
-                      name="variant"
-                      value={formData.variant}
-                      onChange={handleInputChange}
-                      className="w-full bg-gray-100 dark:bg-gray-700/50 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-cyan-400 transition-colors"
-                      required
-                    >
-                      {productSeries.map((series) => (
-                        <option key={series.id} value={series.id}>
-                          {series.name}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-gray-900 dark:text-white font-medium mb-2">Quantity (sets)</label>
-                    <input
-                      type="number"
-                      name="qty"
-                      value={formData.qty}
-                      onChange={handleInputChange}
-                      min="0"
-                      className="w-full bg-gray-100 dark:bg-gray-700/50 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-cyan-400 transition-colors"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-gray-900 dark:text-white font-medium mb-2">Color</label>
-                    <select
-                      name="color"
-                      value={formData.color}
-                      onChange={handleInputChange}
-                      className="w-full bg-gray-100 dark:bg-gray-700/50 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-cyan-400 transition-colors"
-                      required
-                    >
-                      <option>White</option>
-                      <option>Pink</option>
-                      <option>Yellow</option>
-                      <option>Black</option>
-                      <option>Blue</option>
-                      <option>Orange</option>
-                      <option>Grey</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-gray-900 dark:text-white font-medium mb-2">Material</label>
-                    <select
-                      name="material"
-                      value={formData.material}
-                      onChange={handleInputChange}
-                      className="w-full bg-gray-100 dark:bg-gray-700/50 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-cyan-400 transition-colors"
-                      required
-                    >
-                      {(() => {
-                        const selectedSeries = productSeries.find(s => s.id === formData.variant);
-                        return selectedSeries?.availableMaterials.map((material) => (
-                          <option key={material} value={material}>
-                            {material === 'Wood' ? 'Wood (eco multi-layer board)' : material}
-                          </option>
-                        )) || [<option key="ABS" value="ABS">ABS</option>];
-                      })()}
-                    </select>
-                  </div>
-                </div>
+                {/* Product Configurations */}
+                <div className="space-y-6">
+                  {cartItems.map((item, index) => {
+                    const selectedSeries = productSeries.find(s => s.id === item.seriesId);
+                    
+                    return (
+                      <div key={item.id} className="bg-gray-50 dark:bg-gray-700/30 rounded-xl p-6 border border-gray-200 dark:border-cyan-500/20 relative">
+                        <div className="flex items-center justify-between mb-4">
+                          <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                            Product {index + 1}
+                          </h3>
+                          {cartItems.length > 1 && (
+                            <button
+                              type="button"
+                              onClick={() => removeCartItem(item.id)}
+                              className="text-red-500 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 transition-colors p-2 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg"
+                              title="Remove this product"
+                            >
+                              <Trash2 className="h-5 w-5" />
+                            </button>
+                          )}
+                        </div>
 
-                {/* Options */}
-                <div className="bg-gray-100 dark:bg-gray-700/30 rounded-xl p-6 border border-gray-300 dark:border-cyan-500/20">
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Options (per set)</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {[
-                      { key: 'optPanels', label: 'Panels (Side/Back/Top)', price: PRICING_CONFIG.options.panels },
-                      { key: 'optTV', label: 'TV Module', price: PRICING_CONFIG.options.tv },
-                      { key: 'optBedding', label: 'Bedding Set', price: PRICING_CONFIG.options.bedding },
-                      { key: 'optSafe', label: 'Safe Box', price: PRICING_CONFIG.options.safe },
-                      { key: 'optCard', label: 'Card Access', price: PRICING_CONFIG.options.card },
-                      { key: 'optTable', label: 'Foldable Side Table', price: PRICING_CONFIG.options.table }
-                    ].map((option) => (
-                      <label key={option.key} className="flex items-center space-x-3 text-gray-600 dark:text-gray-300 cursor-pointer hover:text-gray-900 dark:hover:text-white transition-colors">
-                        <input
-                          type="checkbox"
-                          name={option.key}
-                          checked={formData[option.key as keyof typeof formData] as boolean}
-                          onChange={handleCheckboxChange}
-                          className="w-4 h-4 text-cyan-400 bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600 rounded focus:ring-cyan-400 focus:ring-2"
-                        />
-                        <span>{option.label} (+₹{formatNumber(option.price)})</span>
-                      </label>
-                    ))}
-                  </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                          <div>
+                            <label className="block text-gray-900 dark:text-white font-medium mb-2">Series</label>
+                            <select
+                              value={item.seriesId}
+                              onChange={(e) => updateCartItem(item.id, 'seriesId', e.target.value)}
+                              className="w-full bg-white dark:bg-gray-600/50 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-cyan-400 transition-colors"
+                              required
+                            >
+                              {productSeries.map((series) => (
+                                <option key={series.id} value={series.id}>
+                                  {series.name}
+                                </option>
+                              ))}
+                            </select>
+                          </div>
+                          <div>
+                            <label className="block text-gray-900 dark:text-white font-medium mb-2">Quantity (sets)</label>
+                            <input
+                              type="number"
+                              value={item.qty}
+                              onChange={(e) => updateCartItem(item.id, 'qty', e.target.value === '' ? '' : Math.max(0, parseInt(e.target.value) || 0))}
+                              min="0"
+                              className="w-full bg-white dark:bg-gray-600/50 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-cyan-400 transition-colors"
+                              required
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-gray-900 dark:text-white font-medium mb-2">Color</label>
+                            <select
+                              value={item.color}
+                              onChange={(e) => updateCartItem(item.id, 'color', e.target.value)}
+                              className="w-full bg-white dark:bg-gray-600/50 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-cyan-400 transition-colors"
+                              required
+                            >
+                              <option>White</option>
+                              <option>Pink</option>
+                              <option>Yellow</option>
+                              <option>Black</option>
+                              <option>Blue</option>
+                              <option>Orange</option>
+                              <option>Grey</option>
+                            </select>
+                          </div>
+                          <div>
+                            <label className="block text-gray-900 dark:text-white font-medium mb-2">Material</label>
+                            <select
+                              value={item.material}
+                              onChange={(e) => updateCartItem(item.id, 'material', e.target.value)}
+                              className="w-full bg-white dark:bg-gray-600/50 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-cyan-400 transition-colors"
+                              required
+                            >
+                              {selectedSeries?.availableMaterials.map((material) => (
+                                <option key={material} value={material}>
+                                  {material === 'Wood' ? 'Wood (eco multi-layer board)' : material}
+                                </option>
+                              )) || [<option key="ABS" value="ABS">ABS</option>]}
+                            </select>
+                          </div>
+                        </div>
+
+                        {/* Options */}
+                        <div>
+                          <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Add-ons (per set)</h4>
+                          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                            {[
+                              { key: 'optPanels', label: 'Panels (Side/Back/Top)', price: PRICING_CONFIG.options.panels },
+                              { key: 'optTV', label: 'TV Module', price: PRICING_CONFIG.options.tv },
+                              { key: 'optBedding', label: 'Bedding Set', price: PRICING_CONFIG.options.bedding },
+                              { key: 'optSafe', label: 'Safe Box', price: PRICING_CONFIG.options.safe },
+                              { key: 'optCard', label: 'Card Access', price: PRICING_CONFIG.options.card },
+                              { key: 'optTable', label: 'Foldable Side Table', price: PRICING_CONFIG.options.table }
+                            ].map((option) => (
+                              <label key={option.key} className="flex items-center space-x-3 text-gray-600 dark:text-gray-300 cursor-pointer hover:text-gray-900 dark:hover:text-white transition-colors">
+                                <input
+                                  type="checkbox"
+                                  checked={item[option.key as keyof CartItem] as boolean}
+                                  onChange={(e) => updateCartItem(item.id, option.key as keyof CartItem, e.target.checked)}
+                                  className="w-4 h-4 text-cyan-400 bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600 rounded focus:ring-cyan-400 focus:ring-2"
+                                />
+                                <span className="text-sm">{option.label} (+₹{formatNumber(option.price)})</span>
+                              </label>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+
+                  {/* Add Product Button */}
+                  <button
+                    type="button"
+                    onClick={addCartItem}
+                    className="w-full bg-gradient-to-r from-purple-500 to-indigo-600 text-white py-4 rounded-xl hover:from-purple-400 hover:to-indigo-500 transition-all duration-200 flex items-center justify-center space-x-2 font-semibold shadow-lg hover:shadow-purple-500/25"
+                  >
+                    <Plus className="h-5 w-5" />
+                    <span>Add Another Product</span>
+                  </button>
                 </div>
 
                 {/* Customer Details */}
@@ -350,9 +440,9 @@ Access notes: ${formData.custNotes || '-'}`;
                       <input
                         type="text"
                         name="custName"
-                        value={formData.custName}
-                        onChange={handleInputChange}
-                        className="w-full bg-gray-100 dark:bg-gray-700/50 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors"
+                        value={customerDetails.custName}
+                        onChange={handleCustomerChange}
+                        className="w-full bg-white dark:bg-gray-600/50 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors"
                         required
                       />
                     </div>
@@ -361,9 +451,9 @@ Access notes: ${formData.custNotes || '-'}`;
                       <input
                         type="tel"
                         name="custPhone"
-                        value={formData.custPhone}
-                        onChange={handleInputChange}
-                        className="w-full bg-gray-100 dark:bg-gray-700/50 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors"
+                        value={customerDetails.custPhone}
+                        onChange={handleCustomerChange}
+                        className="w-full bg-white dark:bg-gray-600/50 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors"
                         required
                       />
                     </div>
@@ -372,9 +462,9 @@ Access notes: ${formData.custNotes || '-'}`;
                       <input
                         type="email"
                         name="custEmail"
-                        value={formData.custEmail}
-                        onChange={handleInputChange}
-                        className="w-full bg-gray-100 dark:bg-gray-700/50 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors"
+                        value={customerDetails.custEmail}
+                        onChange={handleCustomerChange}
+                        className="w-full bg-white dark:bg-gray-600/50 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors"
                         required
                       />
                     </div>
@@ -383,9 +473,9 @@ Access notes: ${formData.custNotes || '-'}`;
                       <input
                         type="text"
                         name="custCompany"
-                        value={formData.custCompany}
-                        onChange={handleInputChange}
-                        className="w-full bg-gray-100 dark:bg-gray-700/50 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors"
+                        value={customerDetails.custCompany}
+                        onChange={handleCustomerChange}
+                        className="w-full bg-white dark:bg-gray-600/50 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors"
                       />
                     </div>
                     <div>
@@ -393,9 +483,9 @@ Access notes: ${formData.custNotes || '-'}`;
                       <input
                         type="text"
                         name="custGST"
-                        value={formData.custGST}
-                        onChange={handleInputChange}
-                        className="w-full bg-gray-100 dark:bg-gray-700/50 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors"
+                        value={customerDetails.custGST}
+                        onChange={handleCustomerChange}
+                        className="w-full bg-white dark:bg-gray-600/50 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors"
                       />
                     </div>
                     <div>
@@ -403,9 +493,9 @@ Access notes: ${formData.custNotes || '-'}`;
                       <input
                         type="text"
                         name="custCity"
-                        value={formData.custCity}
-                        onChange={handleInputChange}
-                        className="w-full bg-gray-100 dark:bg-gray-700/50 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors"
+                        value={customerDetails.custCity}
+                        onChange={handleCustomerChange}
+                        className="w-full bg-white dark:bg-gray-600/50 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors"
                         required
                       />
                     </div>
@@ -414,10 +504,10 @@ Access notes: ${formData.custNotes || '-'}`;
                     <label className="block text-gray-900 dark:text-white font-medium mb-2">Delivery Address</label>
                     <textarea
                       name="custAddr"
-                      value={formData.custAddr}
-                      onChange={handleInputChange}
+                      value={customerDetails.custAddr}
+                      onChange={handleCustomerChange}
                       rows={3}
-                      className="w-full bg-gray-100 dark:bg-gray-700/50 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors resize-none"
+                      className="w-full bg-white dark:bg-gray-600/50 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors resize-none"
                       required
                     ></textarea>
                   </div>
@@ -425,10 +515,10 @@ Access notes: ${formData.custNotes || '-'}`;
                     <label className="block text-gray-900 dark:text-white font-medium mb-2">Access Notes (stairs, lift, timings, etc.)</label>
                     <textarea
                       name="custNotes"
-                      value={formData.custNotes}
-                      onChange={handleInputChange}
+                      value={customerDetails.custNotes}
+                      onChange={handleCustomerChange}
                       rows={2}
-                      className="w-full bg-gray-100 dark:bg-gray-700/50 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors resize-none"
+                      className="w-full bg-white dark:bg-gray-600/50 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors resize-none"
                     ></textarea>
                   </div>
                 </div>
@@ -437,37 +527,25 @@ Access notes: ${formData.custNotes || '-'}`;
                 <div className="bg-gray-100 dark:bg-gray-700/30 rounded-xl p-6 border border-gray-300 dark:border-cyan-500/20">
                   <div className="flex items-center space-x-2 mb-4">
                     <Calculator className="h-6 w-6 text-cyan-400" />
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Price Summary</h3>
+                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Total Price Summary</h3>
                   </div>
-                  {(() => {
-                    const selectedSeries = productSeries.find(s => s.id === formData.variant);
-                    const seriesName = selectedSeries ? selectedSeries.name : 'Unknown Series';
-                    return (
                   <div className="space-y-2 font-mono text-sm text-gray-600 dark:text-gray-300">
                     <div className="flex justify-between">
-                      <span>Series:</span>
-                      <span className="text-right break-words max-w-[60%]">{seriesName}</span>
+                      <span>Products:</span>
+                      <span>{cartItems.length} configuration{cartItems.length !== 1 ? 's' : ''}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span>Quantity:</span>
-                      <span>{typeof formData.qty === 'number' ? formData.qty : 0} set{(typeof formData.qty === 'number' ? formData.qty : 0) !== 1 ? 's' : ''} (1 set = 2 pods)</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Color:</span>
-                      <span>{formData.color}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Material:</span>
-                      <span>{formData.material}</span>
+                      <span>Total Quantity:</span>
+                      <span>{getTotalQuantity()} set{getTotalQuantity() !== 1 ? 's' : ''} (1 set = 2 pods)</span>
                     </div>
                     <hr className="border-gray-300 dark:border-gray-600 my-3" />
                     <div className="flex justify-between">
                       <span>Base:</span>
-                      <span>₹{formatNumber(PRICING_CONFIG.basePerSet)} × {formData.qty} = ₹{formatNumber(pricing.base)}</span>
+                      <span>₹{formatNumber(pricing.base)}</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Delivery:</span>
-                      <span>₹{formatNumber(PRICING_CONFIG.deliveryPerSet)} × {formData.qty} = ₹{formatNumber(pricing.delivery)}</span>
+                      <span>₹{formatNumber(pricing.delivery)}</span>
                     </div>
                     {pricing.options > 0 && (
                       <div className="flex justify-between">
@@ -489,8 +567,6 @@ Access notes: ${formData.custNotes || '-'}`;
                       <span>₹{formatNumber(pricing.total)}</span>
                     </div>
                   </div>
-                    );
-                  })()}
                   <p className="text-gray-500 dark:text-gray-400 text-sm mt-4">
                     GST 18% on (Base + Delivery + Options). Lead time: 25–35 days after deposit.
                   </p>
@@ -503,12 +579,12 @@ Access notes: ${formData.custNotes || '-'}`;
                     className="flex-1 bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-4 px-6 rounded-xl hover:from-cyan-400 hover:to-blue-500 transition-all duration-200 transform hover:scale-105 font-semibold flex items-center justify-center space-x-2 group shadow-lg hover:shadow-cyan-500/25"
                   >
                     <MessageCircle className="h-5 w-5 group-hover:scale-110 transition-transform" />
-                    <span>Enquire Now (WhatsApp / Email)</span>
+                    <span>Send Multi-Product Inquiry</span>
                   </button>
                 </div>
 
                 <p className="text-gray-500 dark:text-gray-400 text-sm text-center">
-                  By enquiring you agree to be contacted via WhatsApp/Email for quote and delivery details.
+                  By submitting you agree to be contacted via WhatsApp/Email for quote and delivery details.
                 </p>
               </form>
             </div>
