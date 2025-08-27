@@ -4,10 +4,12 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, Star, Check, Layers, Shield, Zap, Package, Truck, Award } from 'lucide-react';
 import ImageSlider from '../components/ImageSlider';
 import { products } from '../data/products';
+import { useTheme } from '../context/ThemeContext';
 
 const ProductDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const product = products.find(p => p.id === id);
+  const { theme } = useTheme();
 
   if (!product) {
     return (
@@ -95,11 +97,11 @@ const ProductDetail: React.FC = () => {
   return (
     <div className="min-h-screen bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl">
       {/* Header */}
-      <motion.section 
+      <motion.section
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="py-12 bg-gradient-to-br from-gray-50 via-blue-50/30 to-cyan-50/40 dark:from-gray-900 dark:via-blue-900/20 dark:to-cyan-900/30"
+        className="py-12 bg-gradient-to-br from-gray-50 via-blue-50/30 to-cyan-50/40 dark:from-gray-950 dark:via-blue-900/30 dark:to-cyan-900/40"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
@@ -130,7 +132,7 @@ const ProductDetail: React.FC = () => {
       </motion.section>
 
       {/* Product Details */}
-      <section className="py-16 bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl">
+      <section className="py-16 bg-white/70 dark:bg-gray-950/70 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Images */}
@@ -139,7 +141,7 @@ const ProductDetail: React.FC = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl border border-gray-200 dark:border-cyan-500/20 overflow-hidden shadow-2xl">
+              <div className={`bg-white dark:bg-gray-900/60 backdrop-blur-sm rounded-2xl border border-gray-200 dark:border-cyan-500/30 overflow-hidden shadow-2xl ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}>
                 <ImageSlider
                   images={product.images}
                   className="w-full h-96"
@@ -180,7 +182,7 @@ const ProductDetail: React.FC = () => {
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.4, delay: index * 0.1 }}
-                      className="flex items-start space-x-3 bg-gray-50 dark:bg-gray-800/30 rounded-lg p-4"
+                      className={`flex items-start space-x-3 bg-gray-50 dark:bg-gray-800/40 rounded-lg p-4 ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}
                     >
                       <Check className="h-5 w-5 text-cyan-400 flex-shrink-0 mt-0.5" />
                       <span className="text-gray-700 dark:text-gray-300 leading-relaxed">{feature}</span>
@@ -191,12 +193,12 @@ const ProductDetail: React.FC = () => {
 
               {/* Quick Stats */}
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-gradient-to-br from-cyan-100/50 to-blue-100/50 dark:from-cyan-500/20 dark:to-blue-600/20 rounded-xl p-4 text-center">
+                <div className={`bg-gradient-to-br from-cyan-100/50 to-blue-100/50 dark:from-cyan-500/20 dark:to-blue-600/20 rounded-xl p-4 text-center ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}>
                   <Package className="h-8 w-8 text-cyan-500 mx-auto mb-2" />
                   <div className="text-2xl font-bold text-gray-900 dark:text-white">1 Set</div>
                   <div className="text-gray-600 dark:text-gray-400 text-sm">= 2 Pods</div>
                 </div>
-                <div className="bg-gradient-to-br from-cyan-100/50 to-blue-100/50 dark:from-cyan-500/20 dark:to-blue-600/20 rounded-xl p-4 text-center">
+                <div className={`bg-gradient-to-br from-cyan-100/50 to-blue-100/50 dark:from-cyan-500/20 dark:to-blue-600/20 rounded-xl p-4 text-center ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}>
                   <Truck className="h-8 w-8 text-cyan-500 mx-auto mb-2" />
                   <div className="text-2xl font-bold text-gray-900 dark:text-white">25-35</div>
                   <div className="text-gray-600 dark:text-gray-400 text-sm">Days Delivery</div>
@@ -208,7 +210,7 @@ const ProductDetail: React.FC = () => {
       </section>
 
       {/* Detailed Specifications */}
-      <section className="py-16 bg-gray-50/70 dark:bg-gray-800/70 backdrop-blur-xl">
+      <section className="py-16 bg-gray-50/70 dark:bg-gray-900/70 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -228,7 +230,7 @@ const ProductDetail: React.FC = () => {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 dark:border-cyan-500/20 shadow-xl"
+              className={`bg-white dark:bg-gray-900/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 dark:border-cyan-500/30 shadow-xl ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}
             >
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center">
                 <Shield className="h-6 w-6 text-cyan-400 mr-2" />
@@ -253,7 +255,7 @@ const ProductDetail: React.FC = () => {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 dark:border-cyan-500/20 shadow-xl"
+              className={`bg-white dark:bg-gray-900/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 dark:border-cyan-500/30 shadow-xl ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}
             >
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center">
                 <Zap className="h-6 w-6 text-cyan-400 mr-2" />
@@ -277,7 +279,7 @@ const ProductDetail: React.FC = () => {
       </section>
 
       {/* Why Choose This Model */}
-      <section className="py-16 bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl">
+      <section className="py-16 bg-white/70 dark:bg-gray-950/70 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -313,7 +315,7 @@ const ProductDetail: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
-                className="text-center group bg-gray-50 dark:bg-gray-800/30 rounded-2xl p-8 hover:bg-white dark:hover:bg-gray-800/50 transition-all duration-300 border border-gray-200 dark:border-cyan-500/20 hover:border-cyan-400/40 shadow-lg hover:shadow-xl"
+                className={`text-center group bg-gray-50 dark:bg-gray-900/40 rounded-2xl p-8 hover:bg-white dark:hover:bg-gray-900/60 transition-all duration-300 border border-gray-200 dark:border-cyan-500/30 hover:border-cyan-400/60 shadow-lg hover:shadow-xl ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}
               >
                 <div className="bg-gradient-to-br from-cyan-500/20 to-blue-600/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                   <item.icon className="h-8 w-8 text-cyan-400" />
