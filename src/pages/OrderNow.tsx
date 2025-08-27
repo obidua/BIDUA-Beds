@@ -432,14 +432,31 @@ const OrderNow: React.FC = () => {
                   })}
 
                   {/* Add Product Button */}
-                  <button
-                    type="button"
-                    onClick={addCartItem}
-                    className="w-full bg-gradient-to-r from-purple-500 to-indigo-600 text-white py-4 rounded-xl hover:from-purple-400 hover:to-indigo-500 transition-all duration-200 flex items-center justify-center space-x-2 font-semibold shadow-lg hover:shadow-purple-500/25"
-                  >
-                    <Plus className="h-5 w-5" />
-                    <span>Add Another Product</span>
-                  </button>
+                  {(() => {
+                    const allSeriesSelected = cartItems.length >= productSeries.length;
+                    return (
+                      <div>
+                        <button
+                          type="button"
+                          onClick={addCartItem}
+                          disabled={allSeriesSelected}
+                          className={`w-full py-4 rounded-xl transition-all duration-200 flex items-center justify-center space-x-2 font-semibold shadow-lg ${
+                            allSeriesSelected
+                              ? 'bg-gray-400 dark:bg-gray-600 text-gray-200 dark:text-gray-400 cursor-not-allowed'
+                              : 'bg-gradient-to-r from-purple-500 to-indigo-600 text-white hover:from-purple-400 hover:to-indigo-500 hover:shadow-purple-500/25'
+                          }`}
+                        >
+                          <Plus className="h-5 w-5" />
+                          <span>Add Another Product</span>
+                        </button>
+                        {allSeriesSelected && (
+                          <p className="text-center text-gray-500 dark:text-gray-400 text-sm mt-2">
+                            All available product series have been added to your inquiry
+                          </p>
+                        )}
+                      </div>
+                    );
+                  })()}
                 </div>
 
                 {/* Customer Details */}
