@@ -6,27 +6,6 @@ import { useTheme } from '../context/ThemeContext';
 const About: React.FC = () => {
   const { theme } = useTheme();
 
-  const teamMembers = [
-    {
-      name: 'Dr. Sarah Chen',
-      role: 'Chief Technology Officer',
-      image: 'https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&w=400',
-      bio: 'Leading sleep technology researcher with 15+ years in biomedical engineering'
-    },
-    {
-      name: 'Marcus Rodriguez',
-      role: 'Head of Design',
-      image: 'https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&cs=tinysrgb&w=400',
-      bio: 'Award-winning industrial designer specializing in human-centered technology'
-    },
-    {
-      name: 'Elena Petrov',
-      role: 'VP of Engineering',
-      image: 'https://images.pexels.com/photos/3785076/pexels-photo-3785076.jpeg?auto=compress&cs=tinysrgb&w=400',
-      bio: 'Former aerospace engineer bringing precision manufacturing to sleep technology'
-    }
-  ];
-
   return (
     <div className="min-h-screen bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl">
       {/* Header */}
@@ -133,35 +112,6 @@ const About: React.FC = () => {
                 Environmental responsibility drives our material choices and manufacturing processes
               </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Team */}
-      <section className="py-20 bg-white/70 dark:bg-gray-950/70 backdrop-blur-xl">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Meet Our <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Team</span>
-            </h2>
-            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Visionary leaders combining expertise in technology, design, and human wellness
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {teamMembers.map((member, index) => (
-              <div key={index} className={`bg-white dark:bg-gray-900/60 backdrop-blur-sm rounded-2xl p-6 border border-gray-200 dark:border-cyan-500/30 text-center hover:border-cyan-400/60 transition-all duration-300 transform hover:-translate-y-2 shadow-lg hover:shadow-xl ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}>
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-2 border-cyan-400/50"
-                />
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{member.name}</h3>
-                <p className="text-cyan-400 font-medium mb-3">{member.role}</p>
-                <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{member.bio}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
