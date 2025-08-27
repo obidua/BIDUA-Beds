@@ -57,7 +57,7 @@ const OrderNow: React.FC = () => {
     const seriesParam = searchParams.get('series');
     const defaultItem: CartItem = {
       id: Date.now().toString(),
-      seriesId: seriesParam && productSeries.find(s => s.id === seriesParam) ? seriesParam : productSeries[0].id,
+      seriesId: seriesParam && productSeries.find(s => s.id === seriesParam) ? seriesParam : '',
       qty: 1,
       color: 'White',
       material: 'ABS',
@@ -148,7 +148,7 @@ const OrderNow: React.FC = () => {
   const addCartItem = () => {
     const newItem: CartItem = {
       id: Date.now().toString(),
-      seriesId: productSeries[0].id,
+      seriesId: '',
       qty: 1,
       color: 'White',
       material: 'ABS',
@@ -340,6 +340,7 @@ const OrderNow: React.FC = () => {
                               className="w-full bg-white dark:bg-gray-600/50 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-cyan-400 transition-colors"
                               required
                             >
+                              <option value="" disabled hidden>Select Product</option>
                               {productSeries
                                 .filter(series => 
                                   series.id === item.seriesId || 
