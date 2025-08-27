@@ -11,7 +11,7 @@ const Home: React.FC = () => {
   const heroDescription = 'As a leading manufacturer and importer of hotel-grade sleeping pods, we deliver intelligent lighting, secure locks, fresh-air ventilation and compact footprint solutions—built for hostels, airports, offices, hospitals and more with direct quality control and competitive pricing.';
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-500">
+    <div className="min-h-screen bg-white dark:bg-gray-950 transition-colors duration-500">
       {/* Hero Section */}
       <motion.section 
         initial={{ opacity: 0 }}
@@ -19,7 +19,7 @@ const Home: React.FC = () => {
         transition={{ duration: 1 }}
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-white/60 via-cyan-50/20 to-blue-50/30 dark:from-gray-900/60 dark:via-blue-900/15 dark:to-cyan-900/20 backdrop-blur-md transition-colors duration-500"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-white/60 via-cyan-50/20 to-blue-50/30 dark:from-gray-950/60 dark:via-blue-900/20 dark:to-cyan-900/30 backdrop-blur-md transition-colors duration-500"></div>
         <motion.div 
           className="absolute inset-0 bg-[url('/Pods_Images/For Website main images/pod view.png')] bg-cover bg-center opacity-10 dark:opacity-20"
           animate={{ scale: [1, 1.05, 1] }}
@@ -114,7 +114,7 @@ const Home: React.FC = () => {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="py-20 bg-gray-50/70 dark:bg-gray-800/70 backdrop-blur-xl relative overflow-hidden transition-colors duration-500"
+        className="py-20 bg-gray-50/70 dark:bg-gray-900/70 backdrop-blur-xl relative overflow-hidden transition-colors duration-500"
       >
         <div className="absolute inset-0 bg-gradient-to-r from-cyan-50/30 to-blue-50/30 dark:from-transparent dark:to-transparent"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -161,7 +161,7 @@ const Home: React.FC = () => {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="py-24 bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl"
+        className="py-24 bg-white/70 dark:bg-gray-950/70 backdrop-blur-xl"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
@@ -198,7 +198,7 @@ const Home: React.FC = () => {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="py-24 bg-gray-50/70 dark:bg-gray-800/70 backdrop-blur-xl transition-colors duration-500"
+        className="py-24 bg-gray-50/70 dark:bg-gray-900/70 backdrop-blur-xl transition-colors duration-500"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
@@ -235,7 +235,7 @@ const Home: React.FC = () => {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="py-24 bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl relative overflow-hidden"
+      className="py-24 bg-white/70 dark:bg-gray-950/70 backdrop-blur-xl relative overflow-hidden"
       >
         <div className="absolute inset-0 bg-gradient-to-r from-cyan-50/30 via-transparent to-blue-50/30 dark:from-transparent dark:to-transparent"></div>
         <div className="max-w-5xl mx-auto text-center px-4 sm:px-6 lg:px-8 relative z-10">

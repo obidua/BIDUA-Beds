@@ -4,19 +4,22 @@ import { motion } from 'framer-motion';
 import { Product } from '../types';
 import { ChevronRight } from 'lucide-react';
 import ImageSlider from './ImageSlider';
+import { useTheme } from '../context/ThemeContext';
 
 interface ProductCardProps {
   product: Product;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+  const { theme } = useTheme();
+
   return (
     <motion.div 
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       whileHover={{ y: -12, scale: 1.03 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl overflow-hidden border border-gray-100 dark:border-cyan-500/20 hover:border-cyan-300/60 dark:hover:border-cyan-400/40 transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-500/20 group"
+      className={`bg-white dark:bg-gray-900/60 backdrop-blur-sm rounded-3xl overflow-hidden border border-gray-100 dark:border-cyan-500/30 hover:border-cyan-300/60 dark:hover:border-cyan-400/60 transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-500/20 group ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}
     >
       <div className="relative overflow-hidden">
         <ImageSlider

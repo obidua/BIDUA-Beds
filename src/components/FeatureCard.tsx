@@ -2,12 +2,14 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Feature } from '../types';
 import * as Icons from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
 
 interface FeatureCardProps {
   feature: Feature;
 }
 
 const FeatureCard: React.FC<FeatureCardProps> = ({ feature }) => {
+  const { theme } = useTheme();
   const IconComponent = Icons[feature.icon as keyof typeof Icons] as React.ComponentType<{ className?: string }>;
 
   return (
@@ -16,7 +18,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ feature }) => {
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       whileHover={{ y: -8, scale: 1.03, rotateY: 5 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="bg-white dark:bg-gray-700 backdrop-blur-sm rounded-2xl p-8 border border-gray-100 dark:border-cyan-500/20 hover:border-cyan-300/60 dark:hover:border-cyan-400/40 transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-500/20 group"
+      className={`bg-white dark:bg-gray-900/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-100 dark:border-cyan-500/30 hover:border-cyan-300/60 dark:hover:border-cyan-400/60 transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-500/20 group ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}
     >
       <div className="flex items-center space-x-4 mb-6">
         <motion.div 

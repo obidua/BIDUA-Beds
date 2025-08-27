@@ -4,7 +4,7 @@ import { Bed, Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-gray-50/70 dark:bg-gray-900/70 backdrop-blur-lg border-t border-gray-100 dark:border-cyan-500/20 transition-colors duration-500">
+    <footer className="bg-gray-50/70 dark:bg-gray-950/70 backdrop-blur-lg border-t border-gray-100 dark:border-cyan-500/30 transition-colors duration-500">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
