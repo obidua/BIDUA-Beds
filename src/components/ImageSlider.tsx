@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import Lightbox from './Lightbox';
 
 interface ImageSliderProps {
   images: string[];
@@ -18,6 +19,8 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
   const [currentIndex, setCurrentIndex] = useState(0);
   const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
   const [isUserInteracting, setIsUserInteracting] = useState(false);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [lightboxInitialIndex, setLightboxInitialIndex] = useState(0);
 
   const clearAutoPlay = () => {
     if (autoPlayRef.current) {
@@ -68,61 +71,104 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
     }
   }, [isUserInteracting, currentIndex]);
 
+  const openLightbox = (index: number) => {
+    setLightboxInitialIndex(index);
+    setIsLightboxOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setIsLightboxOpen(false);
+  };
+
   if (images.length === 0) return null;
 
   return (
-    <div className={`relative overflow-hidden group ${className}`}>
-      <AnimatePresence mode="wait">
-        <motion.img
-          key={currentIndex}
-          src={images[currentIndex]}
-          alt={`Slide ${currentIndex + 1}`}
-          className="w-full h-full object-cover"
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -50 }}
-          transition={{ duration: 0.6, ease: "easeInOut" }}
-        />
-      </AnimatePresence>
-
-      {images.length > 1 && (
-        <>
-          {/* Navigation Arrows */}
-          <button
-            onClick={goToPrevious}
-            className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full p-3 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white dark:hover:bg-gray-800 hover:scale-110 shadow-lg z-10"
-            aria-label="Previous image"
+    <>
+      <div className={`relative overflow-hidden group ${className}`}>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentIndex}
+            className="w-full h-full cursor-pointer"
+            onClick={() => openLightbox(currentIndex)}
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -50 }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
           >
-            <ChevronLeft className="h-5 w-5 text-gray-800 dark:text-white" />
-          </button>
-          
-          <button
-            onClick={goToNext}
-            className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full p-3 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white dark:hover:bg-gray-800 hover:scale-110 shadow-lg z-10"
-            aria-label="Next image"
-          >
-            <ChevronRight className="h-5 w-5 text-gray-800 dark:text-white" />
-          </button>
+            <motion.img
+              src={images[currentIndex]}
+              alt={`Slide ${currentIndex + 1}`}
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+              whileHover={{ scale: 1.02 }}
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.src = 'https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg?auto=compress&cs=tinysrgb&w=400';
+              }}
+            />
+            {/* Click to view overlay */}
+            <div className="absolute inset-0 bg-black/0 hover:bg-black/20 transition-all duration-300 flex items-center justify-center opacity-0 hover:opacity-100">
+              <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full px-4 py-2 text-gray-900 dark:text-white font-medium text-sm shadow-lg">
+                Click to view full image
+              </div>
+            </div>
+          </motion.div>
+        </AnimatePresence>
 
-          {/* Dots Indicator */}
-          <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-2">
-            {images.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentIndex
-                    ? 'bg-cyan-400 scale-125 shadow-lg'
-                    : 'bg-white/70 dark:bg-gray-400/70 hover:bg-white/90 dark:hover:bg-gray-400/90 hover:scale-110'
-                }`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
-          </div>
-        </>
-      )}
-    </div>
+        {images.length > 1 && (
+          <>
+            {/* Navigation Arrows */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                goToPrevious();
+              }}
+              className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full p-3 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white dark:hover:bg-gray-800 hover:scale-110 shadow-lg z-10"
+              aria-label="Previous image"
+            >
+              <ChevronLeft className="h-5 w-5 text-gray-800 dark:text-white" />
+            </button>
+            
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                goToNext();
+              }}
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full p-3 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white dark:hover:bg-gray-800 hover:scale-110 shadow-lg z-10"
+              aria-label="Next image"
+            >
+              <ChevronRight className="h-5 w-5 text-gray-800 dark:text-white" />
+            </button>
+
+            {/* Dots Indicator */}
+            <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
+              {images.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    goToSlide(index);
+                  }}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    index === currentIndex
+                      ? 'bg-cyan-400 scale-125 shadow-lg'
+                      : 'bg-white/70 dark:bg-gray-400/70 hover:bg-white/90 dark:hover:bg-gray-400/90 hover:scale-110'
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+          </>
+        )}
+      </div>
   );
 };
 
+      {/* Lightbox */}
+      <Lightbox
+        images={images}
+        initialIndex={lightboxInitialIndex}
+        isOpen={isLightboxOpen}
+        onClose={closeLightbox}
+      />
+    </>
 export default ImageSlider;
