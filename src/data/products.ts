@@ -1,4 +1,4 @@
-import { Product } from '../types';
+import { Product, ProductSeriesDetail } from '../types';
 
 export const products: Product[] = [
   {
@@ -163,53 +163,189 @@ export const products: Product[] = [
   }
 ];
 
-export const productSeries = [
+export const productSeries: ProductSeriesDetail[] = [
   {
     id: 'galaxy',
     name: 'GALAXY Series',
-    description: 'Horizontal Single & Double; standard ABS shell + metal frame; TV slot, security sliding door, ergonomic non-slip ladder. Sizes cover Single, Double, and Big-bed widths.',
-    models: ['TWS-801/802/803', 'TWD-811/812/813', 'TWD-821/822/823']
+    description: 'Horizontal Single & Double; standard ABS shell + metal frame; TV slot, security sliding door, ergonomic non-slip ladder.',
+    models: ['TWS-801/802/803', 'TWD-811/812/813', 'TWD-821/822/823'],
+    colors: ['White', 'Pink', 'Yellow', 'Black', 'Blue', 'Green', 'Orange', 'Grey'],
+    sizes: [
+      { variant: 'Single', dimensions: 'L2060 × W1140 × H2400 mm' },
+      { variant: 'Double', dimensions: 'L2060 × W1580 × H2400 mm' },
+      { variant: 'Big Bed', dimensions: 'L2060 × W1950 × H2400 mm (ladder 300 mm)' }
+    ],
+    material: 'Taiwan Chi Mei flame-retardant ABS + high-quality metal',
+    features: [
+      'Intelligent LED multifunction',
+      'Stainless steel handle',
+      'TV slot',
+      'Smart sliding door',
+      'Ergonomic non-slip ladder'
+    ],
+    applications: [
+      'Hotels', 'Airports', 'Dormitories', 'Sauna clubs', 'Youth hostels', 
+      'Family apartments', 'Schools', 'Hospitals', 'Companies', 'Capsule hotels'
+    ]
   },
   {
-    id: 'space',
+    id: 'space', 
     name: 'SPACE Series',
     description: 'Horizontal Single & Double; similar hardware + mirror panel, sliding door, TV slot.',
-    models: ['SPAS-801/802/803', 'SPAD-811/812/813', 'SPAD-821/822/823']
+    models: ['SPAS-801/802/803', 'SPAD-811/812/813', 'SPAD-821/822/823'],
+    colors: ['White', 'Pink', 'Yellow', 'Black', 'Blue', 'Green', 'Orange', 'Grey'],
+    sizes: [
+      { variant: 'Single', dimensions: 'L2060 × W1140 × H2400 mm' },
+      { variant: 'Double', dimensions: 'L2060 × W1580 × H2400 mm' },
+      { variant: 'Big Bed', dimensions: 'L2060 × W1950 × H2400 mm (ladder 300 mm)' }
+    ],
+    material: 'Taiwan Chi Mei flame-retardant ABS + high-quality metal',
+    features: [
+      'Capsule number LED',
+      'Stainless steel handle',
+      'Toilet glass',
+      'TV slot',
+      'Smart sliding door'
+    ],
+    applications: [
+      'Hotels', 'Airports', 'Dormitories', 'Youth hostels', 
+      'Schools', 'Hospitals', 'Companies', 'Capsule hotels'
+    ]
   },
   {
     id: 'explore',
     name: 'EXPLORE THE WORLD Series',
     description: 'Horizontal Single & Double; "explore window" design, LED multifunction panel, stainless handle.',
-    models: ['EXWS-601/602/603', 'EXWD-611/612/613', 'EXWD-621/622/623']
+    models: ['EXWS-601/602/603', 'EXWD-611/612/613', 'EXWD-621/622/623'],
+    colors: ['White', 'Pink', 'Yellow', 'Black', 'Blue', 'Green', 'Orange', 'Grey'],
+    sizes: [
+      { variant: 'Single', dimensions: 'L2060 × W1140 × H2400 mm' },
+      { variant: 'Double', dimensions: 'L2060 × W1580 × H2400 mm' },
+      { variant: 'Big Bed', dimensions: 'L2060 × W1950 × H2400 mm (ladder 300 mm)' }
+    ],
+    material: 'Taiwan Chi Mei flame-retardant ABS + high-quality metal',
+    features: [
+      'Capsule number LED',
+      'Stainless steel handle',
+      'Explore window',
+      'TV slot',
+      'Smart sliding door'
+    ],
+    applications: [
+      'Hotels', 'Airports', 'Dormitories', 'Sauna clubs', 
+      'Schools', 'Hospitals', 'Capsule hotels'
+    ]
   },
   {
     id: 'cosmos',
     name: 'COSMOS Series',
     description: 'Horizontal Single & Double, plus Vertical Single variant; ABS + metal; sliding door, ladder, TV slot, mirror.',
-    models: ['COS-H891/892/893', 'COS-V891/892/893', 'COD-H991/992/993']
+    models: ['COS-H891/892/893', 'COS-V891/892/893', 'COD-H991/992/993'],
+    colors: ['White', 'Pink', 'Yellow', 'Black', 'Blue', 'Green', 'Orange', 'Grey'],
+    sizes: [
+      { variant: 'Single (Horizontal)', dimensions: 'L2060 × W1140 × H2400 mm' },
+      { variant: 'Double', dimensions: 'L2060 × W1580 × H2400 mm' },
+      { variant: 'Ladder', dimensions: '300 mm' }
+    ],
+    material: 'Taiwan Chi Mei flame-retardant ABS + high-quality metal',
+    features: [
+      'Capsule number LED',
+      'Stainless steel handle',
+      'Toilet glass',
+      'TV slot',
+      'Smart sliding door'
+    ],
+    applications: [
+      'Hotels', 'Airports', 'Dormitories', 'Youth hostels', 'Family apartments',
+      'Schools', 'Hospitals', 'Capsule hotels'
+    ]
   },
   {
     id: 'future',
     name: 'BACK TO FUTURE 2047 Series',
     description: 'Horizontal Single & Vertical Single; sliding door (including rolling-door style), backrest option.',
-    models: ['TWS-118H/128H', 'TWS-118V/128V/138V']
+    models: ['TWS-118H/128H', 'TWS-118V/128V/138V'],
+    colors: ['White', 'Pink', 'Yellow', 'Black', 'Blue', 'Green', 'Orange', 'Grey'],
+    sizes: [
+      { variant: 'Horizontal Single', dimensions: 'L2060 × W1140 × H2400 mm' },
+      { variant: 'Vertical Single', dimensions: 'L2060 × W1140 × H2400 mm' },
+      { variant: 'Ladder', dimensions: '300 mm' }
+    ],
+    material: 'Taiwan Chi Mei flame-retardant ABS + high-quality metal',
+    features: [
+      'Capsule number LED',
+      'Stainless steel handle',
+      'Backrest',
+      'Rolling door curtain',
+      'TV slot',
+      'Smart sliding door'
+    ],
+    applications: [
+      'Hotels', 'Airports', 'Dormitories', 'Schools', 'Hospitals', 'Capsule hotels'
+    ]
   },
   {
     id: 'esports',
     name: 'E-sports Series',
     description: 'Horizontal Single; larger length spec and shorter ladder; eco-board + ABS + metal.',
-    models: ['WSN-901/902/903']
+    models: ['WSN-901/902/903'],
+    colors: ['White', 'Grey'],
+    sizes: [
+      { variant: 'Horizontal Single', dimensions: 'L2150 × W1150 × H2400 mm (ladder 180 mm)' }
+    ],
+    material: 'Environmental protection board + Taiwan Chi Mei flame-retardant ABS + high-quality metal',
+    features: [
+      'Stainless steel handle',
+      'Door blue light',
+      'Control panel',
+      'Toilet glass',
+      'Non-slip ladder'
+    ],
+    applications: [
+      'Hotels', 'Airports', 'Dormitories', 'Youth hostels', 'Family apartments',
+      'Schools', 'Hospitals', 'Capsule hotels'
+    ]
   },
   {
     id: 'wooden',
     name: 'Wooden Series',
     description: 'Horizontal Single & Vertical Single; eco multi-layer board + metal; wood-grain colorway available.',
-    models: ['WEH-809/810/811', 'WEH-809V/810V/811V']
+    models: ['WEH-809/810/811', 'WEH-809V/810V/811V'],
+    colors: ['Wood color', 'White', 'Black', 'Grey'],
+    sizes: [
+      { variant: 'Horizontal/Vertical Single', dimensions: 'L2150 × W1100 × H2400 mm (ladder 480 mm)' }
+    ],
+    material: 'Multi-layer splint, ecological board, high-quality metal',
+    features: [
+      'Stainless steel handle',
+      'Sliding door',
+      'Non-slip ladder'
+    ],
+    applications: [
+      'Hotels', 'Airports', 'Dormitories', 'Youth hostels', 'Family apartments',
+      'Schools', 'Hospitals', 'Capsule hotels'
+    ]
   },
   {
     id: 'lounge',
     name: 'Online Red Studio / Small Room Lounge',
     description: 'Enclosed lounge/booth modules with intelligent door lock; ABS + metal; two external size options.',
-    models: ['CS-101/102', 'CS-201/202']
+    models: ['CS-101/102', 'CS-201/202'],
+    colors: ['Silvery grey'],
+    sizes: [
+      { variant: 'Small', dimensions: 'L1580 × W2150 × H2450 mm' },
+      { variant: 'Large', dimensions: 'L2180 × W2150 × H2450 mm' }
+    ],
+    material: 'Taiwan Chi Mei flame-retardant ABS + high-quality metal',
+    features: [
+      'Door blue light',
+      'Intelligent door lock',
+      'Control panel',
+      'Decorate blue light'
+    ],
+    applications: [
+      'Airports', 'Family apartments', 'Hospitals', 'Companies', 
+      'Internet bars', 'Livestream studios'
+    ]
   }
 ];

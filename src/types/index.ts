@@ -22,3 +22,18 @@ export interface Feature {
   description: string;
   icon: string;
 }
+
+export interface ProductSeriesDetail {
+  id: string;
+  name: string;
+  description: string;
+  models: string[];
+  colors: string[];
+  sizes: {
+    variant: string;
+    dimensions: string;
+  }[];
+  material: string;
+  features: string[];
+  applications: string[];
+}
