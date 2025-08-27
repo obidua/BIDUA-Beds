@@ -21,20 +21,20 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       <div className="relative overflow-hidden">
         <ImageSlider
           images={product.images}
-          className="w-full h-64"
+          className="w-full h-64 relative z-10"
           autoPlay={false}
           interval={5000}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent pointer-events-none z-0"></div>
         <motion.div 
-          className="absolute bottom-4 left-4"
+          className="absolute bottom-4 left-4 z-20 pointer-events-none"
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <motion.span 
             whileHover={{ scale: 1.1, rotate: 2 }}
-            className="bg-gradient-to-r from-cyan-400 to-blue-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-xl backdrop-blur-sm"
+            className="bg-gradient-to-r from-cyan-400 to-blue-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-xl backdrop-blur-sm pointer-events-auto"
           >
             {product.price}
           </motion.span>
