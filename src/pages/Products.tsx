@@ -358,7 +358,7 @@ const Products: React.FC = () => {
                     <div className="flex flex-wrap gap-2">
                       {series.sizes.map((size, sizeIndex) => (
                         <span key={sizeIndex} className="bg-blue-100 dark:bg-blue-500/20 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-full text-xs">
-                          {size}
+                          {`${size.variant}: ${size.dimensions}`}
                         </span>
                       ))}
                     </div>
