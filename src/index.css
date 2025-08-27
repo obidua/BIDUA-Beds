@@ -208,3 +208,10 @@ main {
 html {
   scroll-behavior: smooth;
 }
+
+/* Light mode border enhancements - keep dark mode unchanged */
+html:not(.dark) .border-gray-100,
+html:not(.dark) .border-gray-200,
+html:not(.dark) .border-gray-300 {
+  border-color: #065f46 !important; /* Dark green for better visibility in light mode */
+}
