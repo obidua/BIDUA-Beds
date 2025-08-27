@@ -134,7 +134,7 @@ const Home: React.FC = () => {
                 className="text-center group cursor-pointer"
               >
                 <motion.div 
-                  className="flex justify-center mb-4"
+                      to="/order-now"
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.6 }}
                 >
