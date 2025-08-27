@@ -7,9 +7,9 @@ export const products: Product[] = [
     description: 'Standard ABS shell with metal frame featuring TV slot, security sliding door, and ergonomic non-slip ladder. Perfect for hotels, airports, and commercial applications.',
     price: 'Contact for Quote',
     images: [
-      'https://raw.githubusercontent.com/worldbestservices/capsule-bed-assets/main/Pod%20Images/Galaxy%20Series/Galaxy%20Series%20Horizontal%20single%3Adouble%20bed.png',
-      'https://raw.githubusercontent.com/worldbestservices/capsule-bed-assets/main/Pod%20Images/Galaxy%20Series/GALAXY%22series%20-Horizontal%20single%3Adouble%20bed%20details.png',
-      'https://raw.githubusercontent.com/worldbestservices/capsule-bed-assets/main/Pod%20Images/Galaxy%20Series/%22GALAXY%22series%20-Horizontal%20single%3Adouble%20bed%20more%20images4.png'
+      '/Pod Images/Galaxy Series/Galaxy Series Horizontal single:double bed.png',
+      '/Pod Images/Galaxy Series/GALAXY"series -Horizontal single:double bed details.png',
+      '/Pod Images/Galaxy Series/"GALAXY"series -Horizontal single:double bed more images4.png'
     ],
     features: [
       'Intelligent LED multifunction control panel with back-lit number plate',
@@ -39,9 +39,9 @@ export const products: Product[] = [
     description: 'Spacious double variant with all premium GALAXY features, designed for couples or guests requiring extra space in commercial facilities.',
     price: 'Contact for Quote',
     images: [
-      'https://raw.githubusercontent.com/worldbestservices/capsule-bed-assets/main/Pod%20Images/Galaxy%20Series/%22GALAXY%22series%20-Horizontal%20single%3Adouble%20bed%20more%20images5.png',
-      'https://raw.githubusercontent.com/worldbestservices/capsule-bed-assets/main/Pod%20Images/Galaxy%20Series/%22GALAXY%22series%20-Horizontal%20single%3Adouble%20bed%20more%20images6.png',
-      'https://raw.githubusercontent.com/worldbestservices/capsule-bed-assets/main/Pod%20Images/Galaxy%20Series/GALAXY%22series%20-Horizontal%20single%3Adouble%20bed%20more%20pictures2.png'
+      '/Pod Images/Galaxy Series/"GALAXY"series -Horizontal single:double bed more images5.png',
+      '/Pod Images/Galaxy Series/"GALAXY"series -Horizontal single:double bed more images 6.png',
+      '/Pod Images/Galaxy Series/GALAXY"series -Horizontal single:double bed more pictures2.png'
     ],
     features: [
       'Intelligent LED multifunction control panel with back-lit number plate',
@@ -71,9 +71,9 @@ export const products: Product[] = [
     description: 'Innovative vertical design with ABS + metal construction, featuring sliding door, ladder, TV slot, and mirror panel for space-efficient installations.',
     price: 'Contact for Quote',
     images: [
-      'https://raw.githubusercontent.com/worldbestservices/capsule-bed-assets/main/Pod%20Images/COSMOS%20series/%22COSMOS%22series%20-Horizontal%3AVerticalsingle%20bed%20main.png',
-      'https://raw.githubusercontent.com/worldbestservices/capsule-bed-assets/main/Pod%20Images/COSMOS%20series/%22COSMOS%22series%20-Horizontal%3AVerticalsingle%20bed%20details.png',
-      'https://raw.githubusercontent.com/worldbestservices/capsule-bed-assets/main/Pod%20Images/COSMOS%20series/%22COSMOS%22series%20-Horizontal%3AVerticalsingle%20bed%20more1.png'
+      '/Pod Images/COSMOS series/"COSMOS"series -Horizontal:Verticalsingle bed main.png',
+      '/Pod Images/COSMOS series/"COSMOS"series -Horizontal:Verticalsingle bed details.png',
+      '/Pod Images/COSMOS series/"COSMOS"series -Horizontal:Verticalsingle bed more1.png'
     ],
     features: [
       'Vertical space-saving design',
@@ -103,9 +103,9 @@ export const products: Product[] = [
     description: 'Premium eco multi-layer board construction with metal frame, offering natural wood-grain aesthetics while maintaining all essential capsule bed features.',
     price: 'Contact for Quote',
     images: [
-      'https://raw.githubusercontent.com/worldbestservices/capsule-bed-assets/main/Pod%20Images/wooden%20series/%22wooden%22series%20-Horizontal%20single%20bed%3AVertical%20single%20bed%20main.png',
-      'https://raw.githubusercontent.com/worldbestservices/capsule-bed-assets/main/Pod%20Images/wooden%20series/%22wooden%22series%20-Horizontal%20single%20bed%3AVertical%20single%20bed%20details.png',
-      'https://raw.githubusercontent.com/worldbestservices/capsule-bed-assets/main/Pod%20Images/wooden%20series/%22wooden%22series%20-Horizontal%20single%20bed%3AVertical%20single%20bed%20more1.png'
+      '/Pod Images/wooden series/"wooden"series -Horizontal single bed:Vertical single bed main.png',
+      '/Pod Images/wooden series/"wooden"series -Horizontal single bed:Vertical single bed details.png',
+      '/Pod Images/wooden series/"wooden"series -Horizontal single bed:Vertical single bed more1.png'
     ],
     features: [
       'Eco multi-layer board construction',
@@ -135,9 +135,9 @@ export const products: Product[] = [
     description: 'Specialized gaming capsule with larger length specification and shorter ladder, featuring eco-board + ABS + metal construction for extended gaming sessions.',
     price: 'Contact for Quote',
     images: [
-      'https://raw.githubusercontent.com/worldbestservices/capsule-bed-assets/main/Pod%20Images/E-sports%20series/%22E-sports%22series%20-Horizontal%20single%20bed%20main.png',
-      'https://raw.githubusercontent.com/worldbestservices/capsule-bed-assets/main/Pod%20Images/E-sports%20series/%22E-sports%22series%20-Horizontal%20single%20bed%20details.png',
-      'https://raw.githubusercontent.com/worldbestservices/capsule-bed-assets/main/Pod%20Images/E-sports%20series/%22E-sports%22series%20-Horizontal%20single%20bed%20more1.png'
+      '/Pod Images/E-sports series/"E-sports"series -Horizontal single bed main.png',
+      '/Pod Images/E-sports series/"E-sports"series -Horizontal single bed details.png',
+      '/Pod Images/E-sports series/"E-sports"series -Horizontal single bed more1.png'
     ],
     features: [
       'Extended length for gaming comfort',
