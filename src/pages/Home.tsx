@@ -21,7 +21,7 @@ const Home: React.FC = () => {
       >
         <div className="absolute inset-0 bg-gradient-to-br from-white/60 via-cyan-50/20 to-blue-50/30 dark:from-gray-900/60 dark:via-blue-900/15 dark:to-cyan-900/20 backdrop-blur-md transition-colors duration-500"></div>
         <motion.div 
-          className="absolute inset-0 bg-[url('https://github.com/worldbestservices/capsule-bed-assets/raw/main/pod%20view.png')] bg-cover bg-center opacity-10 dark:opacity-20"
+          className="absolute inset-0 bg-[url('https://raw.githubusercontent.com/worldbestservices/capsule-bed-assets/main/Pod%20Images/For%20Website%20main%20images/pod%20view.png')] bg-cover bg-center opacity-10 dark:opacity-20"
           animate={{ scale: [1, 1.05, 1] }}
           transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
         />

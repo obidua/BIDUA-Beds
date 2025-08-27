@@ -6,97 +6,97 @@ const Gallery: React.FC = () => {
 
   const galleryImages = [
     {
-      url: 'https://github.com/worldbestservices/capsule-bed-assets/raw/main/pod%20view.png',
+      url: 'https://raw.githubusercontent.com/worldbestservices/capsule-bed-assets/main/Pod%20Images/For%20Website%20main%20images/pod%20view.png',
       title: 'GALAXY Series Pod View',
       category: 'Product Design'
     },
     {
-      url: 'https://github.com/worldbestservices/capsule-bed-assets/raw/main/inside%202.png',
+      url: 'https://raw.githubusercontent.com/worldbestservices/capsule-bed-assets/main/Pod%20Images/For%20Website%20main%20images/inside%202.png',
       title: 'Interior View - Double Pod',
       category: 'Interior Design'
     },
     {
-      url: 'https://github.com/worldbestservices/capsule-bed-assets/raw/main/9.jpg',
+      url: 'https://raw.githubusercontent.com/worldbestservices/capsule-bed-assets/main/Pod%20Images/COSMOS%20series/%22COSMOS%22series%20-Horizontal%3AVerticalsingle%20bed%20main.png',
       title: 'COSMOS Vertical Series',
       category: 'Commercial'
     },
     {
-      url: 'https://github.com/worldbestservices/capsule-bed-assets/raw/main/8.jpg',
+      url: 'https://raw.githubusercontent.com/worldbestservices/capsule-bed-assets/main/Pod%20Images/wooden%20series/%22wooden%22series%20-Horizontal%20single%20bed%3AVertical%20single%20bed%20main.png',
       title: 'Wooden Series Design',
       category: 'Premium Materials'
     },
     {
-      url: 'https://github.com/worldbestservices/capsule-bed-assets/raw/main/6.jpg',
+      url: 'https://raw.githubusercontent.com/worldbestservices/capsule-bed-assets/main/Pod%20Images/E-sports%20series/%22E-sports%22series%20-Horizontal%20single%20bed%20main.png',
       title: 'E-sports Series Gaming Pod',
       category: 'Gaming'
     },
     {
-      url: 'https://github.com/worldbestservices/capsule-bed-assets/raw/main/5.jpg',
+      url: 'https://raw.githubusercontent.com/worldbestservices/capsule-bed-assets/main/Pod%20Images/For%20Website%20main%20images/loading%20.png',
       title: 'Installation Setup',
       category: 'Installation'
     },
     {
-      url: 'https://github.com/worldbestservices/capsule-bed-assets/raw/main/4.png',
+      url: 'https://raw.githubusercontent.com/worldbestservices/capsule-bed-assets/main/Pod%20Images/Galaxy%20Series/%22GALAXY%22series%20-Horizontal%20single%3Adouble%20bed%20more%20images4.png',
       title: 'LED Control Panel',
       category: 'Technology'
     },
     {
-      url: 'https://github.com/worldbestservices/capsule-bed-assets/raw/main/21.png',
+      url: 'https://raw.githubusercontent.com/worldbestservices/capsule-bed-assets/main/Pod%20Images/For%20Website%20main%20images/Pods%20hall%20looks.jpg',
       title: 'Multiple Pod Configuration',
       category: 'Commercial'
     },
     {
-      url: 'https://github.com/worldbestservices/capsule-bed-assets/raw/main/20.png',
+      url: 'https://raw.githubusercontent.com/worldbestservices/capsule-bed-assets/main/Pod%20Images/For%20Website%20main%20images/Pods%20hall%20look3.png',
       title: 'Space-Efficient Layout',
       category: 'Installation'
     },
     {
-      url: 'https://github.com/worldbestservices/capsule-bed-assets/raw/main/18.png',
+      url: 'https://raw.githubusercontent.com/worldbestservices/capsule-bed-assets/main/Pod%20Images/For%20Website%20main%20images/interior%20looks.png',
       title: 'Premium Interior Finish',
       category: 'Interior Design'
     },
     {
-      url: 'https://github.com/worldbestservices/capsule-bed-assets/raw/main/17.png',
+      url: 'https://raw.githubusercontent.com/worldbestservices/capsule-bed-assets/main/Pod%20Images/Space%20Series/%22SPACE%22series%20-Horizontal%20single%3Adouble%20bed%20more%20images.png',
       title: 'Ventilation System',
       category: 'Technology'
     },
     {
-      url: 'https://github.com/worldbestservices/capsule-bed-assets/raw/main/16.png',
+      url: 'https://raw.githubusercontent.com/worldbestservices/capsule-bed-assets/main/Pod%20Images/Space%20Series/%22SPACE%22series%20-Horizontal%20single%3Adouble%20bed%20more%20images2.png',
       title: 'Security Features',
       category: 'Safety'
     },
     {
-      url: 'https://github.com/worldbestservices/capsule-bed-assets/raw/main/14.png',
+      url: 'https://raw.githubusercontent.com/worldbestservices/capsule-bed-assets/main/Pod%20Images/E-sports%20series/%22E-sports%22series%20-Horizontal%20single%20bed%20more2.png',
       title: 'Compact Design',
       category: 'Product Design'
     },
     {
-      url: 'https://github.com/worldbestservices/capsule-bed-assets/raw/main/13.png',
+      url: 'https://raw.githubusercontent.com/worldbestservices/capsule-bed-assets/main/Pod%20Images/wooden%20series/%22wooden%22series%20-Horizontal%20single%20bed%3AVertical%20single%20bed%20more2.png',
       title: 'Modern Aesthetics',
       category: 'Design'
     },
     {
-      url: 'https://github.com/worldbestservices/capsule-bed-assets/raw/main/122.png',
+      url: 'https://raw.githubusercontent.com/worldbestservices/capsule-bed-assets/main/Pod%20Images/For%20Website%20main%20images/Reception.png',
       title: 'Hotel Installation',
       category: 'Commercial'
     },
     {
-      url: 'https://github.com/worldbestservices/capsule-bed-assets/raw/main/121.png',
+      url: 'https://raw.githubusercontent.com/worldbestservices/capsule-bed-assets/main/Pod%20Images/For%20Website%20main%20images/reception2.png',
       title: 'Hospitality Application',
       category: 'Commercial'
     },
     {
-      url: 'https://github.com/worldbestservices/capsule-bed-assets/raw/main/12.png',
+      url: 'https://raw.githubusercontent.com/worldbestservices/capsule-bed-assets/main/Pod%20Images/For%20Website%20main%20images/after%20loading.png',
       title: 'Quality Construction',
       category: 'Manufacturing'
     },
     {
-      url: 'https://github.com/worldbestservices/capsule-bed-assets/raw/main/11.jpg',
+      url: 'https://raw.githubusercontent.com/worldbestservices/capsule-bed-assets/main/Pod%20Images/COSMOS%20series/%22COSMOS%22series%20-Horizontal%3AVerticalsingle%20bed%20more2.png',
       title: 'Professional Installation',
       category: 'Service'
     },
     {
-      url: 'https://github.com/worldbestservices/capsule-bed-assets/raw/main/10.png',
+      url: 'https://raw.githubusercontent.com/worldbestservices/capsule-bed-assets/main/Pod%20Images/COSMOS%20series/%22COSMOS%22series%20-Horizontal%3AVerticalsingle%20bed%20more3.png',
       title: 'Advanced Features',
       category: 'Technology'
     }
