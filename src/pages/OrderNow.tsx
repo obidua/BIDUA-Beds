@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { ShoppingCart, Package, Truck, Shield, Calculator, MessageCircle, Mail } from 'lucide-react';
-import { products } from '../data/products';
+import { products, productSeries } from '../data/products';
 
 const OrderNow: React.FC = () => {
   const [formData, setFormData] = useState({
-    variant: products[0].id,
+    variant: productSeries[0].id,
     qty: 1,
     color: 'White',
     material: 'ABS',
@@ -93,8 +93,8 @@ const OrderNow: React.FC = () => {
   };
 
   const generateMessage = () => {
-    const selectedProduct = products.find(p => p.id === formData.variant);
-    const productName = selectedProduct ? selectedProduct.name : 'Unknown Product';
+    const selectedSeries = productSeries.find(s => s.id === formData.variant);
+    const seriesName = selectedSeries ? selectedSeries.name : 'Unknown Series';
     
     const selectedOptions = [];
     if (formData.optPanels) selectedOptions.push('Panels');
@@ -106,7 +106,7 @@ const OrderNow: React.FC = () => {
 
     return `Capsule Beds Enquiry
 
-Product: ${productName}
+Series: ${seriesName}
 Qty (sets): ${formData.qty}
 Color: ${formData.color}
 Material: ${formData.material}
@@ -228,9 +228,9 @@ Access notes: ${formData.custNotes || '-'}`;
                       className="w-full bg-gray-100 dark:bg-gray-700/50 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-cyan-400 transition-colors"
                       required
                     >
-                      {products.map((product) => (
-                        <option key={product.id} value={product.id}>
-                          {product.name}
+                      {productSeries.map((series) => (
+                        <option key={series.id} value={series.id}>
+                          {series.name}
                         </option>
                       ))}
                     </select>
@@ -405,13 +405,13 @@ Access notes: ${formData.custNotes || '-'}`;
                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Price Summary</h3>
                   </div>
                   {(() => {
-                    const selectedProduct = products.find(p => p.id === formData.variant);
-                    const productName = selectedProduct ? selectedProduct.name : 'Unknown Product';
+                    const selectedSeries = productSeries.find(s => s.id === formData.variant);
+                    const seriesName = selectedSeries ? selectedSeries.name : 'Unknown Series';
                     return (
                   <div className="space-y-2 font-mono text-sm text-gray-600 dark:text-gray-300">
                     <div className="flex justify-between">
-                      <span>Product:</span>
-                      <span className="text-right break-words max-w-[60%]">{productName}</span>
+                      <span>Series:</span>
+                      <span className="text-right break-words max-w-[60%]">{seriesName}</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Quantity:</span>
