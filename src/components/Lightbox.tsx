@@ -169,25 +169,32 @@ const Lightbox: React.FC<LightboxProps> = ({ images, initialIndex, isOpen, onClo
             toggleZoom();
           }}
         >
-          <motion.img
-            key={currentIndex}
-            src={images[currentIndex]}
-            alt={`Image ${currentIndex + 1} of ${images.length}`}
-            className={`w-full h-full object-contain rounded-lg shadow-2xl block min-w-[200px] min-h-[200px] border-2 border-red-500 ${
-              isZoomed ? 'transform-gpu' : ''
-            }`}
-            style={{
-              opacity: 1,
-              scale: isZoomed ? 1.5 : 1,
-              maxWidth: isZoomed ? '150vw' : '95vw',
-              maxHeight: isZoomed ? '150vh' : '95vh',
-              transition: 'transform 0.3s ease'
-            }}
-            onError={(e) => {
-              const target = e.target as HTMLImageElement;
-              target.src = 'https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg?auto=compress&cs=tinysrgb&w=800';
-            }}
-          />
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={currentIndex}
+              src={images[currentIndex]}
+              alt={`Image ${currentIndex + 1} of ${images.length}`}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ 
+                opacity: 1, 
+                scale: isZoomed ? 1.5 : 1,
+                transition: { duration: 0.3 }
+              }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.2 }}
+              className={`w-full h-full object-contain rounded-lg shadow-2xl transition-transform duration-300 block !opacity-100 ${
+                isZoomed ? 'transform-gpu' : ''
+              }`}
+              style={{
+                maxWidth: isZoomed ? '150vw' : '95vw',
+                maxHeight: isZoomed ? '150vh' : '95vh',
+              }}
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.src = 'https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg?auto=compress&cs=tinysrgb&w=800';
+              }}
+            />
+          </AnimatePresence>
         </motion.div>
 
         {/* Image Counter */}
