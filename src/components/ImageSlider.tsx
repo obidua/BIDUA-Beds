@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import Lightbox from './Lightbox';
 
 interface ImageSliderProps {
   images: string[];
@@ -18,6 +19,8 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
   const [currentIndex, setCurrentIndex] = useState(0);
   const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
   const [isUserInteracting, setIsUserInteracting] = useState(false);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [lightboxInitialIndex, setLightboxInitialIndex] = useState(0);
 
   const clearAutoPlay = () => {
     if (autoPlayRef.current) {
@@ -57,6 +60,15 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
     setCurrentIndex(index);
   };
 
+  const openLightbox = (index: number) => {
+    setLightboxInitialIndex(index);
+    setIsLightboxOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setIsLightboxOpen(false);
+  };
+
   // Resume auto-play after user stops interacting
   useEffect(() => {
     if (isUserInteracting) {
@@ -73,16 +85,32 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
   return (
     <div className={`relative overflow-hidden group ${className}`}>
       <AnimatePresence mode="wait">
-        <motion.img
+        <motion.div
           key={currentIndex}
-          src={images[currentIndex]}
-          alt={`Slide ${currentIndex + 1}`}
-          className="w-full h-full object-cover"
+          className="w-full h-full cursor-pointer"
+          onClick={() => openLightbox(currentIndex)}
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -50 }}
           transition={{ duration: 0.6, ease: "easeInOut" }}
-        />
+          whileHover={{ scale: 1.02 }}
+        >
+          <motion.img
+            src={images[currentIndex]}
+            alt={`Slide ${currentIndex + 1}`}
+            className="w-full h-full object-cover transition-transform duration-300"
+            onError={(e) => {
+              const target = e.target as HTMLImageElement;
+              target.src = 'https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg?auto=compress&cs=tinysrgb&w=800';
+            }}
+          />
+          {/* Zoom overlay indicator */}
+          <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-all duration-300 flex items-center justify-center opacity-0 hover:opacity-100">
+            <div className="bg-white/90 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">
+              Click to view full size
+            </div>
+          </div>
+        </motion.div>
       </AnimatePresence>
 
       {images.length > 1 && (
@@ -121,6 +149,14 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
           </div>
         </>
       )}
+
+      {/* Lightbox */}
+      <Lightbox
+        images={images}
+        initialIndex={lightboxInitialIndex}
+        isOpen={isLightboxOpen}
+        onClose={closeLightbox}
+      />
     </div>
   );
 };
