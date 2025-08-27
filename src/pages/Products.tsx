@@ -344,6 +344,41 @@ const Products: React.FC = () => {
                   <div>
                     <h4 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2">Models</h4>
                     <div className="flex flex-wrap gap-2">
+                      {series.models.map((model, modelIndex) => (
+                        <span key={modelIndex} className="bg-cyan-100 dark:bg-cyan-500/20 text-cyan-700 dark:text-cyan-300 px-3 py-1 rounded-full text-xs font-mono">
+                          {model}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Sizes */}
+                  <div>
+                    <h4 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2">Available Sizes</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {series.sizes.map((size, sizeIndex) => (
+                        <span key={sizeIndex} className="bg-blue-100 dark:bg-blue-500/20 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-full text-xs">
+                          {size}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Colors */}
+                  <div>
+                    <h4 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2">Color Options</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {series.colors.map((color, colorIndex) => (
+                        <span key={colorIndex} className="bg-purple-100 dark:bg-purple-500/20 text-purple-700 dark:text-purple-300 px-3 py-1 rounded-full text-xs">
+                          {color}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
