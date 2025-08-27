@@ -68,6 +68,7 @@ const Lightbox: React.FC<LightboxProps> = ({ images, initialIndex, isOpen, onClo
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, onClose, goToPrevious, goToNext, toggleZoom]);
 
+  useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
     } else {
