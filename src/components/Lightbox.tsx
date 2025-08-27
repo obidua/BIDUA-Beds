@@ -70,6 +70,8 @@ const Lightbox: React.FC<LightboxProps> = ({ images, initialIndex, isOpen, onClo
 
   // Prevent body scroll when lightbox is open
   useEffect(() => {
+    console.log('Lightbox state changed:', { isOpen, imagesLength: images.length });
+    
     if (isOpen) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -90,7 +92,7 @@ const Lightbox: React.FC<LightboxProps> = ({ images, initialIndex, isOpen, onClo
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.3 }}
-        className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex items-center justify-center"
+        className="fixed inset-0 z-[9999] bg-black/95 backdrop-blur-sm flex items-center justify-center border-4 border-dashed border-purple-500"
         onClick={onClose}
       >
         {/* Close Button */}
