@@ -74,15 +74,6 @@ const Catalogue: React.FC = () => {
       seriesRefs.current.delete(seriesId);
     }
   };
-      const timer = setTimeout(() => {
-        allProductsRef.current?.scrollIntoView({ 
-          behavior: 'smooth', 
-          block: 'start' 
-        });
-      }, 100);
-      return () => clearTimeout(timer);
-    }
-  }, [selectedSeries]);
 
   return (
     <div className="min-h-screen bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl">
