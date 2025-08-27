@@ -301,10 +301,10 @@ const Products: React.FC = () => {
 
                   <div className="flex flex-col sm:flex-row gap-4">
                     <Link
-                      to="/catalogue"
+                      to={`/catalogue?series=${selectedSeries.id}`}
                       className="flex-1 bg-gradient-to-r from-purple-500 to-indigo-600 text-white py-3 px-6 rounded-xl hover:from-purple-400 hover:to-indigo-500 transition-all duration-200 transform hover:scale-105 font-semibold text-center shadow-lg hover:shadow-purple-500/25"
                     >
-                      View Full Catalogue
+                      View {selectedSeries.name} Details
                     </Link>
                     <Link
                       to="/order-now"
