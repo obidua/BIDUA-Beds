@@ -7,9 +7,9 @@ export const products: Product[] = [
     description: 'Standard ABS shell with metal frame featuring TV slot, security sliding door, and ergonomic non-slip ladder. Perfect for hotels, airports, and commercial applications.',
     price: 'Contact for Quote',
     images: [
-      '/Pod Images/Galaxy Series/Galaxy Series Horizontal single:double bed.png',
-      '/Pod Images/Galaxy Series/GALAXY"series -Horizontal single:double bed details.png',
-      '/Pod Images/Galaxy Series/"GALAXY"series -Horizontal single:double bed more images4.png'
+      '/Pods Images/Galaxy Series/Galaxy Series Horizontal single:double bed.png',
+      '/Pods Images/Galaxy Series/GALAXY"series -Horizontal single:double bed details.png',
+      '/Pods Images/Galaxy Series/"GALAXY"series -Horizontal single:double bed more images4.png'
     ],
     features: [
       'Intelligent LED multifunction control panel with back-lit number plate',
@@ -39,9 +39,9 @@ export const products: Product[] = [
     description: 'Spacious double variant with all premium GALAXY features, designed for couples or guests requiring extra space in commercial facilities.',
     price: 'Contact for Quote',
     images: [
-      '/Pod Images/Galaxy Series/"GALAXY"series -Horizontal single:double bed more images5.png',
-      '/Pod Images/Galaxy Series/"GALAXY"series -Horizontal single:double bed more images 6.png',
-      '/Pod Images/Galaxy Series/GALAXY"series -Horizontal single:double bed more pictures2.png'
+      '/Pods Images/Galaxy Series/"GALAXY"series -Horizontal single:double bed more images5.png',
+      '/Pods Images/Galaxy Series/"GALAXY"series -Horizontal single:double bed more images 6.png',
+      '/Pods Images/Galaxy Series/GALAXY"series -Horizontal single:double bed more pictures2.png'
     ],
     features: [
       'Intelligent LED multifunction control panel with back-lit number plate',
@@ -71,9 +71,9 @@ export const products: Product[] = [
     description: 'Innovative vertical design with ABS + metal construction, featuring sliding door, ladder, TV slot, and mirror panel for space-efficient installations.',
     price: 'Contact for Quote',
     images: [
-      '/Pod Images/COSMOS series/"COSMOS"series -Horizontal:Verticalsingle bed main.png',
-      '/Pod Images/COSMOS series/"COSMOS"series -Horizontal:Verticalsingle bed details.png',
-      '/Pod Images/COSMOS series/"COSMOS"series -Horizontal:Verticalsingle bed more1.png'
+      '/Pods Images/COSMOS series/"COSMOS"series -Horizontal:Verticalsingle bed main.png',
+      '/Pods Images/COSMOS series/"COSMOS"series -Horizontal:Verticalsingle bed details.png',
+      '/Pods Images/COSMOS series/"COSMOS"series -Horizontal:Verticalsingle bed more1.png'
     ],
     features: [
       'Vertical space-saving design',
@@ -103,9 +103,9 @@ export const products: Product[] = [
     description: 'Premium eco multi-layer board construction with metal frame, offering natural wood-grain aesthetics while maintaining all essential capsule bed features.',
     price: 'Contact for Quote',
     images: [
-      '/Pod Images/wooden series/"wooden"series -Horizontal single bed:Vertical single bed main.png',
-      '/Pod Images/wooden series/"wooden"series -Horizontal single bed:Vertical single bed details.png',
-      '/Pod Images/wooden series/"wooden"series -Horizontal single bed:Vertical single bed more1.png'
+      '/Pods Images/wooden series/"wooden"series -Horizontal single bed:Vertical single bed main.png',
+      '/Pods Images/wooden series/"wooden"series -Horizontal single bed:Vertical single bed details.png',
+      '/Pods Images/wooden series/"wooden"series -Horizontal single bed:Vertical single bed more1.png'
     ],
     features: [
       'Eco multi-layer board construction',
@@ -135,9 +135,9 @@ export const products: Product[] = [
     description: 'Specialized gaming capsule with larger length specification and shorter ladder, featuring eco-board + ABS + metal construction for extended gaming sessions.',
     price: 'Contact for Quote',
     images: [
-      '/Pod Images/E-sports series/"E-sports"series -Horizontal single bed main.png',
-      '/Pod Images/E-sports series/"E-sports"series -Horizontal single bed details.png',
-      '/Pod Images/E-sports series/"E-sports"series -Horizontal single bed more1.png'
+      '/Pods Images/E-sports series/"E-sports"series -Horizontal single bed main.png',
+      '/Pods Images/E-sports series/"E-sports"series -Horizontal single bed details.png',
+      '/Pods Images/E-sports series/"E-sports"series -Horizontal single bed more1.png'
     ],
     features: [
       'Extended length for gaming comfort',
@@ -169,10 +169,10 @@ export const productSeries: ProductSeriesDetail[] = [
     name: 'GALAXY Series',
     description: 'Horizontal Single & Double; standard ABS shell + metal frame; TV slot, security sliding door, ergonomic non-slip ladder.',
     images: [
-      '/Pod Images/Galaxy Series/Galaxy Series Horizontal single:double bed.png',
-      '/Pod Images/Galaxy Series/GALAXY"series -Horizontal single:double bed details.png',
-      '/Pod Images/Galaxy Series/"GALAXY"series -Horizontal single:double bed more images4.png',
-      '/Pod Images/Galaxy Series/"GALAXY"series -Horizontal single:double bed more images5.png'
+      '/Pods Images/Galaxy Series/Galaxy Series Horizontal single:double bed.png',
+      '/Pods Images/Galaxy Series/GALAXY"series -Horizontal single:double bed details.png',
+      '/Pods Images/Galaxy Series/"GALAXY"series -Horizontal single:double bed more images4.png',
+      '/Pods Images/Galaxy Series/"GALAXY"series -Horizontal single:double bed more images5.png'
     ],
     models: ['TWS-801/802/803', 'TWD-811/812/813', 'TWD-821/822/823'],
     colors: ['White', 'Pink', 'Yellow', 'Black', 'Blue', 'Green', 'Orange', 'Grey'],
@@ -200,10 +200,10 @@ export const productSeries: ProductSeriesDetail[] = [
     name: 'SPACE Series',
     description: 'Horizontal Single & Double; similar hardware + mirror panel, sliding door, TV slot.',
     images: [
-      '/Pod Images/Space Series/"SPACE"series -Horizontal single:double bed.png',
-      '/Pod Images/Space Series/"SPACE"series -Horizontal single:double bed details.png',
-      '/Pod Images/Space Series/"SPACE"series -Horizontal single:double bed more images.png',
-      '/Pod Images/Space Series/"SPACE"series -Horizontal single:double bed more images2.png'
+      '/Pods Images/Space Series/"SPACE"series -Horizontal single:double bed.png',
+      '/Pods Images/Space Series/"SPACE"series -Horizontal single:double bed details.png',
+      '/Pods Images/Space Series/"SPACE"series -Horizontal single:double bed more images.png',
+      '/Pods Images/Space Series/"SPACE"series -Horizontal single:double bed more images2.png'
     ],
     models: ['SPAS-801/802/803', 'SPAD-811/812/813', 'SPAD-821/822/823'],
     colors: ['White', 'Pink', 'Yellow', 'Black', 'Blue', 'Green', 'Orange', 'Grey'],
@@ -231,10 +231,10 @@ export const productSeries: ProductSeriesDetail[] = [
     name: 'EXPLORE THE WORLD Series',
     description: 'Horizontal Single & Double; "explore window" design, LED multifunction panel, stainless handle.',
     images: [
-      '/Pod Images/EXPLORETHE WORLD series/"EXPLORETHE WORLD"series -Horizontal single:double bed main.png',
-      '/Pod Images/EXPLORETHE WORLD series/"EXPLORETHE WORLD"series -Horizontal single:double bed details.png',
-      '/Pod Images/EXPLORETHE WORLD series/"EXPLORETHE WORLD"series -Horizontal single:double bed more1.png',
-      '/Pod Images/EXPLORETHE WORLD series/"EXPLORETHE WORLD"series -Horizontal single:double bed more2.png'
+      '/Pods Images/EXPLORETHE WORLD series/"EXPLORETHE WORLD"series -Horizontal single:double bed main.png',
+      '/Pods Images/EXPLORETHE WORLD series/"EXPLORETHE WORLD"series -Horizontal single:double bed details.png',
+      '/Pods Images/EXPLORETHE WORLD series/"EXPLORETHE WORLD"series -Horizontal single:double bed more1.png',
+      '/Pods Images/EXPLORETHE WORLD series/"EXPLORETHE WORLD"series -Horizontal single:double bed more2.png'
     ],
     models: ['EXWS-601/602/603', 'EXWD-611/612/613', 'EXWD-621/622/623'],
     colors: ['White', 'Pink', 'Yellow', 'Black', 'Blue', 'Green', 'Orange', 'Grey'],
@@ -262,10 +262,10 @@ export const productSeries: ProductSeriesDetail[] = [
     name: 'COSMOS Series',
     description: 'Horizontal Single & Double, plus Vertical Single variant; ABS + metal; sliding door, ladder, TV slot, mirror.',
     images: [
-      '/Pod Images/COSMOS series/"COSMOS"series -Horizontal:Verticalsingle bed main.png',
-      '/Pod Images/COSMOS series/"COSMOS"series -Horizontal:Verticalsingle bed details.png',
-      '/Pod Images/COSMOS series/"COSMOS"series -Horizontal:Verticalsingle bed more1.png',
-      '/Pod Images/COSMOS series/"COSMOS"series -Horizontal:Verticalsingle bed more2.png'
+      '/Pods Images/COSMOS series/"COSMOS"series -Horizontal:Verticalsingle bed main.png',
+      '/Pods Images/COSMOS series/"COSMOS"series -Horizontal:Verticalsingle bed details.png',
+      '/Pods Images/COSMOS series/"COSMOS"series -Horizontal:Verticalsingle bed more1.png',
+      '/Pods Images/COSMOS series/"COSMOS"series -Horizontal:Verticalsingle bed more2.png'
     ],
     models: ['COS-H891/892/893', 'COS-V891/892/893', 'COD-H991/992/993'],
     colors: ['White', 'Pink', 'Yellow', 'Black', 'Blue', 'Green', 'Orange', 'Grey'],
@@ -293,10 +293,10 @@ export const productSeries: ProductSeriesDetail[] = [
     name: 'BACK TO FUTURE 2047 Series',
     description: 'Horizontal Single & Vertical Single; sliding door (including rolling-door style), backrest option.',
     images: [
-      '/Pod Images/BACK TO FUTURE 2047 series/"BACK TO FUTURE 2047"series -Horizontal:Verticalsingle bed main.png',
-      '/Pod Images/BACK TO FUTURE 2047 series/"BACK TO FUTURE 2047"series -Horizontal:Verticalsingle bed details.png',
-      '/Pod Images/BACK TO FUTURE 2047 series/"BACK TO FUTURE 2047"series -Horizontal:Verticalsingle bed more1.png',
-      '/Pod Images/BACK TO FUTURE 2047 series/"BACK TO FUTURE 2047"series -Horizontal:Verticalsingle bed more2.png'
+      '/Pods Images/BACK TO FUTURE 2047 series/"BACK TO FUTURE 2047"series -Horizontal:Verticalsingle bed main.png',
+      '/Pods Images/BACK TO FUTURE 2047 series/"BACK TO FUTURE 2047"series -Horizontal:Verticalsingle bed details.png',
+      '/Pods Images/BACK TO FUTURE 2047 series/"BACK TO FUTURE 2047"series -Horizontal:Verticalsingle bed more1.png',
+      '/Pods Images/BACK TO FUTURE 2047 series/"BACK TO FUTURE 2047"series -Horizontal:Verticalsingle bed more2.png'
     ],
     models: ['TWS-118H/128H', 'TWS-118V/128V/138V'],
     colors: ['White', 'Pink', 'Yellow', 'Black', 'Blue', 'Green', 'Orange', 'Grey'],
@@ -324,10 +324,10 @@ export const productSeries: ProductSeriesDetail[] = [
     name: 'E-sports Series',
     description: 'Horizontal Single; larger length spec and shorter ladder; eco-board + ABS + metal.',
     images: [
-      '/Pod Images/E-sports series/"E-sports"series -Horizontal single bed main.png',
-      '/Pod Images/E-sports series/"E-sports"series -Horizontal single bed details.png',
-      '/Pod Images/E-sports series/"E-sports"series -Horizontal single bed more1.png',
-      '/Pod Images/E-sports series/"E-sports"series -Horizontal single bed more2.png'
+      '/Pods Images/E-sports series/"E-sports"series -Horizontal single bed main.png',
+      '/Pods Images/E-sports series/"E-sports"series -Horizontal single bed details.png',
+      '/Pods Images/E-sports series/"E-sports"series -Horizontal single bed more1.png',
+      '/Pods Images/E-sports series/"E-sports"series -Horizontal single bed more2.png'
     ],
     models: ['WSN-901/902/903'],
     colors: ['White', 'Grey'],
@@ -353,10 +353,10 @@ export const productSeries: ProductSeriesDetail[] = [
     name: 'Wooden Series',
     description: 'Horizontal Single & Vertical Single; eco multi-layer board + metal; wood-grain colorway available.',
     images: [
-      '/Pod Images/wooden series/"wooden"series -Horizontal single bed:Vertical single bed main.png',
-      '/Pod Images/wooden series/"wooden"series -Horizontal single bed:Vertical single bed details.png',
-      '/Pod Images/wooden series/"wooden"series -Horizontal single bed:Vertical single bed more1.png',
-      '/Pod Images/wooden series/"wooden"series -Horizontal single bed:Vertical single bed more2.png'
+      '/Pods Images/wooden series/"wooden"series -Horizontal single bed:Vertical single bed main.png',
+      '/Pods Images/wooden series/"wooden"series -Horizontal single bed:Vertical single bed details.png',
+      '/Pods Images/wooden series/"wooden"series -Horizontal single bed:Vertical single bed more1.png',
+      '/Pods Images/wooden series/"wooden"series -Horizontal single bed:Vertical single bed more2.png'
     ],
     models: ['WEH-809/810/811', 'WEH-809V/810V/811V'],
     colors: ['Wood color', 'White', 'Black', 'Grey'],
@@ -380,10 +380,10 @@ export const productSeries: ProductSeriesDetail[] = [
     name: 'Online Red Studio / Small Room Lounge',
     description: 'Enclosed lounge/booth modules with intelligent door lock; ABS + metal; two external size options.',
     images: [
-      '/Pod Images/Online Red Studio : Small Room Lounge/Online Red Studio : Small Room Lounge main.png',
-      '/Pod Images/Online Red Studio : Small Room Lounge/Online Red Studio : Small Room Lounge details.png',
-      '/Pod Images/Online Red Studio : Small Room Lounge/Online Red Studio : Small Room Lounge more1.png',
-      '/Pod Images/Online Red Studio : Small Room Lounge/Online Red Studio : Small Room Lounge more2.png'
+      '/Pods Images/Online Red Studio : Small Room Lounge/Online Red Studio : Small Room Lounge main.png',
+      '/Pods Images/Online Red Studio : Small Room Lounge/Online Red Studio : Small Room Lounge details.png',
+      '/Pods Images/Online Red Studio : Small Room Lounge/Online Red Studio : Small Room Lounge more1.png',
+      '/Pods Images/Online Red Studio : Small Room Lounge/Online Red Studio : Small Room Lounge more2.png'
     ],
     models: ['CS-101/102', 'CS-201/202'],
     colors: ['Silvery grey'],

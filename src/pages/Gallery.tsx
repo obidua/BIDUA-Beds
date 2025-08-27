@@ -8,97 +8,97 @@ const Gallery: React.FC = () => {
 
   const galleryImages = [
     {
-      url: '/Pod Images/For Website main images/pod view.png',
+      url: '/Pods Images/For Website main images/pod view.png',
       title: 'GALAXY Series Pod View',
       category: 'Product Design'
     },
     {
-      url: '/Pod Images/For Website main images/inside 2.png',
+      url: '/Pods Images/For Website main images/inside 2.png',
       title: 'Interior View - Double Pod',
       category: 'Interior Design'
     },
     {
-      url: '/Pod Images/COSMOS series/"COSMOS"series -Horizontal:Verticalsingle bed main.png',
+      url: '/Pods Images/COSMOS series/"COSMOS"series -Horizontal:Verticalsingle bed main.png',
       title: 'COSMOS Vertical Series',
       category: 'Commercial'
     },
     {
-      url: '/Pod Images/wooden series/"wooden"series -Horizontal single bed:Vertical single bed main.png',
+      url: '/Pods Images/wooden series/"wooden"series -Horizontal single bed:Vertical single bed main.png',
       title: 'Wooden Series Design',
       category: 'Premium Materials'
     },
     {
-      url: '/Pod Images/E-sports series/"E-sports"series -Horizontal single bed main.png',
+      url: '/Pods Images/E-sports series/"E-sports"series -Horizontal single bed main.png',
       title: 'E-sports Series Gaming Pod',
       category: 'Gaming'
     },
     {
-      url: '/Pod Images/For Website main images/loading .png',
+      url: '/Pods Images/For Website main images/loading .png',
       title: 'Installation Setup',
       category: 'Installation'
     },
     {
-      url: '/Pod Images/Galaxy Series/"GALAXY"series -Horizontal single:double bed more images4.png',
+      url: '/Pods Images/Galaxy Series/"GALAXY"series -Horizontal single:double bed more images4.png',
       title: 'LED Control Panel',
       category: 'Technology'
     },
     {
-      url: '/Pod Images/For Website main images/Pods Hall looks.jpg',
+      url: '/Pods Images/For Website main images/Pods Hall looks.jpg',
       title: 'Multiple Pod Configuration',
       category: 'Commercial'
     },
     {
-      url: '/Pod Images/For Website main images/Pods hall look3.png',
+      url: '/Pods Images/For Website main images/Pods hall look3.png',
       title: 'Space-Efficient Layout',
       category: 'Installation'
     },
     {
-      url: '/Pod Images/For Website main images/interior looks.png',
+      url: '/Pods Images/For Website main images/interior looks.png',
       title: 'Premium Interior Finish',
       category: 'Interior Design'
     },
     {
-      url: '/Pod Images/Space Series/"SPACE"series -Horizontal single:double bed more images.png',
+      url: '/Pods Images/Space Series/"SPACE"series -Horizontal single:double bed more images.png',
       title: 'Ventilation System',
       category: 'Technology'
     },
     {
-      url: '/Pod Images/Space Series/"SPACE"series -Horizontal single:double bed more images2.png',
+      url: '/Pods Images/Space Series/"SPACE"series -Horizontal single:double bed more images2.png',
       title: 'Security Features',
       category: 'Safety'
     },
     {
-      url: '/Pod Images/E-sports series/"E-sports"series -Horizontal single bed more2.png',
+      url: '/Pods Images/E-sports series/"E-sports"series -Horizontal single bed more2.png',
       title: 'Compact Design',
       category: 'Product Design'
     },
     {
-      url: '/Pod Images/wooden series/"wooden"series -Horizontal single bed:Vertical single bed more2.png',
+      url: '/Pods Images/wooden series/"wooden"series -Horizontal single bed:Vertical single bed more2.png',
       title: 'Modern Aesthetics',
       category: 'Design'
     },
     {
-      url: '/Pod Images/For Website main images/Reception.png',
+      url: '/Pods Images/For Website main images/Reception.png',
       title: 'Hotel Installation',
       category: 'Commercial'
     },
     {
-      url: '/Pod Images/For Website main images/reception2.png',
+      url: '/Pods Images/For Website main images/reception2.png',
       title: 'Hospitality Application',
       category: 'Commercial'
     },
     {
-      url: '/Pod Images/For Website main images/after loading.png',
+      url: '/Pods Images/For Website main images/after loading.png',
       title: 'Quality Construction',
       category: 'Manufacturing'
     },
     {
-      url: '/Pod Images/COSMOS series/"COSMOS"series -Horizontal:Verticalsingle bed more2.png',
+      url: '/Pods Images/COSMOS series/"COSMOS"series -Horizontal:Verticalsingle bed more2.png',
       title: 'Professional Installation',
       category: 'Service'
     },
     {
-      url: '/Pod Images/COSMOS series/"COSMOS"series -Horizontal:Verticalsingle bed more3.png',
+      url: '/Pods Images/COSMOS series/"COSMOS"series -Horizontal:Verticalsingle bed more3.png',
       title: 'Advanced Features',
       category: 'Technology'
     }

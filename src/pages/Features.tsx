@@ -216,7 +216,7 @@ const Features: React.FC = () => {
               className="relative"
             >
               <img
-                src='/Pod Images/Galaxy Series/"GALAXY"series -Horizontal single:double bed more images4.png'
+                src='/Pods Images/Galaxy Series/"GALAXY"series -Horizontal single:double bed more images4.png'
                 alt="Materials and Safety"
                 className="rounded-2xl shadow-2xl"
               />
