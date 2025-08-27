@@ -179,7 +179,7 @@ const Gallery: React.FC = () => {
                       target.src = 'https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg?auto=compress&cs=tinysrgb&w=400';
                     }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                     <div className="absolute bottom-4 left-4 right-4">
                       <h3 className="text-white dark:text-white font-semibold mb-1">{image.title}</h3>
                       <span className="text-cyan-400 text-sm">{image.category}</span>
