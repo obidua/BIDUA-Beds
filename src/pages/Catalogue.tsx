@@ -26,6 +26,7 @@ const Catalogue: React.FC = () => {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [searchTerm, setSearchTerm] = useState('');
   const allProductsRef = useRef<HTMLElement>(null);
+  const seriesRefs = useRef<Map<string, HTMLDivElement>>(new Map());
 
   // Filter products based on selected series and search term
   const filteredProducts = products.filter(product => {
@@ -38,9 +39,41 @@ const Catalogue: React.FC = () => {
   // Show all series in filter (not just those with products)
   const seriesWithProducts = productSeries;
 
-  // Scroll to products section when series is selected
+  // Scroll to specific series section or products section when series is selected
   useEffect(() => {
-    if (selectedSeries !== 'all' && allProductsRef.current) {
+    if (selectedSeries !== 'all') {
+      // First try to scroll to the specific series section
+      const seriesElement = seriesRefs.current.get(selectedSeries);
+      if (seriesElement) {
+        const timer = setTimeout(() => {
+          seriesElement.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+          });
+        }, 100);
+        return () => clearTimeout(timer);
+      }
+      // Fallback to all products section if series element not found
+      else if (allProductsRef.current) {
+        const timer = setTimeout(() => {
+          allProductsRef.current?.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+          });
+        }, 100);
+        return () => clearTimeout(timer);
+      }
+    }
+  }, [selectedSeries]);
+
+  // Function to set series ref
+  const setSeriesRef = (seriesId: string) => (element: HTMLDivElement | null) => {
+    if (element) {
+      seriesRefs.current.set(seriesId, element);
+    } else {
+      seriesRefs.current.delete(seriesId);
+    }
+  };
       const timer = setTimeout(() => {
         allProductsRef.current?.scrollIntoView({ 
           behavior: 'smooth', 
@@ -204,6 +237,7 @@ const Catalogue: React.FC = () => {
               return (
                 <motion.div
                   key={series.id}
+                  ref={setSeriesRef(series.id)}
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: seriesIndex * 0.1 }}
