@@ -215,7 +215,12 @@ const Products: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/10 to-transparent pointer-events-none"></div>
                   <div className="absolute bottom-6 left-6 pointer-events-none">
                     <h2 className="text-3xl font-bold text-white dark:text-white mb-2">{selectedSeries.name}</h2>
-                    <span className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-4 py-2 rounded-full text-lg font-bold shadow-lg pointer-events-auto cursor-pointer">Contact for Quote</span>
+                    <Link
+                      to={`/order-now?series=${selectedSeries.id}`}
+                      className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-4 py-2 rounded-full text-lg font-bold shadow-lg pointer-events-auto hover:from-cyan-400 hover:to-blue-500 transition-all duration-200 inline-block"
+                    >
+                      Contact for Quote
+                    </Link>
                   </div>
                 </div>
 

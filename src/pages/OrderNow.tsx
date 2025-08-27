@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { ShoppingCart, Package, Truck, Shield, Calculator, MessageCircle, Mail } from 'lucide-react';
 import { products, productSeries } from '../data/products';
 
 const OrderNow: React.FC = () => {
+  const [searchParams] = useSearchParams();
   const [formData, setFormData] = useState({
     variant: productSeries[0].id,
     qty: 1,
@@ -32,6 +34,17 @@ const OrderNow: React.FC = () => {
     gst: 0,
     total: 0
   });
+
+  // Set initial variant based on URL parameter
+  useEffect(() => {
+    const seriesParam = searchParams.get('series');
+    if (seriesParam && productSeries.find(s => s.id === seriesParam)) {
+      setFormData(prev => ({
+        ...prev,
+        variant: seriesParam
+      }));
+    }
+  }, [searchParams]);
 
   const PRICING_CONFIG = {
     basePerSet: 500000,

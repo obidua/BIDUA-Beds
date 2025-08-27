@@ -68,8 +68,6 @@ const Lightbox: React.FC<LightboxProps> = ({ images, initialIndex, isOpen, onClo
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, onClose, goToPrevious, goToNext, toggleZoom]);
 
-  // Prevent body scroll when lightbox is open
-  useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -163,7 +161,7 @@ const Lightbox: React.FC<LightboxProps> = ({ images, initialIndex, isOpen, onClo
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.8 }}
           transition={{ duration: 0.3 }}
-          className={`relative flex items-center justify-center max-w-4xl max-h-[80vh] ${isZoomed ? 'cursor-zoom-out' : 'cursor-zoom-in'}`}
+          className={`relative ${isZoomed ? 'cursor-zoom-out' : 'cursor-zoom-in'}`}
           onClick={(e) => {
             e.stopPropagation();
             toggleZoom();
@@ -173,7 +171,7 @@ const Lightbox: React.FC<LightboxProps> = ({ images, initialIndex, isOpen, onClo
             key={currentIndex}
             src={images[currentIndex]}
             alt={`Image ${currentIndex + 1} of ${images.length}`}
-            className="max-w-full max-h-full object-contain rounded-lg shadow-2xl block"
+            className="max-w-[90vw] max-h-[80vh] object-contain rounded-lg shadow-2xl block"
             style={{
               transform: isZoomed ? 'scale(1.5)' : 'scale(1)',
               transition: 'transform 0.3s ease',
