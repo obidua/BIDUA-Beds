@@ -37,4 +37,5 @@ export interface ProductSeriesDetail {
   material: string;
   features: string[];
   applications: string[];
+  availableMaterials: string[];
 }

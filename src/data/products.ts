@@ -192,7 +192,8 @@ export const productSeries: ProductSeriesDetail[] = [
     applications: [
       'Hotels', 'Airports', 'Dormitories', 'Sauna clubs', 'Youth hostels', 
       'Family apartments', 'Schools', 'Hospitals', 'Companies', 'Capsule hotels'
-    ]
+    ],
+    availableMaterials: ['ABS']
   },
   {
     id: 'space', 
@@ -222,7 +223,8 @@ export const productSeries: ProductSeriesDetail[] = [
     applications: [
       'Hotels', 'Airports', 'Dormitories', 'Youth hostels', 
       'Schools', 'Hospitals', 'Companies', 'Capsule hotels'
-    ]
+    ],
+    availableMaterials: ['ABS']
   },
   {
     id: 'explore',
@@ -252,7 +254,8 @@ export const productSeries: ProductSeriesDetail[] = [
     applications: [
       'Hotels', 'Airports', 'Dormitories', 'Sauna clubs', 
       'Schools', 'Hospitals', 'Capsule hotels'
-    ]
+    ],
+    availableMaterials: ['ABS']
   },
   {
     id: 'cosmos',
@@ -282,7 +285,8 @@ export const productSeries: ProductSeriesDetail[] = [
     applications: [
       'Hotels', 'Airports', 'Dormitories', 'Youth hostels', 'Family apartments',
       'Schools', 'Hospitals', 'Capsule hotels'
-    ]
+    ],
+    availableMaterials: ['ABS']
   },
   {
     id: 'future',
@@ -312,7 +316,8 @@ export const productSeries: ProductSeriesDetail[] = [
     ],
     applications: [
       'Hotels', 'Airports', 'Dormitories', 'Schools', 'Hospitals', 'Capsule hotels'
-    ]
+    ],
+    availableMaterials: ['ABS']
   },
   {
     id: 'esports',
@@ -340,7 +345,8 @@ export const productSeries: ProductSeriesDetail[] = [
     applications: [
       'Hotels', 'Airports', 'Dormitories', 'Youth hostels', 'Family apartments',
       'Schools', 'Hospitals', 'Capsule hotels'
-    ]
+    ],
+    availableMaterials: ['ABS', 'Wood']
   },
   {
     id: 'wooden',
@@ -366,7 +372,8 @@ export const productSeries: ProductSeriesDetail[] = [
     applications: [
       'Hotels', 'Airports', 'Dormitories', 'Youth hostels', 'Family apartments',
       'Schools', 'Hospitals', 'Capsule hotels'
-    ]
+    ],
+    availableMaterials: ['Wood']
   },
   {
     id: 'lounge',
@@ -394,6 +401,7 @@ export const productSeries: ProductSeriesDetail[] = [
     applications: [
       'Airports', 'Family apartments', 'Hospitals', 'Companies', 
       'Internet bars', 'Livestream studios'
-    ]
+    ],
+    availableMaterials: ['ABS']
   }
 ];

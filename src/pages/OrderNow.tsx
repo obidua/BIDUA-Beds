@@ -287,8 +287,14 @@ Access notes: ${formData.custNotes || '-'}`;
                       className="w-full bg-gray-100 dark:bg-gray-700/50 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-cyan-400 transition-colors"
                       required
                     >
-                      <option value="ABS">ABS</option>
-                      <option value="Wood">Wood (single only)</option>
+                      {(() => {
+                        const selectedSeries = productSeries.find(s => s.id === formData.variant);
+                        return selectedSeries?.availableMaterials.map((material) => (
+                          <option key={material} value={material}>
+                            {material === 'Wood' ? 'Wood (eco multi-layer board)' : material}
+                          </option>
+                        )) || [<option key="ABS" value="ABS">ABS</option>];
+                      })()}
                     </select>
                   </div>
                 </div>
