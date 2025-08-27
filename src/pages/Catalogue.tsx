@@ -243,6 +243,17 @@ const Catalogue: React.FC = () => {
                   transition={{ duration: 0.8, delay: seriesIndex * 0.1 }}
                   className="bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl border border-gray-200 dark:border-cyan-500/20 overflow-hidden shadow-2xl"
                 >
+                  {/* Series Images */}
+                  <div className="relative">
+                    <ImageSlider
+                      images={series.images}
+                      className="w-full h-64"
+                      autoPlay={true}
+                      interval={4000}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent pointer-events-none"></div>
+                  </div>
+
                   {/* Series Header */}
                   <div className="bg-gradient-to-r from-cyan-100/50 to-blue-100/50 dark:from-cyan-500/20 dark:to-blue-600/20 p-8">
                     <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
