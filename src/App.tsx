@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Products from './pages/Products';
 import Features from './pages/Features';
 import Gallery from './pages/Gallery';
+import Catalogue from './pages/Catalogue';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import OrderNow from './pages/OrderNow';
@@ -34,6 +35,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />
+            <Route path="/catalogue" element={<Catalogue />} />
             <Route path="/products/:id" element={<ProductDetail />} />
             <Route path="/features" element={<Features />} />
             <Route path="/gallery" element={<Gallery />} />
