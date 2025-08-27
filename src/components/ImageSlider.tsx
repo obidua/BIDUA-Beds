@@ -1,209 +1,128 @@
-import React, { useState } from 'react';
-import Lightbox from '../components/Lightbox';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-const Gallery: React.FC = () => {
-  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
-  const [lightboxInitialIndex, setLightboxInitialIndex] = useState(0);
+interface ImageSliderProps {
+  images: string[];
+  autoPlay?: boolean;
+  interval?: number;
+  className?: string;
+}
 
-  const galleryImages = [
-    {
-      url: '/Pod Images/For Website main images/pod view.png',
-      title: 'GALAXY Series Pod View',
-      category: 'Product Design'
-    },
-    {
-      url: '/Pod Images/For Website main images/inside 2.png',
-      title: 'Interior View - Double Pod',
-      category: 'Interior Design'
-    },
-    {
-      url: '/Pod Images/COSMOS series/"COSMOS"series -Horizontal:Verticalsingle bed main.png',
-      title: 'COSMOS Vertical Series',
-      category: 'Commercial'
-    },
-    {
-      url: '/Pod Images/wooden series/"wooden"series -Horizontal single bed:Vertical single bed main.png',
-      title: 'Wooden Series Design',
-      category: 'Premium Materials'
-    },
-    {
-      url: '/Pod Images/E-sports series/"E-sports"series -Horizontal single bed main.png',
-      title: 'E-sports Series Gaming Pod',
-      category: 'Gaming'
-    },
-    {
-      url: '/Pod Images/For Website main images/loading .png',
-      title: 'Installation Setup',
-      category: 'Installation'
-    },
-    {
-      url: '/Pod Images/Galaxy Series/"GALAXY"series -Horizontal single:double bed more images4.png',
-      title: 'LED Control Panel',
-      category: 'Technology'
-    },
-    {
-      url: '/Pod Images/For Website main images/Pods Hall looks.jpg',
-      title: 'Multiple Pod Configuration',
-      category: 'Commercial'
-    },
-    {
-      url: '/Pod Images/For Website main images/Pods hall look3.png',
-      title: 'Space-Efficient Layout',
-      category: 'Installation'
-    },
-    {
-      url: '/Pod Images/For Website main images/interior looks.png',
-      title: 'Premium Interior Finish',
-      category: 'Interior Design'
-    },
-    {
-      url: '/Pod Images/Space Series/"SPACE"series -Horizontal single:double bed more images.png',
-      title: 'Ventilation System',
-      category: 'Technology'
-    },
-    {
-      url: '/Pod Images/Space Series/"SPACE"series -Horizontal single:double bed more images2.png',
-      title: 'Security Features',
-      category: 'Safety'
-    },
-    {
-      url: '/Pod Images/E-sports series/"E-sports"series -Horizontal single bed more2.png',
-      title: 'Compact Design',
-      category: 'Product Design'
-    },
-    {
-      url: '/Pod Images/wooden series/"wooden"series -Horizontal single bed:Vertical single bed more2.png',
-      title: 'Modern Aesthetics',
-      category: 'Design'
-    },
-    {
-      url: '/Pod Images/For Website main images/Reception.png',
-      title: 'Hotel Installation',
-      category: 'Commercial'
-    },
-    {
-      url: '/Pod Images/For Website main images/reception2.png',
-      title: 'Hospitality Application',
-      category: 'Commercial'
-    },
-    {
-      url: '/Pod Images/For Website main images/after loading.png',
-      title: 'Quality Construction',
-      category: 'Manufacturing'
-    },
-    {
-      url: '/Pod Images/COSMOS series/"COSMOS"series -Horizontal:Verticalsingle bed more2.png',
-      title: 'Professional Installation',
-      category: 'Service'
-    },
-    {
-      url: '/Pod Images/COSMOS series/"COSMOS"series -Horizontal:Verticalsingle bed more3.png',
-      title: 'Advanced Features',
-      category: 'Technology'
+const ImageSlider: React.FC<ImageSliderProps> = ({ 
+  images, 
+  autoPlay = true, 
+  interval = 4000,
+  className = ""
+}) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
+  const [isUserInteracting, setIsUserInteracting] = useState(false);
+
+  const clearAutoPlay = () => {
+    if (autoPlayRef.current) {
+      clearInterval(autoPlayRef.current);
+      autoPlayRef.current = null;
     }
-  ];
-
-  const categories = ['All', 'Product Design', 'Interior Design', 'Commercial', 'Technology', 'Installation', 'Premium Materials', 'Gaming', 'Safety', 'Design', 'Manufacturing', 'Service'];
-  const [activeCategory, setActiveCategory] = useState('All');
-
-  const filteredImages = activeCategory === 'All' 
-    ? galleryImages 
-    : galleryImages.filter(img => img.category === activeCategory);
-
-  const openLightbox = (index: number) => {
-    setLightboxInitialIndex(index);
-    setIsLightboxOpen(true);
   };
 
-  const closeLightbox = () => {
-    setIsLightboxOpen(false);
+  useEffect(() => {
+    clearAutoPlay();
+    if (!autoPlay || images.length <= 1 || isUserInteracting) return;
+
+    autoPlayRef.current = setInterval(() => {
+      setCurrentIndex((prevIndex) => 
+        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      );
+    }, interval);
+
+    return clearAutoPlay;
+  }, [autoPlay, interval, images.length, isUserInteracting]);
+
+  const goToPrevious = () => {
+    clearAutoPlay();
+    setIsUserInteracting(true);
+    setCurrentIndex(currentIndex === 0 ? images.length - 1 : currentIndex - 1);
   };
 
-  const images = filteredImages.map(img => img.url);
+  const goToNext = () => {
+    clearAutoPlay();
+    setIsUserInteracting(true);
+    setCurrentIndex(currentIndex === images.length - 1 ? 0 : currentIndex + 1);
+  };
+
+  const goToSlide = (index: number) => {
+    clearAutoPlay();
+    setIsUserInteracting(true);
+    setCurrentIndex(index);
+  };
+
+  // Resume auto-play after user stops interacting
+  useEffect(() => {
+    if (isUserInteracting) {
+      const resumeTimer = setTimeout(() => {
+        setIsUserInteracting(false);
+      }, 5000); // Resume auto-play after 5 seconds of no interaction
+
+      return () => clearTimeout(resumeTimer);
+    }
+  }, [isUserInteracting, currentIndex]);
+
+  if (images.length === 0) return null;
 
   return (
-    <div className="min-h-screen bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl">
-      {/* Header */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 via-blue-50/30 to-cyan-50/40 dark:from-gray-900 dark:via-blue-900/20 dark:to-cyan-900/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-            Project <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Gallery</span>
-          </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Explore our installations, manufacturing process, and the remarkable environments we've created worldwide
-          </p>
-        </div>
-      </section>
+    <div className={`relative overflow-hidden group ${className}`}>
+      <AnimatePresence mode="wait">
+        <motion.img
+          key={currentIndex}
+          src={images[currentIndex]}
+          alt={`Slide ${currentIndex + 1}`}
+          className="w-full h-full object-cover"
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -50 }}
+          transition={{ duration: 0.6, ease: "easeInOut" }}
+        />
+      </AnimatePresence>
 
-      {/* Category Filter */}
-      <section className="py-8 bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center gap-4">
-            {categories.map((category) => (
+      {images.length > 1 && (
+        <>
+          {/* Navigation Arrows */}
+          <button
+            onClick={goToPrevious}
+            className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full p-3 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white dark:hover:bg-gray-800 hover:scale-110 shadow-lg z-10"
+            aria-label="Previous image"
+          >
+            <ChevronLeft className="h-5 w-5 text-gray-800 dark:text-white" />
+          </button>
+          
+          <button
+            onClick={goToNext}
+            className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full p-3 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white dark:hover:bg-gray-800 hover:scale-110 shadow-lg z-10"
+            aria-label="Next image"
+          >
+            <ChevronRight className="h-5 w-5 text-gray-800 dark:text-white" />
+          </button>
+
+          {/* Dots Indicator */}
+          <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-2">
+            {images.map((_, index) => (
               <button
-                key={category}
-                onClick={() => setActiveCategory(category)}
-                className={`px-6 py-2 rounded-full transition-all duration-200 ${
-                  activeCategory === category
-                    ? 'bg-cyan-500 text-white font-semibold shadow-lg'
-                    : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-cyan-500 dark:hover:text-cyan-400 border border-gray-300 dark:border-gray-600'
-                }`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Gallery Grid */}
-      <section className="py-12 bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filteredImages.map((image, index) => (
-              <div
                 key={index}
-                className="group relative aspect-square overflow-hidden rounded-xl cursor-pointer transform hover:scale-105 transition-all duration-300"
-                onClick={() => openLightbox(index)}
-              >
-                <img
-                  src={image.url}
-                  alt={image.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  loading="lazy"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.src = 'https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg?auto=compress&cs=tinysrgb&w=400';
-                  }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <h3 className="text-white dark:text-white font-semibold mb-1">{image.title}</h3>
-                    <span className="text-cyan-400 text-sm">{image.category}</span>
-                    <div className="mt-2 text-white/80 text-xs">Click to view full size</div>
-                  </div>
-                </div>
-                {/* Zoom overlay indicator */}
-                <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-all duration-300 flex items-center justify-center opacity-0 hover:opacity-100">
-                  <div className="bg-white/90 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">
-                    Click to view full size
-                  </div>
-                </div>
-              </div>
+                onClick={() => goToSlide(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentIndex
+                    ? 'bg-cyan-400 scale-125 shadow-lg'
+                    : 'bg-white/70 dark:bg-gray-400/70 hover:bg-white/90 dark:hover:bg-gray-400/90 hover:scale-110'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Lightbox */}
-      <Lightbox
-        images={images}
-        initialIndex={lightboxInitialIndex}
-        isOpen={isLightboxOpen}
-        onClose={closeLightbox}
-      />
+        </>
+      )}
     </div>
   );
 };
 
-export default Gallery;
+export default ImageSlider;

@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import Lightbox from '../components/Lightbox';
+import { X } from 'lucide-react';
 
 const Gallery: React.FC = () => {
-  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
-  const [lightboxInitialIndex, setLightboxInitialIndex] = useState(0);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const galleryImages = [
     {
@@ -110,15 +109,6 @@ const Gallery: React.FC = () => {
     ? galleryImages 
     : galleryImages.filter(img => img.category === activeCategory);
 
-  const openLightbox = (index: number) => {
-    setLightboxInitialIndex(index);
-    setIsLightboxOpen(true);
-  };
-
-  const closeLightbox = () => {
-    setIsLightboxOpen(false);
-  };
-
   return (
     <div className="min-h-screen bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl">
       {/* Header */}
@@ -162,7 +152,7 @@ const Gallery: React.FC = () => {
               <div
                 key={index}
                 className="group relative aspect-square overflow-hidden rounded-xl cursor-pointer transform hover:scale-105 transition-all duration-300"
-                onClick={() => openLightbox(index)}
+                onClick={() => setSelectedImage(image.url)}
               >
                 <img
                   src={image.url}
@@ -186,13 +176,29 @@ const Gallery: React.FC = () => {
         </div>
       </section>
 
-      {/* Lightbox */}
-      <Lightbox
-        images={filteredImages.map(img => img.url)}
-        initialIndex={lightboxInitialIndex}
-        isOpen={isLightboxOpen}
-        onClose={closeLightbox}
-      />
+      {/* Lightbox Modal */}
+      {selectedImage && (
+        <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4" onClick={() => setSelectedImage(null)}>
+          <div className="relative max-w-4xl max-h-full">
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-4 right-4 text-white hover:text-cyan-400 transition-colors z-10"
+            >
+              <X className="h-8 w-8" />
+            </button>
+            <img
+              src={selectedImage}
+              alt="Gallery"
+              className="w-full h-full object-contain rounded-lg"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.src = 'https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg?auto=compress&cs=tinysrgb&w=400';
+              }}
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
