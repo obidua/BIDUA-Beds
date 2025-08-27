@@ -169,32 +169,28 @@ const Lightbox: React.FC<LightboxProps> = ({ images, initialIndex, isOpen, onClo
             toggleZoom();
           }}
         >
-          <AnimatePresence mode="wait">
-            <motion.img
-              key={currentIndex}
-              src={images[currentIndex]}
-              alt={`Image ${currentIndex + 1} of ${images.length}`}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ 
-                opacity: 1, 
-                scale: isZoomed ? 1.5 : 1,
-                transition: { duration: 0.3 }
-              }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.2 }}
-              className={`w-full h-full object-contain rounded-lg shadow-2xl transition-transform duration-300 block !opacity-100 ${
-                isZoomed ? 'transform-gpu' : ''
-              }`}
-              style={{
-                maxWidth: isZoomed ? '150vw' : '95vw',
-                maxHeight: isZoomed ? '150vh' : '95vh',
-              }}
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.src = 'https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg?auto=compress&cs=tinysrgb&w=800';
-              }}
-            />
-          </AnimatePresence>
+          {/* DEBUG: Simplified image element with visible debugging styles */}
+          <img
+            key={currentIndex}
+            src={images[currentIndex]}
+            alt={`Image ${currentIndex + 1} of ${images.length}`}
+            className="w-full h-full object-contain rounded-lg shadow-2xl block bg-red-500 border-8 border-yellow-400 min-w-[200px] min-h-[200px]"
+            style={{
+              maxWidth: isZoomed ? '150vw' : '95vw',
+              maxHeight: isZoomed ? '150vh' : '95vh',
+              transform: isZoomed ? 'scale(1.5)' : 'scale(1)',
+              transition: 'transform 0.3s ease'
+            }}
+            onError={(e) => {
+              console.log('Image failed to load:', images[currentIndex]);
+              const target = e.target as HTMLImageElement;
+              // Use a reliable test image
+              target.src = 'https://picsum.photos/800/600?random=' + currentIndex;
+            }}
+            onLoad={() => {
+              console.log('Image loaded successfully:', images[currentIndex]);
+            }}
+          />
         </motion.div>
 
         {/* Image Counter */}
