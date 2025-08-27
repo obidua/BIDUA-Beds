@@ -160,8 +160,6 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
           </>
         )}
       </div>
-  );
-};
 
       {/* Lightbox */}
       <Lightbox
@@ -171,4 +169,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
         onClose={closeLightbox}
       />
     </>
+  );
+};
+
 export default ImageSlider;
