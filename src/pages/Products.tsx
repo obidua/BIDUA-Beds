@@ -189,9 +189,9 @@ const Products: React.FC = () => {
                     interval={4000}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/20 to-transparent"></div>
-                  <div className="absolute bottom-6 left-6">
+                  <div className="absolute bottom-6 left-6 pointer-events-none">
                     <h2 className="text-3xl font-bold text-white dark:text-white mb-2">{selectedSeries.name}</h2>
-                    <span className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-4 py-2 rounded-full text-lg font-bold shadow-lg">Contact for Quote</span>
+                    <span className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-4 py-2 rounded-full text-lg font-bold shadow-lg pointer-events-auto cursor-pointer">Contact for Quote</span>
                   </div>
                 </div>
 
