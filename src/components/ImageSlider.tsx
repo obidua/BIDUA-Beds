@@ -98,7 +98,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
             <motion.img
               src={images[currentIndex]}
               alt={`Slide ${currentIndex + 1}`}
-              className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-300 block"
               whileHover={{ scale: 1.02 }}
               onError={(e) => {
                 const target = e.target as HTMLImageElement;
@@ -106,7 +106,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
               }}
             />
             {/* Click to view overlay */}
-            <div className="absolute inset-0 bg-black/0 hover:bg-black/20 transition-all duration-300 flex items-center justify-center opacity-0 hover:opacity-100 pointer-events-none">
+            <div className="absolute inset-0 bg-black/0 hover:bg-black/20 transition-all duration-300 flex items-center justify-center opacity-0 hover:opacity-100 pointer-events-none z-10">
               <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full px-4 py-2 text-gray-900 dark:text-white font-medium text-sm shadow-lg">
                 Click to view full image
               </div>

@@ -163,32 +163,26 @@ const Lightbox: React.FC<LightboxProps> = ({ images, initialIndex, isOpen, onClo
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.8 }}
           transition={{ duration: 0.3 }}
-          className={`relative max-w-[95vw] max-h-[95vh] ${isZoomed ? 'cursor-zoom-out' : 'cursor-zoom-in'}`}
+          className={`relative w-[90vw] h-[70vh] max-w-4xl max-h-[80vh] ${isZoomed ? 'cursor-zoom-out' : 'cursor-zoom-in'}`}
           onClick={(e) => {
             e.stopPropagation();
             toggleZoom();
           }}
         >
-          {/* DEBUG: Simplified image element with visible debugging styles */}
           <img
             key={currentIndex}
             src={images[currentIndex]}
             alt={`Image ${currentIndex + 1} of ${images.length}`}
-            className="w-full h-full object-contain rounded-lg shadow-2xl block bg-red-500 border-8 border-yellow-400 min-w-[200px] min-h-[200px]"
+            className="w-full h-full object-contain rounded-lg shadow-2xl block"
             style={{
-              maxWidth: isZoomed ? '150vw' : '95vw',
-              maxHeight: isZoomed ? '150vh' : '95vh',
               transform: isZoomed ? 'scale(1.5)' : 'scale(1)',
-              transition: 'transform 0.3s ease'
+              transition: 'transform 0.3s ease',
+              minWidth: '200px',
+              minHeight: '200px'
             }}
             onError={(e) => {
-              console.log('Image failed to load:', images[currentIndex]);
               const target = e.target as HTMLImageElement;
-              // Use a reliable test image
               target.src = 'https://picsum.photos/800/600?random=' + currentIndex;
-            }}
-            onLoad={() => {
-              console.log('Image loaded successfully:', images[currentIndex]);
             }}
           />
         </motion.div>
