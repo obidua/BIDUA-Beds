@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
@@ -25,6 +25,7 @@ const Catalogue: React.FC = () => {
   const [selectedSeries, setSelectedSeries] = useState<string>('all');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [searchTerm, setSearchTerm] = useState('');
+  const allProductsRef = useRef<HTMLElement>(null);
 
   // Filter products based on selected series and search term
   const filteredProducts = products.filter(product => {
@@ -34,10 +35,21 @@ const Catalogue: React.FC = () => {
     return matchesSeries && matchesSearch;
   });
 
-  // Get series that have actual products
-  const seriesWithProducts = productSeries.filter(series => 
-    products.some(product => product.id.toLowerCase().includes(series.id.toLowerCase()))
-  );
+  // Show all series in filter (not just those with products)
+  const seriesWithProducts = productSeries;
+
+  // Scroll to products section when series is selected
+  useEffect(() => {
+    if (selectedSeries !== 'all' && allProductsRef.current) {
+      const timer = setTimeout(() => {
+        allProductsRef.current?.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'start' 
+        });
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [selectedSeries]);
 
   return (
     <div className="min-h-screen bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl">
@@ -383,7 +395,7 @@ const Catalogue: React.FC = () => {
       </section>
 
       {/* All Products Section */}
-      <section className="py-20 bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl">
+      <section ref={allProductsRef} className="py-20 bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -394,11 +406,16 @@ const Catalogue: React.FC = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
               All <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Products</span>
             </h2>
-            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-4">
               {filteredProducts.length} product{filteredProducts.length !== 1 ? 's' : ''} 
               {selectedSeries !== 'all' && ` in ${productSeries.find(s => s.id === selectedSeries)?.name || 'selected series'}`}
               {searchTerm && ` matching "${searchTerm}"`}
             </p>
+            {selectedSeries !== 'all' && filteredProducts.length === 0 && (
+              <p className="text-amber-600 dark:text-amber-400 text-sm max-w-2xl mx-auto">
+                No specific product models are currently listed for this series. Please contact us for availability and custom configurations.
+              </p>
+            )}
           </motion.div>
 
           {/* Products Grid/List */}
@@ -484,9 +501,14 @@ const Catalogue: React.FC = () => {
               <div className="bg-gray-100 dark:bg-gray-800 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Search className="h-12 w-12 text-gray-400" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">No Products Found</h3>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                {selectedSeries !== 'all' ? 'Series Available - Contact for Details' : 'No Products Found'}
+              </h3>
               <p className="text-gray-600 dark:text-gray-400 mb-6">
-                Try adjusting your search terms or filter settings
+                {selectedSeries !== 'all' 
+                  ? 'This series is available for order. Contact our sales team for detailed specifications and pricing.'
+                  : 'Try adjusting your search terms or filter settings'
+                }
               </p>
               <button
                 onClick={() => {
@@ -495,7 +517,7 @@ const Catalogue: React.FC = () => {
                 }}
                 className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 py-3 rounded-xl hover:from-cyan-400 hover:to-blue-500 transition-all duration-200 font-semibold"
               >
-                Clear Filters
+                {selectedSeries !== 'all' ? 'View All Products' : 'Clear Filters'}
               </button>
             </motion.div>
           )}
