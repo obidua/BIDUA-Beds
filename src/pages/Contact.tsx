@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Clock, Globe } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
 
 const Contact: React.FC = () => {
+  const { theme } = useTheme();
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -27,7 +30,7 @@ const Contact: React.FC = () => {
   return (
     <div className="min-h-screen bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl">
       {/* Header */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 via-blue-50/30 to-cyan-50/40 dark:from-gray-900 dark:via-blue-900/20 dark:to-cyan-900/30">
+      <section className="py-20 bg-gradient-to-br from-gray-50 via-blue-50/30 to-cyan-50/40 dark:from-gray-950 dark:via-blue-900/30 dark:to-cyan-900/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
             Get In <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Touch</span>
@@ -39,7 +42,7 @@ const Contact: React.FC = () => {
       </section>
 
       {/* Contact Content */}
-      <section className="py-20 bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl">
+      <section className="py-20 bg-white/70 dark:bg-gray-950/70 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Information */}
@@ -47,7 +50,7 @@ const Contact: React.FC = () => {
               <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">Let's Start a Conversation</h2>
               
               <div className="space-y-6 mb-12">
-                <div className="flex items-center space-x-4">
+                <div className={`flex items-center space-x-4 ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}>
                   <div className="bg-gradient-to-br from-cyan-500/20 to-blue-600/20 w-12 h-12 rounded-lg flex items-center justify-center">
                     <Phone className="h-6 w-6 text-cyan-400" />
                   </div>
@@ -57,7 +60,7 @@ const Contact: React.FC = () => {
                   </div>
                 </div>
                 
-                <div className="flex items-center space-x-4">
+                <div className={`flex items-center space-x-4 ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}>
                   <div className="bg-gradient-to-br from-cyan-500/20 to-blue-600/20 w-12 h-12 rounded-lg flex items-center justify-center">
                     <Mail className="h-6 w-6 text-cyan-400" />
                   </div>
@@ -67,7 +70,7 @@ const Contact: React.FC = () => {
                   </div>
                 </div>
                 
-                <div className="flex items-center space-x-4">
+                <div className={`flex items-center space-x-4 ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}>
                   <div className="bg-gradient-to-br from-cyan-500/20 to-blue-600/20 w-12 h-12 rounded-lg flex items-center justify-center">
                     <MapPin className="h-6 w-6 text-cyan-400" />
                   </div>
@@ -77,7 +80,7 @@ const Contact: React.FC = () => {
                   </div>
                 </div>
                 
-                <div className="flex items-center space-x-4">
+                <div className={`flex items-center space-x-4 ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}>
                   <div className="bg-gradient-to-br from-cyan-500/20 to-blue-600/20 w-12 h-12 rounded-lg flex items-center justify-center">
                     <Clock className="h-6 w-6 text-cyan-400" />
                   </div>
@@ -95,11 +98,11 @@ const Contact: React.FC = () => {
                   <span>Global Offices</span>
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="bg-gray-100 dark:bg-gray-800/30 p-4 rounded-lg border border-gray-300 dark:border-cyan-500/20">
+                  <div className={`bg-gray-100 dark:bg-gray-900/40 p-4 rounded-lg border border-gray-300 dark:border-cyan-500/30 ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}>
                     <h4 className="text-gray-900 dark:text-white font-medium">Europe</h4>
                     <p className="text-gray-600 dark:text-gray-400 text-sm">London, United Kingdom</p>
                   </div>
-                  <div className="bg-gray-100 dark:bg-gray-800/30 p-4 rounded-lg border border-gray-300 dark:border-cyan-500/20">
+                  <div className={`bg-gray-100 dark:bg-gray-900/40 p-4 rounded-lg border border-gray-300 dark:border-cyan-500/30 ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}>
                     <h4 className="text-gray-900 dark:text-white font-medium">Asia Pacific</h4>
                     <p className="text-gray-600 dark:text-gray-400 text-sm">Tokyo, Japan</p>
                   </div>
@@ -108,7 +111,7 @@ const Contact: React.FC = () => {
             </div>
 
             {/* Contact Form */}
-            <div className="bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 dark:border-cyan-500/20 shadow-xl">
+            <div className={`bg-white dark:bg-gray-900/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 dark:border-cyan-500/30 shadow-xl ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
@@ -205,7 +208,7 @@ const Contact: React.FC = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-gray-50/70 dark:bg-gray-800/70 backdrop-blur-xl">
+      <section className="py-20 bg-gray-50/70 dark:bg-gray-900/70 backdrop-blur-xl">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -232,7 +235,7 @@ const Contact: React.FC = () => {
                 answer: 'Absolutely! We offer extensive customization options for colors, materials, and features to match your specific needs.'
               }
             ].map((faq, index) => (
-              <div key={index} className="bg-white dark:bg-gray-800/30 rounded-lg p-6 border border-gray-200 dark:border-cyan-500/20 shadow-md">
+              <div key={index} className={`bg-white dark:bg-gray-900/40 rounded-lg p-6 border border-gray-200 dark:border-cyan-500/30 shadow-md ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}>
                 <h3 className="text-gray-900 dark:text-white font-semibold mb-3">{faq.question}</h3>
                 <p className="text-gray-600 dark:text-gray-400">{faq.answer}</p>
               </div>

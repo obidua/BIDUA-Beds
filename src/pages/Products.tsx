@@ -4,11 +4,13 @@ import { motion } from 'framer-motion';
 import ImageSlider from '../components/ImageSlider';
 import { productSeries } from '../data/products';
 import { Check, Star, Award, Globe, ChevronDown, ChevronUp, Zap, Shield, Layers, Palette, Package, Building } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
 
 const Products: React.FC = () => {
   const [selectedSeries, setSelectedSeries] = useState(productSeries[0]);
   const [showModelCodes, setShowModelCodes] = useState(false);
   const [isSeriesPanelOpen, setIsSeriesPanelOpen] = useState(true);
+  const { theme } = useTheme();
 
   const dimensions = [
     { variant: 'Horizontal Single', size: '2060 × 1140 × 2400 mm' },
@@ -33,7 +35,7 @@ const Products: React.FC = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="py-20 bg-gradient-to-br from-gray-50 via-blue-50/30 to-cyan-50/40 dark:from-gray-900 dark:via-blue-900/20 dark:to-cyan-900/30 relative overflow-hidden"
+        className="py-20 bg-gradient-to-br from-gray-50 via-blue-50/30 to-cyan-50/40 dark:from-gray-950 dark:via-blue-900/30 dark:to-cyan-900/40 relative overflow-hidden"
       >
         <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'var(--svg-background-pattern)' }}></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
@@ -59,7 +61,7 @@ const Products: React.FC = () => {
       </motion.section>
 
       {/* Product Series Overview */}
-      <section className="py-20 bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl">
+      <section className="py-20 bg-white/70 dark:bg-gray-950/70 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -82,7 +84,7 @@ const Products: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-200 dark:border-cyan-500/20 hover:border-cyan-400/40 transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl group"
+                className={`bg-white dark:bg-gray-900/60 backdrop-blur-sm rounded-xl p-6 border border-gray-200 dark:border-cyan-500/30 hover:border-cyan-400/60 transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl group ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}
               >
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">{series.name}</h3>
                 <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{series.description}</p>
@@ -112,7 +114,7 @@ const Products: React.FC = () => {
       </section>
 
       {/* Materials & Colors */}
-      <section className="py-20 bg-gray-50/70 dark:bg-gray-800/70 backdrop-blur-xl">
+      <section className="py-20 bg-gray-50/70 dark:bg-gray-900/70 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -132,7 +134,7 @@ const Products: React.FC = () => {
       </section>
 
       {/* Product Showcase */}
-      <section className="py-20 bg-gray-50/70 dark:bg-gray-800/70 backdrop-blur-xl">
+      <section className="py-20 bg-gray-50/70 dark:bg-gray-900/70 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -158,7 +160,7 @@ const Products: React.FC = () => {
                     setSelectedSeries(series);
                     setIsSeriesPanelOpen(false);
                   }}
-                  className={`w-full text-left p-4 rounded-xl transition-all duration-300 ${
+                  className={`w-full text-left p-4 rounded-xl transition-all duration-300 ${theme === 'dark' ? 'dark-mode-card-glow' : ''} ${
                     selectedSeries.id === series.id
                      ? 'bg-gradient-to-r from-cyan-100/50 to-blue-100/50 dark:from-cyan-500/20 dark:to-blue-600/20 border border-cyan-400 shadow-lg shadow-cyan-500/10'
                      : 'bg-white dark:bg-gray-800/50 border border-gray-300 dark:border-gray-700 hover:border-cyan-500/40 hover:bg-gray-50 dark:hover:bg-gray-800/70 shadow-md'
@@ -202,9 +204,9 @@ const Products: React.FC = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
-              className="lg:col-span-2 col-span-full"
+              className={`lg:col-span-2 col-span-full ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}
             >
-              <div className="bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl border border-gray-200 dark:border-cyan-500/20 overflow-hidden shadow-2xl">
+              <div className="bg-white dark:bg-gray-900/60 backdrop-blur-sm rounded-2xl border border-gray-200 dark:border-cyan-500/30 overflow-hidden shadow-2xl">
                 <div className="relative">
                   <ImageSlider
                     images={selectedSeries.images}
@@ -356,7 +358,7 @@ const Products: React.FC = () => {
       </section>
 
       {/* Dimensions Table */}
-      <section className="py-20 bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl">
+      <section className="py-20 bg-white/70 dark:bg-gray-950/70 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -373,7 +375,7 @@ const Products: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl border border-gray-200 dark:border-cyan-500/20 overflow-hidden shadow-xl"
+            className={`bg-white dark:bg-gray-900/60 backdrop-blur-sm rounded-2xl border border-gray-200 dark:border-cyan-500/30 overflow-hidden shadow-xl ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}
           >
             <div className="overflow-x-auto">
               <table className="w-full">
@@ -404,7 +406,7 @@ const Products: React.FC = () => {
       </section>
 
       {/* Materials & Colors */}
-      <section className="py-20 bg-gray-50/70 dark:bg-gray-800/70 backdrop-blur-xl">
+      <section className="py-20 bg-gray-50/70 dark:bg-gray-900/70 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -427,7 +429,7 @@ const Products: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 dark:border-cyan-500/20 shadow-xl"
+                className={`bg-white dark:bg-gray-900/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 dark:border-cyan-500/30 shadow-xl ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}
               >
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
                   <Shield className="h-6 w-6 text-cyan-400 mr-3" />
@@ -478,7 +480,7 @@ const Products: React.FC = () => {
       </section>
 
       {/* Suitable Occasions */}
-      <section className="py-20 bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl">
+      <section className="py-20 bg-white/70 dark:bg-gray-950/70 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -498,7 +500,7 @@ const Products: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="bg-gradient-to-r from-cyan-100/50 to-blue-100/50 dark:from-cyan-500/20 dark:to-blue-600/20 border border-cyan-400/40 rounded-full px-6 py-3 hover:from-cyan-200/60 dark:hover:from-cyan-500/30 hover:to-blue-200/60 dark:hover:to-blue-600/30 transition-all duration-300 transform hover:scale-105 shadow-md"
+                className={`bg-gradient-to-r from-cyan-100/50 to-blue-100/50 dark:from-cyan-500/20 dark:to-blue-600/20 border border-cyan-400/40 rounded-full px-6 py-3 hover:from-cyan-200/60 dark:hover:from-cyan-500/30 hover:to-blue-200/60 dark:hover:to-blue-600/30 transition-all duration-300 transform hover:scale-105 shadow-md ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}
               >
                 <span className="text-gray-900 dark:text-white font-medium">{occasion}</span>
               </motion.div>
@@ -508,7 +510,7 @@ const Products: React.FC = () => {
       </section>
 
       {/* Model Codes */}
-      <section className="py-20 bg-gray-50/70 dark:bg-gray-800/70 backdrop-blur-xl">
+      <section className="py-20 bg-gray-50/70 dark:bg-gray-900/70 backdrop-blur-xl">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -517,7 +519,7 @@ const Products: React.FC = () => {
           >
             <button
               onClick={() => setShowModelCodes(!showModelCodes)}
-              className="w-full bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-200 dark:border-cyan-500/20 hover:border-cyan-400/40 transition-all duration-300 flex items-center justify-between shadow-lg"
+              className={`w-full bg-white dark:bg-gray-900/60 backdrop-blur-sm rounded-xl p-6 border border-gray-200 dark:border-cyan-500/30 hover:border-cyan-400/60 transition-all duration-300 flex items-center justify-between shadow-lg ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}
             >
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Model Codes & SKU Reference</h3>
               {showModelCodes ? (
@@ -533,7 +535,7 @@ const Products: React.FC = () => {
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.3 }}
-                className="mt-4 bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-200 dark:border-cyan-500/20 shadow-lg"
+                className={`mt-4 bg-white dark:bg-gray-900/60 backdrop-blur-sm rounded-xl p-6 border border-gray-200 dark:border-cyan-500/30 shadow-lg ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}
               >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {productSeries.map((series, index) => (
@@ -562,7 +564,7 @@ const Products: React.FC = () => {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl">
+      <section className="py-20 bg-white/70 dark:bg-gray-950/70 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -598,7 +600,7 @@ const Products: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
-                className="text-center group"
+                className={`text-center group ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}
               >
                 <div className="bg-gradient-to-br from-cyan-500/20 to-blue-600/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                   <item.icon className="h-8 w-8 text-cyan-400" />

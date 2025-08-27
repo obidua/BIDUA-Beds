@@ -20,6 +20,7 @@ import {
 import ImageSlider from '../components/ImageSlider';
 import ProductCard from '../components/ProductCard';
 import { products, productSeries } from '../data/products';
+import { useTheme } from '../context/ThemeContext';
 
 const Catalogue: React.FC = () => {
   const [selectedSeries, setSelectedSeries] = useState<string>('all');
@@ -28,6 +29,7 @@ const Catalogue: React.FC = () => {
   const [searchParams] = useSearchParams();
   const allProductsRef = useRef<HTMLElement>(null);
   const seriesRefs = useRef<Map<string, HTMLDivElement>>(new Map());
+  const { theme } = useTheme();
 
   // Check for series parameter in URL and set initial selection
   useEffect(() => {
@@ -91,7 +93,7 @@ const Catalogue: React.FC = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="py-20 bg-gradient-to-br from-gray-50 via-blue-50/30 to-cyan-50/40 dark:from-gray-900 dark:via-blue-900/20 dark:to-cyan-900/30 relative overflow-hidden"
+        className="py-20 bg-gradient-to-br from-gray-50 via-blue-50/30 to-cyan-50/40 dark:from-gray-950 dark:via-blue-900/30 dark:to-cyan-900/40 relative overflow-hidden"
       >
         <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'var(--svg-background-pattern)' }}></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
@@ -128,15 +130,15 @@ const Catalogue: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="flex flex-wrap justify-center gap-6 mb-8"
           >
-            <div className="bg-white/20 dark:bg-gray-800/30 backdrop-blur-sm rounded-xl px-6 py-3 border border-cyan-400/40">
+            <div className={`bg-white/20 dark:bg-gray-900/40 backdrop-blur-sm rounded-xl px-6 py-3 border border-cyan-400/40 ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}>
               <div className="text-2xl font-bold text-cyan-400">{productSeries.length}</div>
               <div className="text-gray-600 dark:text-gray-300 text-sm">Product Series</div>
             </div>
-            <div className="bg-white/20 dark:bg-gray-800/30 backdrop-blur-sm rounded-xl px-6 py-3 border border-cyan-400/40">
+            <div className={`bg-white/20 dark:bg-gray-900/40 backdrop-blur-sm rounded-xl px-6 py-3 border border-cyan-400/40 ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}>
               <div className="text-2xl font-bold text-cyan-400">{products.length}</div>
               <div className="text-gray-600 dark:text-gray-300 text-sm">Available Models</div>
             </div>
-            <div className="bg-white/20 dark:bg-gray-800/30 backdrop-blur-sm rounded-xl px-6 py-3 border border-cyan-400/40">
+            <div className={`bg-white/20 dark:bg-gray-900/40 backdrop-blur-sm rounded-xl px-6 py-3 border border-cyan-400/40 ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}>
               <div className="text-2xl font-bold text-cyan-400">25+</div>
               <div className="text-gray-600 dark:text-gray-300 text-sm">Countries Served</div>
             </div>
@@ -145,7 +147,7 @@ const Catalogue: React.FC = () => {
       </motion.section>
 
       {/* Filters and Controls */}
-      <section className="py-8 bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl border-b border-gray-200 dark:border-gray-700">
+      <section className="py-8 bg-white/70 dark:bg-gray-950/70 backdrop-blur-xl border-b border-gray-200 dark:border-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row gap-4 items-center justify-between">
             {/* Search */}
@@ -211,7 +213,7 @@ const Catalogue: React.FC = () => {
       </section>
 
       {/* Product Series Overview */}
-      <section className="py-20 bg-gray-50/70 dark:bg-gray-800/70 backdrop-blur-xl">
+      <section className="py-20 bg-gray-50/70 dark:bg-gray-900/70 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -241,7 +243,7 @@ const Catalogue: React.FC = () => {
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: seriesIndex * 0.1 }}
-                  className="bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-3xl border border-gray-200 dark:border-cyan-500/20 overflow-hidden shadow-2xl"
+                  className={`bg-white dark:bg-gray-900/60 backdrop-blur-sm rounded-3xl border border-gray-200 dark:border-cyan-500/30 overflow-hidden shadow-2xl ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}
                 >
                   {/* Series Images */}
                   <div className="relative">
@@ -456,7 +458,7 @@ const Catalogue: React.FC = () => {
       </section>
 
       {/* All Products Section */}
-      <section ref={allProductsRef} className="py-20 bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl">
+      <section ref={allProductsRef} className="py-20 bg-white/70 dark:bg-gray-950/70 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -501,7 +503,7 @@ const Catalogue: React.FC = () => {
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl border border-gray-200 dark:border-cyan-500/20 overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300"
+                  className={`bg-white dark:bg-gray-900/60 backdrop-blur-sm rounded-2xl border border-gray-200 dark:border-cyan-500/30 overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}
                 >
                   <div className="flex flex-col lg:flex-row">
                     <div className="lg:w-1/3">
@@ -557,7 +559,7 @@ const Catalogue: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-center py-16"
+              className={`text-center py-16 ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}
             >
               <div className="bg-gray-100 dark:bg-gray-800 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Search className="h-12 w-12 text-gray-400" />
