@@ -70,8 +70,6 @@ const Lightbox: React.FC<LightboxProps> = ({ images, initialIndex, isOpen, onClo
 
   // Prevent body scroll when lightbox is open
   useEffect(() => {
-    console.log('Lightbox state changed:', { isOpen, imagesLength: images.length });
-    
     if (isOpen) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -92,7 +90,7 @@ const Lightbox: React.FC<LightboxProps> = ({ images, initialIndex, isOpen, onClo
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.3 }}
-        className="fixed inset-0 z-[9999] bg-black/95 backdrop-blur-sm flex items-center justify-center border-4 border-dashed border-purple-500"
+        className="fixed inset-0 z-[9999] bg-black/95 backdrop-blur-sm flex items-center justify-center"
         onClick={onClose}
       >
         {/* Close Button */}
@@ -165,7 +163,7 @@ const Lightbox: React.FC<LightboxProps> = ({ images, initialIndex, isOpen, onClo
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.8 }}
           transition={{ duration: 0.3 }}
-          className={`relative w-[90vw] h-[70vh] max-w-4xl max-h-[80vh] ${isZoomed ? 'cursor-zoom-out' : 'cursor-zoom-in'}`}
+          className={`relative flex items-center justify-center max-w-4xl max-h-[80vh] ${isZoomed ? 'cursor-zoom-out' : 'cursor-zoom-in'}`}
           onClick={(e) => {
             e.stopPropagation();
             toggleZoom();
@@ -175,12 +173,10 @@ const Lightbox: React.FC<LightboxProps> = ({ images, initialIndex, isOpen, onClo
             key={currentIndex}
             src={images[currentIndex]}
             alt={`Image ${currentIndex + 1} of ${images.length}`}
-            className="w-full h-full object-contain rounded-lg shadow-2xl block"
+            className="max-w-full max-h-full object-contain rounded-lg shadow-2xl block"
             style={{
               transform: isZoomed ? 'scale(1.5)' : 'scale(1)',
               transition: 'transform 0.3s ease',
-              minWidth: '200px',
-              minHeight: '200px'
             }}
             onError={(e) => {
               const target = e.target as HTMLImageElement;
