@@ -12,6 +12,12 @@ interface LightboxProps {
 const Lightbox: React.FC<LightboxProps> = ({ images, initialIndex, isOpen, onClose }) => {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
   const [isZoomed, setIsZoomed] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [startY, setStartY] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const [scrollTop, setScrollTop] = useState(0);
+  const containerRef = React.useRef<HTMLDivElement>(null);
 
   // Reset zoom when image changes
   useEffect(() => {
@@ -39,6 +45,33 @@ const Lightbox: React.FC<LightboxProps> = ({ images, initialIndex, isOpen, onClo
     setIsZoomed(!isZoomed);
   }, [isZoomed]);
 
+  // Drag handlers
+  const handleMouseDown = useCallback((e: React.MouseEvent) => {
+    if (!isZoomed || !containerRef.current) return;
+    
+    setIsDragging(true);
+    setStartX(e.pageX - containerRef.current.offsetLeft);
+    setStartY(e.pageY - containerRef.current.offsetTop);
+    setScrollLeft(containerRef.current.scrollLeft);
+    setScrollTop(containerRef.current.scrollTop);
+  }, [isZoomed]);
+
+  const handleMouseUp = useCallback(() => {
+    setIsDragging(false);
+  }, []);
+
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
+    if (!isDragging || !isZoomed || !containerRef.current) return;
+    
+    e.preventDefault();
+    const x = e.pageX - containerRef.current.offsetLeft;
+    const y = e.pageY - containerRef.current.offsetTop;
+    const walkX = (x - startX) * 2; // Multiply by 2 for faster scrolling
+    const walkY = (y - startY) * 2;
+    
+    containerRef.current.scrollLeft = scrollLeft - walkX;
+    containerRef.current.scrollTop = scrollTop - walkY;
+  }, [isDragging, isZoomed, startX, startY, scrollLeft, scrollTop]);
   // Keyboard navigation
   useEffect(() => {
     if (!isOpen) return;
