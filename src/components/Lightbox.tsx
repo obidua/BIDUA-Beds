@@ -301,7 +301,7 @@ const Lightbox: React.FC<LightboxProps> = ({ images, initialIndex, onClose, isOp
                 />
               </button>
             ))}
-          </motion.div>
+          </div>
         )}
 
         {/* Instructions */}
