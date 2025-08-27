@@ -340,12 +340,22 @@ const OrderNow: React.FC = () => {
                               className="w-full bg-white dark:bg-gray-600/50 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-cyan-400 transition-colors"
                               required
                             >
-                              {productSeries.map((series) => (
+                              {productSeries
+                                .filter(series => 
+                                  series.id === item.seriesId || 
+                                  !cartItems.some(cartItem => cartItem.id !== item.id && cartItem.seriesId === series.id)
+                                )
+                                .map((series) => (
                                 <option key={series.id} value={series.id}>
                                   {series.name}
                                 </option>
                               ))}
                             </select>
+                            {productSeries.length - cartItems.filter(cartItem => cartItem.id !== item.id).length === 1 && (
+                              <p className="text-xs text-amber-600 dark:text-amber-400 mt-1">
+                                Only this series is available (others already selected)
+                              </p>
+                            )}
                           </div>
                           <div>
                             <label className="block text-gray-900 dark:text-white font-medium mb-2">Quantity (sets)</label>
