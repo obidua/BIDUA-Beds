@@ -202,7 +202,7 @@ const Products: React.FC = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
-              className={`${!isSeriesPanelOpen ? 'col-span-full' : 'lg:col-span-2'}`}
+              className="lg:col-span-2 col-span-full"
             >
               <div className="bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl border border-gray-200 dark:border-cyan-500/20 overflow-hidden shadow-2xl">
                 <div className="relative">

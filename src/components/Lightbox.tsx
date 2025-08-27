@@ -182,7 +182,7 @@ const Lightbox: React.FC<LightboxProps> = ({ images, initialIndex, isOpen, onClo
               }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.2 }}
-              className={`w-full h-full object-contain rounded-lg shadow-2xl transition-transform duration-300 ${
+              className={`w-full h-full object-contain rounded-lg shadow-2xl transition-transform duration-300 block !opacity-100 ${
                 isZoomed ? 'transform-gpu' : ''
               }`}
               style={{
