@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --svg-background-pattern: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.02"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+}
+
+@keyframes moveBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+body {
+  background: linear-gradient(-45deg, #f0f9ff, #e0f2fe, #bae6fd, #7dd3fc, #38bdf8, #0ea5e9);
+  background-size: 400% 400%;
+  animation: moveBackground 15s ease infinite;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  z-index: -1;
+  pointer-events: none;
+  box-shadow: 
+    100px 200px 2px rgba(255, 255, 255, 0.8),
+    300px 150px 1px rgba(255, 255, 255, 0.6),
+    500px 300px 2px rgba(255, 255, 255, 0.9),
+    700px 100px 1px rgba(255, 255, 255, 0.7),
+    900px 250px 2px rgba(255, 255, 255, 0.8),
+    1100px 180px 1px rgba(255, 255, 255, 0.5),
+    1300px 320px 2px rgba(255, 255, 255, 0.9),
+    1500px 80px 1px rgba(255, 255, 255, 0.6),
+    200px 400px 1px rgba(255, 255, 255, 0.7),
+    400px 350px 2px rgba(255, 255, 255, 0.8),
+    600px 450px 1px rgba(255, 255, 255, 0.6),
+    800px 380px 2px rgba(255, 255, 255, 0.9),
+    1000px 420px 1px rgba(255, 255, 255, 0.5),
+    1200px 480px 2px rgba(255, 255, 255, 0.8),
+    1400px 360px 1px rgba(255, 255, 255, 0.7),
+    150px 50px 1px rgba(255, 255, 255, 0.6),
+    350px 80px 2px rgba(255, 255, 255, 0.9),
+    550px 120px 1px rgba(255, 255, 255, 0.7),
+    750px 60px 2px rgba(255, 255, 255, 0.8),
+    950px 90px 1px rgba(255, 255, 255, 0.5),
+    1150px 40px 2px rgba(255, 255, 255, 0.9),
+    1350px 110px 1px rgba(255, 255, 255, 0.6),
+    250px 500px 2px rgba(255, 255, 255, 0.8),
+    450px 520px 1px rgba(255, 255, 255, 0.7),
+    650px 480px 2px rgba(255, 255, 255, 0.9),
+    850px 540px 1px rgba(255, 255, 255, 0.6),
+    1050px 510px 2px rgba(255, 255, 255, 0.8),
+    1250px 490px 1px rgba(255, 255, 255, 0.5),
+    1450px 530px 2px rgba(255, 255, 255, 0.9),
+    80px 600px 1px rgba(255, 255, 255, 0.7),
+    280px 620px 2px rgba(255, 255, 255, 0.8),
+    480px 580px 1px rgba(255, 255, 255, 0.6),
+    680px 640px 2px rgba(255, 255, 255, 0.9),
+    880px 610px 1px rgba(255, 255, 255, 0.5),
+    1080px 590px 2px rgba(255, 255, 255, 0.8),
+    1280px 630px 1px rgba(255, 255, 255, 0.7),
+    1480px 600px 2px rgba(255, 255, 255, 0.9),
+    120px 700px 1px rgba(255, 255, 255, 0.6),
+    320px 720px 2px rgba(255, 255, 255, 0.8),
+    520px 680px 1px rgba(255, 255, 255, 0.7),
+    720px 740px 2px rgba(255, 255, 255, 0.9),
+    920px 710px 1px rgba(255, 255, 255, 0.5),
+    1120px 690px 2px rgba(255, 255, 255, 0.8),
+    1320px 730px 1px rgba(255, 255, 255, 0.6),
+    1520px 700px 2px rgba(255, 255, 255, 0.9);
+  animation: starFieldMove 120s linear infinite;
+}
+
+.dark body {
+  background: linear-gradient(-45deg, #0f172a, #1e293b, #334155, #475569, #64748b, #94a3b8);
+  background-size: 400% 400%;
+  animation: moveBackground 20s ease infinite;
+}
+
+.dark body::before {
+  box-shadow: 
+    100px 200px 2px rgba(147, 197, 253, 0.8),
+    300px 150px 1px rgba(147, 197, 253, 0.6),
+    500px 300px 2px rgba(147, 197, 253, 0.9),
+    700px 100px 1px rgba(147, 197, 253, 0.7),
+    900px 250px 2px rgba(147, 197, 253, 0.8),
+    1100px 180px 1px rgba(147, 197, 253, 0.5),
+    1300px 320px 2px rgba(147, 197, 253, 0.9),
+    1500px 80px 1px rgba(147, 197, 253, 0.6),
+    200px 400px 1px rgba(147, 197, 253, 0.7),
+    400px 350px 2px rgba(147, 197, 253, 0.8),
+    600px 450px 1px rgba(147, 197, 253, 0.6),
+    800px 380px 2px rgba(147, 197, 253, 0.9),
+    1000px 420px 1px rgba(147, 197, 253, 0.5),
+    1200px 480px 2px rgba(147, 197, 253, 0.8),
+    1400px 360px 1px rgba(147, 197, 253, 0.7),
+    150px 50px 1px rgba(147, 197, 253, 0.6),
+    350px 80px 2px rgba(147, 197, 253, 0.9),
+    550px 120px 1px rgba(147, 197, 253, 0.7),
+    750px 60px 2px rgba(147, 197, 253, 0.8),
+    950px 90px 1px rgba(147, 197, 253, 0.5),
+    1150px 40px 2px rgba(147, 197, 253, 0.9),
+    1350px 110px 1px rgba(147, 197, 253, 0.6),
+    250px 500px 2px rgba(147, 197, 253, 0.8),
+    450px 520px 1px rgba(147, 197, 253, 0.7),
+    650px 480px 2px rgba(147, 197, 253, 0.9),
+    850px 540px 1px rgba(147, 197, 253, 0.6),
+    1050px 510px 2px rgba(147, 197, 253, 0.8),
+    1250px 490px 1px rgba(147, 197, 253, 0.5),
+    1450px 530px 2px rgba(147, 197, 253, 0.9),
+    80px 600px 1px rgba(147, 197, 253, 0.7),
+    280px 620px 2px rgba(147, 197, 253, 0.8),
+    480px 580px 1px rgba(147, 197, 253, 0.6),
+    680px 640px 2px rgba(147, 197, 253, 0.9),
+    880px 610px 1px rgba(147, 197, 253, 0.5),
+    1080px 590px 2px rgba(147, 197, 253, 0.8),
+    1280px 630px 1px rgba(147, 197, 253, 0.7),
+    1480px 600px 2px rgba(147, 197, 253, 0.9),
+    120px 700px 1px rgba(147, 197, 253, 0.6),
+    320px 720px 2px rgba(147, 197, 253, 0.8),
+    520px 680px 1px rgba(147, 197, 253, 0.7),
+    720px 740px 2px rgba(147, 197, 253, 0.9),
+    920px 710px 1px rgba(147, 197, 253, 0.5),
+    1120px 690px 2px rgba(147, 197, 253, 0.8),
+    1320px 730px 1px rgba(147, 197, 253, 0.6),
+    1520px 700px 2px rgba(147, 197, 253, 0.9);
+}
+
+@keyframes starFieldMove {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  25% {
+    transform: translateX(-20px) translateY(-10px);
+  }
+  50% {
+    transform: translateX(-40px) translateY(15px);
+  }
+  75% {
+    transform: translateX(-60px) translateY(-5px);
+  }
+  100% {
+    transform: translateX(-80px) translateY(10px);
+  }
+}
+
+/* Ensure fixed header stays on top */
+nav[class*="fixed"] {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 9999 !important;
+}
+
+/* Prevent content from hiding behind fixed header */
+main {
+  padding-top: 4rem; /* 64px to match h-16 header height */
+}
+
+/* Smooth scrolling for better UX */
+html {
+  scroll-behavior: smooth;
+}
