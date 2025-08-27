@@ -75,7 +75,7 @@ const About: React.FC = () => {
             </div>
             <div className="relative">
               <img
-                src='/Pods Images/COSMOS series/"COSMOS"series -Horizontal:Verticalsingle bed main.png'
+                src='/Pods_Images/COSMOS series/"COSMOS"series -Horizontal:Verticalsingle bed main.png'
                 alt="Our Mission"
                 className="rounded-2xl shadow-2xl"
               />
