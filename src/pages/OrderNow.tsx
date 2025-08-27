@@ -243,7 +243,7 @@ const OrderNow: React.FC = () => {
 
     const message = encodeURIComponent(generateMessage());
     const whatsappNumber = '91XXXXXXXXXX'; // Replace with actual WhatsApp number
-    const fallbackEmail = 'sales@biduapods.com';
+    const fallbackEmail = 'biduaindistries@gmail.com';
 
     // Try WhatsApp first, fallback to email
     if (whatsappNumber && !whatsappNumber.includes('XXXXXXXXXX')) {

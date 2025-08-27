@@ -48,17 +48,18 @@ const Footer: React.FC = () => {
             <h3 className="text-gray-900 dark:text-white font-semibold mb-4">Contact</h3>
             <ul className="space-y-3">
               <li className="flex items-center space-x-2 text-gray-600 dark:text-gray-400">
-                <Phone className="h-4 w-4 text-cyan-500" />
-                <span>+1 (555) 123-4567</span>
-              </li>
-              <li className="flex items-center space-x-2 text-gray-600 dark:text-gray-400">
                 <Mail className="h-4 w-4 text-cyan-500" />
-                <span>info@biduapods.com</span>
+                <span>biduaindistries@gmail.com</span>
               </li>
-              <li className="flex items-center space-x-2 text-gray-600 dark:text-gray-400">
-                <MapPin className="h-4 w-4 text-cyan-500" />
-                <span>Mumbai, India</span>
-              </li>
+            </ul>
+            
+            <div className="mt-6">
+              <h4 className="text-gray-900 dark:text-white font-semibold mb-2">Company</h4>
+              <div className="text-gray-600 dark:text-gray-400 text-sm space-y-1">
+                <p>BIDUA Industries Pvt Ltd</p>
+                <p>Motorsers Pvt Ltd</p>
+              </div>
+            </div>
             </ul>
           </div>
           
