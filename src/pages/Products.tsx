@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import ImageSlider from '../components/ImageSlider';
 import { products, productSeries } from '../data/products';
-import { Check, Star, Award, Globe, ChevronDown, ChevronUp, Zap, Shield, Layers } from 'lucide-react';
+import { Check, Star, Award, Globe, ChevronDown, ChevronUp, Zap, Shield, Layers, Palette, Package } from 'lucide-react';
 
 const Products: React.FC = () => {
   const [selectedProduct, setSelectedProduct] = useState(products[0]);
@@ -81,10 +81,29 @@ const Products: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-200 dark:border-cyan-500/20 hover:border-cyan-400/40 transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl"
+                className="bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-200 dark:border-cyan-500/20 hover:border-cyan-400/40 transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl group"
               >
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">{series.name}</h3>
                 <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{series.description}</p>
+                
+                {/* Quick Info */}
+                <div className="mt-4 space-y-2">
+                  <div className="flex items-center space-x-2">
+                    <Package className="h-4 w-4 text-cyan-400" />
+                    <span className="text-xs text-gray-500 dark:text-gray-400">{series.sizes.length} size{series.sizes.length > 1 ? 's' : ''}</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <Palette className="h-4 w-4 text-cyan-400" />
+                    <span className="text-xs text-gray-500 dark:text-gray-400">{series.colors.length} color{series.colors.length > 1 ? 's' : ''}</span>
+                  </div>
+                </div>
+                
+                {/* Models */}
+                <div className="mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="text-xs text-cyan-400 font-mono">
+                    {series.models.join(', ')}
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -272,6 +291,59 @@ const Products: React.FC = () => {
       {/* Materials & Colors */}
       <section className="py-20 bg-gray-50/70 dark:bg-gray-800/70 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              Series <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Details</span>
+            </h2>
+            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              Comprehensive specifications for each product series
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            {productSeries.map((series, index) => (
+              <motion.div
+                key={series.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="bg-white dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 dark:border-cyan-500/20 shadow-xl"
+              >
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
+                  <Shield className="h-6 w-6 text-cyan-400 mr-3" />
+                  {series.name}
+                </h3>
+                
+                <div className="space-y-6">
+                  {/* Models */}
+                  <div>
+                    <h4 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2">Models</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {series.models.map((model, modelIndex) => (
+                        <span key={modelIndex} className="bg-cyan-500/20 text-cyan-400 px-3 py-1 rounded-full text-xs font-mono">
+                          {model}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Sizes */}
+                  <div>
+                    <h4 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2">Sizes</h4>
+                    <div className="space-y-2">
+                      {series.sizes.map((size, sizeIndex) => (
+                        <div key={sizeIndex} className="flex justify-between items-center py-2 border-b border-gray-200 dark:border-gray-700/50">
+                          <span className="text-gray-700 dark:text-gray-300 font-medium">{size.variant}</span>
+                          <span className="text-cyan-400 font-mono text-sm">{size.dimensions}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
