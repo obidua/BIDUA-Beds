@@ -119,6 +119,8 @@ const Gallery: React.FC = () => {
     setIsLightboxOpen(false);
   };
 
+  const images = filteredImages.map(img => img.url);
+
   return (
     <div className="min-h-screen bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl">
       {/* Header */}
@@ -181,32 +183,17 @@ const Gallery: React.FC = () => {
                     <div className="mt-2 text-white/80 text-xs">Click to view full size</div>
                   </div>
                 </div>
+                {/* Zoom overlay indicator */}
+                <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-all duration-300 flex items-center justify-center opacity-0 hover:opacity-100">
+                  <div className="bg-white/90 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">
+                    Click to view full size
+                  </div>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
-
-              target.src = 'https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg?auto=compress&cs=tinysrgb&w=800';
-            <button
-              onClick={() => setSelectedImage(null)}
-              className="absolute top-4 right-4 text-white hover:text-cyan-400 transition-colors z-10"
-            >
-              <X className="h-8 w-8" />
-            </button>
-            <img
-              src={selectedImage}
-              alt="Gallery"
-              className="w-full h-full object-contain rounded-lg"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.src = 'https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg?auto=compress&cs=tinysrgb&w=400';
-              }}
-              onClick={(e) => e.stopPropagation()}
-            />
-          </div>
-        </div>
-      )}
 
       {/* Lightbox */}
       <Lightbox
@@ -216,12 +203,6 @@ const Gallery: React.FC = () => {
         onClose={closeLightbox}
       />
     </div>
-          {/* Zoom overlay indicator */}
-          <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-all duration-300 flex items-center justify-center opacity-0 hover:opacity-100">
-            <div className="bg-white/90 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">
-              Click to view full size
-            </div>
-          </div>
   );
 };
 
