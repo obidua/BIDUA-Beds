@@ -56,7 +56,7 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="text-gray-900 dark:text-white font-semibold">Phone</h3>
-                    <p className="text-gray-600 dark:text-gray-400">+1 (555) 123-4567</p>
+                    <p className="text-gray-600 dark:text-gray-400">9512921903</p>
                   </div>
                 </div>
                 
@@ -66,7 +66,7 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="text-gray-900 dark:text-white font-semibold">Email</h3>
-                    <p className="text-gray-600 dark:text-gray-400">info@sleeptech.com</p>
+                    <p className="text-gray-600 dark:text-gray-400">biduaindustries@gmail.com</p>
                   </div>
                 </div>
                 
@@ -76,7 +76,7 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="text-gray-900 dark:text-white font-semibold">Headquarters</h3>
-                    <p className="text-gray-600 dark:text-gray-400">123 Innovation Drive<br />San Francisco, CA 94105</p>
+                    <p className="text-gray-600 dark:text-gray-400">H-77 Sector 63<br />Noida UP</p>
                   </div>
                 </div>
                 
@@ -99,12 +99,8 @@ const Contact: React.FC = () => {
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className={`bg-gray-100 dark:bg-gray-900/40 p-4 rounded-lg border border-gray-300 dark:border-cyan-500/30 ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}>
-                    <h4 className="text-gray-900 dark:text-white font-medium">Europe</h4>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm">London, United Kingdom</p>
-                  </div>
-                  <div className={`bg-gray-100 dark:bg-gray-900/40 p-4 rounded-lg border border-gray-300 dark:border-cyan-500/30 ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}>
-                    <h4 className="text-gray-900 dark:text-white font-medium">Asia Pacific</h4>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm">Tokyo, Japan</p>
+                    <h4 className="text-gray-900 dark:text-white font-medium">India</h4>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm">Noida, Uttar Pradesh</p>
                   </div>
                 </div>
               </div>
