@@ -218,7 +218,7 @@ const Products: React.FC = () => {
                   <div className="absolute bottom-6 left-6 pointer-events-none">
                     <h2 className="text-3xl font-bold text-white dark:text-white mb-2">{selectedSeries.name}</h2>
                     <Link
-                      to={`/order-now?series=${selectedSeries.id}`}
+                      to="/order-now"
                       className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-4 py-2 rounded-full text-lg font-bold shadow-lg pointer-events-auto hover:from-cyan-400 hover:to-blue-500 transition-all duration-200 inline-block"
                     >
                       Contact for Quote
