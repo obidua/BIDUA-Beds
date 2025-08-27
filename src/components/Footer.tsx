@@ -60,7 +60,6 @@ const Footer: React.FC = () => {
                 <p>Motorsers Pvt Ltd</p>
               </div>
             </div>
-            </ul>
           </div>
           
           {/* Developer Login Link */}
