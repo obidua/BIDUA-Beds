@@ -39,4 +39,5 @@ export interface ProductSeriesDetail {
   features: string[];
   applications: string[];
   availableMaterials: string[];
+  origin: 'imported' | 'made-in-india';
 }

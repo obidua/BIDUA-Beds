@@ -231,7 +231,8 @@ export const productSeries: ProductSeriesDetail[] = [
       'Hotels', 'Airports', 'Dormitories', 'Sauna clubs', 'Youth hostels', 
       'Family apartments', 'Schools', 'Hospitals', 'Companies', 'Capsule hotels'
     ],
-    availableMaterials: ['ABS V0 Fire-retardant']
+    availableMaterials: ['ABS V0 Fire-retardant'],
+    origin: 'imported'
   },
   {
     id: 'space', 
@@ -262,7 +263,8 @@ export const productSeries: ProductSeriesDetail[] = [
       'Hotels', 'Airports', 'Dormitories', 'Youth hostels', 
       'Schools', 'Hospitals', 'Companies', 'Capsule hotels'
     ],
-    availableMaterials: ['ABS V0 Fire-retardant']
+    availableMaterials: ['ABS V0 Fire-retardant'],
+    origin: 'imported'
   },
   {
     id: 'explore',
@@ -293,7 +295,8 @@ export const productSeries: ProductSeriesDetail[] = [
       'Hotels', 'Airports', 'Dormitories', 'Sauna clubs', 
       'Schools', 'Hospitals', 'Capsule hotels'
     ],
-    availableMaterials: ['ABS V0 Fire-retardant']
+    availableMaterials: ['ABS V0 Fire-retardant'],
+    origin: 'imported'
   },
   {
     id: 'cosmos',
@@ -324,7 +327,8 @@ export const productSeries: ProductSeriesDetail[] = [
       'Hotels', 'Airports', 'Dormitories', 'Youth hostels', 'Family apartments',
       'Schools', 'Hospitals', 'Capsule hotels'
     ],
-    availableMaterials: ['ABS V0 Fire-retardant']
+    availableMaterials: ['ABS V0 Fire-retardant'],
+    origin: 'imported'
   },
   {
     id: 'future',
@@ -355,7 +359,8 @@ export const productSeries: ProductSeriesDetail[] = [
     applications: [
       'Hotels', 'Airports', 'Dormitories', 'Schools', 'Hospitals', 'Capsule hotels'
     ],
-    availableMaterials: ['ABS V0 Fire-retardant']
+    availableMaterials: ['ABS V0 Fire-retardant'],
+    origin: 'imported'
   },
   {
     id: 'esports',
@@ -384,7 +389,8 @@ export const productSeries: ProductSeriesDetail[] = [
       'Hotels', 'Airports', 'Dormitories', 'Youth hostels', 'Family apartments',
       'Schools', 'Hospitals', 'Capsule hotels'
     ],
-    availableMaterials: ['ABS V0 Fire-retardant', 'Wood (eco multi-layer board)']
+    availableMaterials: ['ABS V0 Fire-retardant', 'Wood (eco multi-layer board)'],
+    origin: 'imported'
   },
   {
     id: 'wooden',
@@ -411,7 +417,8 @@ export const productSeries: ProductSeriesDetail[] = [
       'Hotels', 'Airports', 'Dormitories', 'Youth hostels', 'Family apartments',
       'Schools', 'Hospitals', 'Capsule hotels'
     ],
-    availableMaterials: ['Wood (eco multi-layer board)']
+    availableMaterials: ['Wood (eco multi-layer board)'],
+    origin: 'imported'
   },
   {
     id: 'lounge',
@@ -440,6 +447,7 @@ export const productSeries: ProductSeriesDetail[] = [
       'Airports', 'Family apartments', 'Hospitals', 'Companies', 
       'Internet bars', 'Livestream studios'
     ],
-    availableMaterials: ['ABS V0 Fire-retardant']
+    availableMaterials: ['ABS V0 Fire-retardant'],
+    origin: 'imported'
   }
 ];

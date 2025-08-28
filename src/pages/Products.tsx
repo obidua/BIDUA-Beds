@@ -89,6 +89,17 @@ const Products: React.FC = () => {
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">{series.name}</h3>
                 <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{series.description}</p>
                 
+                {/* Origin Badge */}
+                <div className="mt-3">
+                  <span className={`inline-block px-3 py-1 rounded-full text-xs font-bold shadow-lg ${
+                    series.origin === 'made-in-india' 
+                      ? 'bg-gradient-to-r from-green-500 to-emerald-600 text-white' 
+                      : 'bg-gradient-to-r from-orange-500 to-red-600 text-white'
+                  }`}>
+                    {series.origin === 'made-in-india' ? 'Made in India' : 'Imported'}
+                  </span>
+                </div>
+                
                 {/* Quick Info */}
                 <div className="mt-4 space-y-2">
                   <div className="flex items-center space-x-2">
@@ -217,6 +228,15 @@ const Products: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/10 to-transparent pointer-events-none"></div>
                   <div className="absolute bottom-6 left-6 pointer-events-none">
                     <h2 className="text-3xl font-bold text-white dark:text-white mb-2">{selectedSeries.name}</h2>
+                    <div className="mb-3">
+                      <span className={`inline-block px-4 py-2 rounded-full text-sm font-bold shadow-lg backdrop-blur-sm ${
+                        selectedSeries.origin === 'made-in-india' 
+                          ? 'bg-gradient-to-r from-green-500 to-emerald-600 text-white' 
+                          : 'bg-gradient-to-r from-orange-500 to-red-600 text-white'
+                      }`}>
+                        {selectedSeries.origin === 'made-in-india' ? 'Made in India' : 'Imported'}
+                      </span>
+                    </div>
                     <Link
                       to="/order-now"
                       className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-4 py-2 rounded-full text-lg font-bold shadow-lg pointer-events-auto hover:from-cyan-400 hover:to-blue-500 transition-all duration-200 inline-block"
