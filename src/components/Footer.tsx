@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-3">
               <li className="flex items-center space-x-2 text-gray-600 dark:text-gray-400">
                 <Mail className="h-4 w-4 text-cyan-500" />
-                <span>biduaindistries@gmail.com</span>
+                <span>biduaindustries@gmail.com</span>
               </li>
             </ul>
             
