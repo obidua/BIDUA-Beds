@@ -37,7 +37,7 @@ const Home: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-white/60 via-cyan-50/20 to-blue-50/30 dark:from-gray-950/60 dark:via-blue-900/20 dark:to-cyan-900/30 backdrop-blur-md transition-colors duration-500"></div>
         
         {/* Hero Image Slider Background */}
-        <div className="absolute inset-0 opacity-30 dark:opacity-40">
+        <div className="absolute inset-0 opacity-40 sm:opacity-35 md:opacity-30 dark:opacity-50 dark:sm:opacity-45 dark:md:opacity-40">
           <ImageSlider
             images={homePageImages}
             className="w-full h-full"
