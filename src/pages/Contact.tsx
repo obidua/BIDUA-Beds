@@ -217,19 +217,19 @@ const Contact: React.FC = () => {
             {[
               {
                 question: 'What is the typical installation time?',
-                answer: 'Standard installation takes 2-4 hours depending on the model and location requirements.'
+                answer: 'We are the importer of sleeping pods and deliver them to your location. Installation is not provided directly by us; customers are expected to arrange their own installation. However, we do provide a detailed installation instruction PDF along with step-by-step content. If required, we can also offer remote training via video call. For on-site physical support, we can arrange installation services, which are chargeable (based on travel, lodging, and service costs).'
               },
               {
                 question: 'Do you offer international shipping?',
-                answer: 'Yes, we ship worldwide with full installation and support services in over 25 countries.'
+                answer: 'Yes, we ship worldwide. Delivery, installation, and support services can be arranged in more than 25 countries, but please note that these services are chargeable and quoted separately depending on location.'
               },
               {
                 question: 'What warranty do you provide?',
-                answer: 'All SleepTech pods come with a comprehensive 5-year warranty covering parts, labor, and software updates.'
+                answer: 'Since we are the importer, we do not provide our own warranty or guarantee. The pods are imported products, and their durability depends on the material quality and user handling/care. Proper maintenance will ensure a longer product life. Any limited warranty that may exist is subject to the original manufacturer\'s terms, not ours.'
               },
               {
                 question: 'Can the pods be customized?',
-                answer: 'Absolutely! We offer extensive customization options for colors, materials, and features to match your specific needs.'
+                answer: 'Customization depends on the manufacturing partner from whom we import. In most cases, customization (colors, materials, or additional features) is possible but depends on order size and factory availability. Large orders usually allow more flexibility for custom options.'
               }
             ].map((faq, index) => (
               <div key={index} className={`bg-white dark:bg-gray-900/40 rounded-lg p-6 border border-gray-200 dark:border-cyan-500/30 shadow-md ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}>
