@@ -48,7 +48,7 @@ const Home: React.FC = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.3 }}
-        className="py-20 text-center max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 bg-white/70 dark:bg-gray-950/70 backdrop-blur-xl relative overflow-hidden"
+        className="pt-12 pb-20 text-center max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 bg-white/70 dark:bg-gray-950/70 backdrop-blur-xl relative overflow-hidden"
       >
         <div className="absolute inset-0 bg-gradient-to-r from-cyan-50/30 via-transparent to-blue-50/30 dark:from-transparent dark:to-transparent"></div>
         <div className="relative z-10">
