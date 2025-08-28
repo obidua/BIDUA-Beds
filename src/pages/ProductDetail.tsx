@@ -153,9 +153,18 @@ const ProductDetail: React.FC = () => {
                     <span className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 py-3 rounded-full text-xl font-bold shadow-lg">
                       {product.price}
                     </span>
+                    <div className="flex items-center space-x-3">
+                      <span className={`px-4 py-2 rounded-full text-sm font-bold shadow-lg ${
+                        product.origin === 'made-in-india' 
+                          ? 'bg-gradient-to-r from-green-500 to-emerald-600 text-white' 
+                          : 'bg-gradient-to-r from-orange-500 to-red-600 text-white'
+                      }`}>
+                        {product.origin === 'made-in-india' ? 'Made in India' : 'Imported'}
+                      </span>
                     <div className="flex items-center space-x-2">
                       <Star className="h-5 w-5 text-yellow-400 fill-current" />
                       <span className="text-gray-600 dark:text-gray-400">Premium Quality</span>
+                    </div>
                     </div>
                   </div>
                 </div>

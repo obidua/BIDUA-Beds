@@ -29,6 +29,23 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           interval={5000}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent pointer-events-none"></div>
+        
+        {/* Origin Badge */}
+        <motion.div 
+          className="absolute top-4 right-4"
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.4, delay: 0.1 }}
+        >
+          <span className={`px-3 py-1 rounded-full text-xs font-bold shadow-lg backdrop-blur-sm ${
+            product.origin === 'made-in-india' 
+              ? 'bg-gradient-to-r from-green-500 to-emerald-600 text-white' 
+              : 'bg-gradient-to-r from-orange-500 to-red-600 text-white'
+          }`}>
+            {product.origin === 'made-in-india' ? 'Made in India' : 'Imported'}
+          </span>
+        </motion.div>
+        
         <motion.div 
           className="absolute bottom-4 left-4"
           initial={{ opacity: 0, x: -20 }}

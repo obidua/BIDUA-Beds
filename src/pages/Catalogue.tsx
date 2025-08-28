@@ -24,6 +24,7 @@ import { useTheme } from '../context/ThemeContext';
 
 const Catalogue: React.FC = () => {
   const [selectedSeries, setSelectedSeries] = useState<string>('all');
+  const [selectedOrigin, setSelectedOrigin] = useState<string>('all');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [searchTerm, setSearchTerm] = useState('');
   const [searchParams] = useSearchParams();
@@ -42,9 +43,10 @@ const Catalogue: React.FC = () => {
   // Filter products based on selected series and search term
   const filteredProducts = products.filter(product => {
     const matchesSeries = selectedSeries === 'all' || product.id.toLowerCase().includes(selectedSeries.toLowerCase());
+    const matchesOrigin = selectedOrigin === 'all' || product.origin === selectedOrigin;
     const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          product.description.toLowerCase().includes(searchTerm.toLowerCase());
-    return matchesSeries && matchesSearch;
+    return matchesSeries && matchesOrigin && matchesSearch;
   });
 
   // Show all series in filter (not just those with products)
@@ -176,6 +178,19 @@ const Catalogue: React.FC = () => {
                     {series.name}
                   </option>
                 ))}
+              </select>
+            </div>
+
+            {/* Origin Filter */}
+            <div className="flex items-center space-x-2">
+              <select
+                value={selectedOrigin}
+                onChange={(e) => setSelectedOrigin(e.target.value)}
+                className="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 text-gray-900 dark:text-white focus:outline-none focus:border-cyan-400 transition-colors"
+              >
+                <option value="all">All Origins</option>
+                <option value="imported">Imported</option>
+                <option value="made-in-india">Made in India</option>
               </select>
             </div>
 

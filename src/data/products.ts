@@ -6,6 +6,7 @@ export const products: Product[] = [
     name: 'GALAXY Series - Horizontal Single',
     description: 'Standard ABS shell with metal frame featuring TV slot, security sliding door, and ergonomic non-slip ladder. Perfect for hotels, airports, and commercial applications.',
     price: 'Contact for Quote',
+    origin: 'imported',
     images: [
       '/Pods_Images/Galaxy Series/Galaxy Series Horizontal single:double bed.png',
       '/Pods_Images/Galaxy Series/GALAXY"series -Horizontal single:double bed details.png',
@@ -38,6 +39,7 @@ export const products: Product[] = [
     name: 'GALAXY Series - Horizontal Double',
     description: 'Spacious double variant with all premium GALAXY features, designed for couples or guests requiring extra space in commercial facilities.',
     price: 'Contact for Quote',
+    origin: 'imported',
     images: [
       '/Pods_Images/Galaxy Series/"GALAXY"series -Horizontal single:double bed more images5.png',
       '/Pods_Images/Galaxy Series/"GALAXY"series -Horizontal single:double bed more images 6.png',
@@ -70,6 +72,7 @@ export const products: Product[] = [
     name: 'COSMOS Series - Vertical Single',
     description: 'Innovative vertical design with ABS + metal construction, featuring sliding door, ladder, TV slot, and mirror panel for space-efficient installations.',
     price: 'Contact for Quote',
+    origin: 'imported',
     images: [
       '/Pods_Images/COSMOS series/"COSMOS"series -Horizontal:Verticalsingle bed main.png',
       '/Pods_Images/COSMOS series/"COSMOS"series -Horizontal:Verticalsingle bed details.png',
@@ -102,6 +105,7 @@ export const products: Product[] = [
     name: 'Wooden Series - Horizontal Single',
     description: 'Premium eco multi-layer board construction with metal frame, offering natural wood-grain aesthetics while maintaining all essential capsule bed features.',
     price: 'Contact for Quote',
+    origin: 'imported',
     images: [
       '/Pods_Images/wooden series/"wooden"series -Horizontal single bed:Vertical single bed main.png',
       '/Pods_Images/wooden series/"wooden"series -Horizontal single bed:Vertical single bed details.png',
@@ -134,6 +138,7 @@ export const products: Product[] = [
     name: 'E-sports Series - Horizontal Single',
     description: 'Specialized gaming capsule with larger length specification and shorter ladder, featuring eco-board + ABS + metal construction for extended gaming sessions.',
     price: 'Contact for Quote',
+    origin: 'imported',
     images: [
       '/Pods_Images/E-sports series/"E-sports"series -Horizontal single bed main.png',
       '/Pods_Images/E-sports series/"E-sports"series -Horizontal single bed details.png',
@@ -159,6 +164,39 @@ export const products: Product[] = [
       lightingPower: '12V low-voltage system',
       typicalConsumption: '~80W (gaming optimized)',
       freshAirVentilation: '~35 m³/h enhanced airflow'
+    }
+  },
+  {
+    id: 'indian-premium-single',
+    name: 'BIDUA Premium - Made in India Single',
+    description: 'Locally manufactured premium capsule bed with indigenous materials and craftsmanship. Features advanced ventilation, LED controls, and security systems designed specifically for Indian market needs.',
+    price: 'Contact for Quote',
+    origin: 'made-in-india',
+    images: [
+      '/Pods_Images/Galaxy Series/Galaxy Series Horizontal single:double bed.png',
+      '/Pods_Images/Galaxy Series/GALAXY"series -Horizontal single:double bed details.png',
+      '/Pods_Images/Galaxy Series/"GALAXY"series -Horizontal single:double bed more images4.png'
+    ],
+    features: [
+      'Made in India with local materials and craftsmanship',
+      'Indigenous design optimized for Indian climate',
+      'Advanced LED multifunction control panel',
+      'Internal security lock with stainless-steel handle',
+      'Reading light, mirror light & ceiling light',
+      'Enhanced ventilation for tropical conditions',
+      'Ergonomic ladder with anti-slip surface',
+      'Fire-retardant materials meeting Indian standards',
+      'Local service and support network',
+      'Competitive pricing with no import duties'
+    ],
+    specifications: {
+      dimensions: '2060 × 1140 × 2400 mm (L × W × H)',
+      materials: 'Indian-grade fire-retardant ABS + high-quality steel',
+      colors: 'White, Blue, Green, Orange, Custom colors available',
+      ratedVoltage: '220V (Indian standard)',
+      lightingPower: '12V low-voltage LED system',
+      typicalConsumption: '~55W (energy optimized)',
+      freshAirVentilation: '~32 m³/h with humidity control'
     }
   }
 ];
