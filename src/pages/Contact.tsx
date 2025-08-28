@@ -16,8 +16,34 @@ const Contact: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
+    
+    // Basic validation
+    if (!formData.name || !formData.email || !formData.message) {
+      alert('Please fill in Name, Email, and Message fields.');
+      return;
+    }
+
+    // Generate email content
+    const subject = `Contact Form: ${formData.inquiry.charAt(0).toUpperCase() + formData.inquiry.slice(1).replace(/([A-Z])/g, ' $1')} Inquiry`;
+    
+    let emailBody = `Contact Form Submission\n\n`;
+    emailBody += `Name: ${formData.name}\n`;
+    emailBody += `Email: ${formData.email}\n`;
+    emailBody += `Company: ${formData.company || 'Not provided'}\n`;
+    emailBody += `Phone: ${formData.phone || 'Not provided'}\n`;
+    emailBody += `Inquiry Type: ${formData.inquiry.charAt(0).toUpperCase() + formData.inquiry.slice(1).replace(/([A-Z])/g, ' $1')}\n\n`;
+    emailBody += `Message:\n${formData.message}\n\n`;
+    emailBody += `---\nSubmitted via BIDUA Pods Contact Form`;
+
+    // Encode for URL
+    const encodedSubject = encodeURIComponent(subject);
+    const encodedBody = encodeURIComponent(emailBody);
+    
+    // Create mailto URL with both email addresses
+    const mailtoUrl = `mailto:biduaindustries@gmail.com,support@biduapods.com?subject=${encodedSubject}&body=${encodedBody}`;
+    
+    // Open email client
+    window.open(mailtoUrl, '_blank');
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
