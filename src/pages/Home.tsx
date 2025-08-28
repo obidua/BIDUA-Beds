@@ -32,7 +32,7 @@ const Home: React.FC = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
-        className="relative w-full h-[50vh] md:h-[60vh] lg:h-[70vh] overflow-hidden"
+        className="relative w-full h-[37.5vh] md:h-[45vh] lg:h-[52.5vh] overflow-hidden"
       >
         <ImageSlider
           images={homePageImages}
