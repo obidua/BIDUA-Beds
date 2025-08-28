@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Star, Users, Award, Globe } from 'lucide-react';
 import { motion } from 'framer-motion';
+import ImageSlider from '../components/ImageSlider';
 import ProductCard from '../components/ProductCard';
 import FeatureCard from '../components/FeatureCard';
 import { products } from '../data/products';
@@ -9,6 +10,20 @@ import { features } from '../data/features';
 
 const Home: React.FC = () => {
   const heroDescription = 'As a leading manufacturer and importer of hotel-grade sleeping pods, we deliver intelligent lighting, secure locks, fresh-air ventilation and compact footprint solutions—built for hostels, airports, offices, hospitals and more with direct quality control and competitive pricing.';
+
+  // Home page hero images
+  const homePageImages = [
+    '/Pods_Images/Home Page Images/IMG_1642.JPG',
+    '/Pods_Images/Home Page Images/IMG_1643.JPG',
+    '/Pods_Images/Home Page Images/IMG_1644.JPG',
+    '/Pods_Images/Home Page Images/IMG_1645.JPG',
+    '/Pods_Images/Home Page Images/IMG_1646.JPG',
+    '/Pods_Images/Home Page Images/IMG_1647.JPG',
+    '/Pods_Images/Home Page Images/IMG_1648.JPG',
+    '/Pods_Images/Home Page Images/IMG_1649.JPG',
+    '/Pods_Images/Home Page Images/IMG_1650.JPG',
+    '/Pods_Images/Home Page Images/IMG_1651.JPG'
+  ];
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-950 transition-colors duration-500">
@@ -20,11 +35,16 @@ const Home: React.FC = () => {
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
       >
         <div className="absolute inset-0 bg-gradient-to-br from-white/60 via-cyan-50/20 to-blue-50/30 dark:from-gray-950/60 dark:via-blue-900/20 dark:to-cyan-900/30 backdrop-blur-md transition-colors duration-500"></div>
-        <motion.div 
-          className="absolute inset-0 bg-[url('/Pods_Images/For Website main images/pod view.png')] bg-cover bg-center opacity-10 dark:opacity-20"
-          animate={{ scale: [1, 1.05, 1] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-        />
+        
+        {/* Hero Image Slider Background */}
+        <div className="absolute inset-0 opacity-10 dark:opacity-20">
+          <ImageSlider
+            images={homePageImages}
+            className="w-full h-full"
+            autoPlay={true}
+            interval={5000}
+          />
+        </div>
         
         <div className="relative z-10 text-center max-w-5xl mx-auto px-4 py-12 sm:py-16 md:py-20">
           <motion.h1 
