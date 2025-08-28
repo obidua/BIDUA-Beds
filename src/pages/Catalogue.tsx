@@ -487,6 +487,7 @@ const Catalogue: React.FC = () => {
             <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-4">
               {filteredProducts.length} product{filteredProducts.length !== 1 ? 's' : ''} 
               {selectedSeries !== 'all' && ` in ${productSeries.find(s => s.id === selectedSeries)?.name || 'selected series'}`}
+              {selectedOrigin !== 'all' && ` (${selectedOrigin === 'made-in-india' ? 'Made in India' : 'Imported'})`}
               {searchTerm && ` matching "${searchTerm}"`}
             </p>
             {selectedSeries !== 'all' && filteredProducts.length === 0 && (
@@ -592,10 +593,11 @@ const Catalogue: React.FC = () => {
                 onClick={() => {
                   setSearchTerm('');
                   setSelectedSeries('all');
+                  setSelectedOrigin('all');
                 }}
                 className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 py-3 rounded-xl hover:from-cyan-400 hover:to-blue-500 transition-all duration-200 font-semibold"
               >
-                {selectedSeries !== 'all' ? 'View All Products' : 'Clear Filters'}
+                {selectedSeries !== 'all' || selectedOrigin !== 'all' ? 'View All Products' : 'Clear Filters'}
               </button>
             </motion.div>
           )}
