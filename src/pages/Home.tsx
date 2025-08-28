@@ -27,30 +27,35 @@ const Home: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-950 transition-colors duration-500">
-      {/* Hero Section */}
+      {/* Image Slider Section */}
       <motion.section 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
-        className="relative min-h-screen flex items-center justify-center overflow-hidden"
+        className="relative w-full h-[50vh] md:h-[60vh] lg:h-[70vh] overflow-hidden"
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-white/60 via-cyan-50/20 to-blue-50/30 dark:from-gray-950/60 dark:via-blue-900/20 dark:to-cyan-900/30 backdrop-blur-md transition-colors duration-500"></div>
-        
-        {/* Hero Image Slider Background */}
-        <div className="absolute inset-0 opacity-40 sm:opacity-35 md:opacity-30 dark:opacity-50 dark:sm:opacity-45 dark:md:opacity-40">
-          <ImageSlider
-            images={homePageImages}
-            className="w-full h-full"
-            autoPlay={true}
-            interval={5000}
-          />
-        </div>
-        
-        <div className="relative z-10 text-center max-w-5xl mx-auto px-4 py-12 sm:py-16 md:py-20">
+        <ImageSlider
+          images={homePageImages}
+          className="w-full h-full"
+          autoPlay={true}
+          interval={5000}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-cyan-50/5 to-blue-50/5 dark:from-gray-950/10 dark:via-blue-900/5 dark:to-cyan-900/5"></div>
+      </motion.section>
+
+      {/* Premium Capsule Beds Section */}
+      <motion.section 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.3 }}
+        className="py-20 text-center max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 bg-white/70 dark:bg-gray-950/70 backdrop-blur-xl relative overflow-hidden"
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-cyan-50/30 via-transparent to-blue-50/30 dark:from-transparent dark:to-transparent"></div>
+        <div className="relative z-10">
           <motion.h1 
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2 }}
+            transition={{ duration: 1, delay: 0.5 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold text-gray-900 dark:text-white mb-6 sm:mb-8 leading-tight"
           >
             Premium Capsule
@@ -65,7 +70,7 @@ const Home: React.FC = () => {
           <motion.p 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.4 }}
+            transition={{ duration: 1, delay: 0.7 }}
             className="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 sm:mb-10 leading-relaxed max-w-4xl mx-auto px-2"
           >
             {heroDescription}
@@ -73,7 +78,7 @@ const Home: React.FC = () => {
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.6 }}
+            transition={{ duration: 1, delay: 0.9 }}
             className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center px-2"
           >
             <motion.div
