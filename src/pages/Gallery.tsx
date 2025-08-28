@@ -15,6 +15,56 @@ const Gallery: React.FC = () => {
       category: 'Product Design'
     },
     {
+      url: '/Pods_Images/Home Page Images/IMG_1642.JPG',
+      title: 'Premium Installation Setup 1',
+      category: 'Installation'
+    },
+    {
+      url: '/Pods_Images/Home Page Images/IMG_1643.JPG',
+      title: 'Premium Installation Setup 2',
+      category: 'Installation'
+    },
+    {
+      url: '/Pods_Images/Home Page Images/IMG_1644.JPG',
+      title: 'Premium Installation Setup 3',
+      category: 'Installation'
+    },
+    {
+      url: '/Pods_Images/Home Page Images/IMG_1645.JPG',
+      title: 'Premium Installation Setup 4',
+      category: 'Installation'
+    },
+    {
+      url: '/Pods_Images/Home Page Images/IMG_1646.JPG',
+      title: 'Premium Installation Setup 5',
+      category: 'Installation'
+    },
+    {
+      url: '/Pods_Images/Home Page Images/IMG_1647.JPG',
+      title: 'Premium Installation Setup 6',
+      category: 'Installation'
+    },
+    {
+      url: '/Pods_Images/Home Page Images/IMG_1648.JPG',
+      title: 'Premium Installation Setup 7',
+      category: 'Installation'
+    },
+    {
+      url: '/Pods_Images/Home Page Images/IMG_1649.JPG',
+      title: 'Premium Installation Setup 8',
+      category: 'Installation'
+    },
+    {
+      url: '/Pods_Images/Home Page Images/IMG_1650.JPG',
+      title: 'Premium Installation Setup 9',
+      category: 'Installation'
+    },
+    {
+      url: '/Pods_Images/Home Page Images/IMG_1651.JPG',
+      title: 'Premium Installation Setup 10',
+      category: 'Installation'
+    },
+    {
       url: '/Pods_Images/For Website main images/inside 2.png',
       title: 'Interior View - Double Pod',
       category: 'Interior Design'
