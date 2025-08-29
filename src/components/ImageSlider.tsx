@@ -29,9 +29,22 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
     }
   };
 
+  // Helper function to determine if current media is video
+  const isCurrentMediaVideo = () => {
+    return isVideo(images[currentIndex]);
+  };
+
+  // Handle video ended event
+  const handleVideoEnded = () => {
+    setCurrentIndex((prevIndex) => 
+      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
   useEffect(() => {
     clearAutoPlay();
-    if (!autoPlay || images.length <= 1 || isUserInteracting) return;
+    // Don't start auto-play if user is interacting, only 1 image, or current media is video
+    if (!autoPlay || images.length <= 1 || isUserInteracting || isCurrentMediaVideo()) return;
 
     autoPlayRef.current = setInterval(() => {
       setCurrentIndex((prevIndex) => 
@@ -40,7 +53,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
     }, interval);
 
     return clearAutoPlay;
-  }, [autoPlay, interval, images.length, isUserInteracting]);
+  }, [autoPlay, interval, images.length, isUserInteracting, currentIndex]);
 
   const goToPrevious = () => {
     clearAutoPlay();
@@ -111,9 +124,9 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
                 src={images[currentIndex]}
                 className="w-full h-full object-cover block"
                 autoPlay
-                loop
                 muted
                 playsInline
+                onEnded={handleVideoEnded}
                 whileHover={{ scale: 1.02 }}
                 onError={(e) => {
                   const target = e.target as HTMLVideoElement;
