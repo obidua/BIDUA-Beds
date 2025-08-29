@@ -198,6 +198,105 @@ export const products: Product[] = [
       typicalConsumption: '~55W (energy optimized)',
       freshAirVentilation: '~32 m³/h with humidity control'
     }
+  },
+  {
+    id: 'abs-flagship-2025-single-horizontal-zzk-hc02',
+    name: 'ABS Flagship Series - Single Horizontal (ZZK-HC02)',
+    description: 'Perfect for capsule hotels, hostels, and compact accommodations where space optimization is essential. Features universal adjustable air vent, integrated fresh air circulation system, and smart LED control panel.',
+    price: 'Contact for Quote',
+    origin: 'imported',
+    images: [
+      '/Pods_Images/ABS Flagship Series/Pod real view.jpeg',
+      '/Pods_Images/ABS Flagship Series/inner view.png',
+      '/Pods_Images/ABS Flagship Series/outer view .png'
+    ],
+    features: [
+      'Universal adjustable air vent for optimal comfort',
+      'Integrated fresh air circulation system',
+      'Smart LED control panel with multiple functions',
+      'High-quality ABS construction with metal reinforcement',
+      'Space-optimized design for maximum efficiency',
+      'Advanced ventilation technology',
+      'Ergonomic interior layout',
+      'Energy-efficient LED lighting system',
+      'Secure locking mechanism',
+      'Model codes: ZZK-HC02-Intelligence/Update/Standard/Basic'
+    ],
+    specifications: {
+      dimensions: '2060 × 1140 × 2400 mm (L × W × H)',
+      materials: 'Premium ABS + high-quality metal frame',
+      colors: 'White',
+      ratedVoltage: '110–240V (universal)',
+      lightingPower: '12V low-voltage LED system',
+      typicalConsumption: '~65W (optimized)',
+      freshAirVentilation: '~35 m³/h with adjustable flow'
+    }
+  },
+  {
+    id: 'abs-flagship-2025-double-horizontal-zzk-sr02',
+    name: 'ABS Flagship Series - Double Horizontal (ZZK-SR02)',
+    description: 'Suitable for shared stays in dormitories, budget hotels, and group living setups. Same features as single capsule but with wider internal space for two occupants and strong fresh air system.',
+    price: 'Contact for Quote',
+    origin: 'imported',
+    images: [
+      '/Pods_Images/ABS Flagship Series/Pod real view.jpeg',
+      '/Pods_Images/ABS Flagship Series/showcase.png',
+      '/Pods_Images/ABS Flagship Series/Pod inner view.jpeg'
+    ],
+    features: [
+      'Extra-wide design for two occupants',
+      'Enhanced fresh air circulation system',
+      'Dual-zone climate control capability',
+      'Smart LED control panel with multiple functions',
+      'High-quality ABS construction with metal reinforcement',
+      'Optimized for shared accommodation',
+      'Advanced ventilation technology',
+      'Spacious interior layout',
+      'Energy-efficient LED lighting system',
+      'Model codes: ZZK-SR02-Intelligence/Update/Standard/Basic'
+    ],
+    specifications: {
+      dimensions: '2060 × 1580 × 2400 mm (L × W × H)',
+      materials: 'Premium ABS + high-quality metal frame',
+      colors: 'White',
+      ratedVoltage: '110–240V (universal)',
+      lightingPower: '12V low-voltage LED system',
+      typicalConsumption: '~85W (dual occupancy optimized)',
+      freshAirVentilation: '~45 m³/h with enhanced flow'
+    }
+  },
+  {
+    id: 'abs-flagship-2025-single-vertical-zzk-sc02',
+    name: 'ABS Flagship Series - Single Vertical (ZZK-SC02)',
+    description: 'Designed to optimize vertical space usage, ideal for facilities with limited floor area. Perfect for medical hostels, training dormitories, and staff accommodations where vertical stacking increases capacity.',
+    price: 'Contact for Quote',
+    origin: 'imported',
+    images: [
+      '/Pods_Images/ABS Flagship Series/Pod back view.jpeg',
+      '/Pods_Images/ABS Flagship Series/inner view.png',
+      '/Pods_Images/ABS Flagship Series/outer view .png'
+    ],
+    features: [
+      'Vertical space-saving design',
+      'Optimized for high-density installations',
+      'Universal adjustable air vent system',
+      'Smart LED control panel',
+      'High-quality ABS construction with metal reinforcement',
+      'Stackable design for maximum capacity',
+      'Advanced ventilation technology',
+      'Ergonomic vertical access',
+      'Energy-efficient LED lighting system',
+      'Model codes: ZZK-SC02-Intelligence/Update/Standard/Basic'
+    ],
+    specifications: {
+      dimensions: '2060 × 1140 × 2400 mm (L × W × H)',
+      materials: 'Premium ABS + high-quality metal frame',
+      colors: 'White',
+      ratedVoltage: '110–240V (universal)',
+      lightingPower: '12V low-voltage LED system',
+      typicalConsumption: '~65W (optimized)',
+      freshAirVentilation: '~35 m³/h with adjustable flow'
+    }
   }
 ];
 
@@ -448,6 +547,39 @@ export const productSeries: ProductSeriesDetail[] = [
       'Internet bars', 'Livestream studios'
     ],
     availableMaterials: ['ABS V0 Fire-retardant'],
+    origin: 'imported'
+  },
+  {
+    id: 'abs-flagship-2025',
+    name: 'ABS Flagship Series 2025',
+    description: 'Designed for hotels, capsule hostels, medical dormitories, and shared living spaces. These pods combine futuristic aesthetics with practical features for comfort, privacy, and safety.',
+    images: [
+      '/Pods_Images/ABS Flagship Series/Pod real view.jpeg',
+      '/Pods_Images/ABS Flagship Series/Pod inner view.jpeg',
+      '/Pods_Images/ABS Flagship Series/Pod back view.jpeg',
+      '/Pods_Images/ABS Flagship Series/Sleeping pod outer view.jpeg'
+    ],
+    models: ['ZZK-HC02-Intelligence', 'ZZK-HC02-Update', 'ZZK-HC02-Standard', 'ZZK-HC02-Basic', 'ZZK-SR02-Intelligence', 'ZZK-SR02-Update', 'ZZK-SR02-Standard', 'ZZK-SR02-Basic', 'ZZK-SC02-Intelligence', 'ZZK-SC02-Update', 'ZZK-SC02-Standard', 'ZZK-SC02-Basic'],
+    colors: ['White'],
+    sizes: [
+      { variant: 'Single Horizontal (ZZK-HC02)', dimensions: 'L2060 × W1140 × H2400 mm' },
+      { variant: 'Double Horizontal (ZZK-SR02)', dimensions: 'L2060 × W1580 × H2400 mm' },
+      { variant: 'Single Vertical (ZZK-SC02)', dimensions: 'L2060 × W1140 × H2400 mm' }
+    ],
+    material: 'Premium ABS + high-quality metal frame',
+    features: [
+      'Universal adjustable air vent',
+      'Integrated fresh air circulation system',
+      'Smart LED control panel',
+      'Advanced ventilation technology',
+      'Energy-efficient LED lighting',
+      'Secure locking mechanism'
+    ],
+    applications: [
+      'Hotels', 'Capsule hostels', 'Medical dormitories', 'Shared living spaces',
+      'Budget accommodations', 'Staff quarters', 'Training facilities'
+    ],
+    availableMaterials: ['Premium ABS V0 Fire-retardant'],
     origin: 'imported'
   }
 ];
