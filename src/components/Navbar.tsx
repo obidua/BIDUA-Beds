@@ -111,7 +111,6 @@ const Navbar: React.FC = () => {
               className="absolute top-16 left-0 w-full md:hidden z-50"
             >
               <div className="mx-4 px-4 pt-4 pb-6 space-y-2 bg-white/40 dark:bg-gray-800/40 backdrop-blur-xl rounded-xl border border-white/30 dark:border-cyan-500/20 shadow-2xl">
-              className="mx-4 px-4 pt-4 pb-6 space-y-2 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-2xl">
               {navItems.map((item) => (
                 <motion.div
                   key={item.path}
