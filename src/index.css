@@ -170,47 +170,6 @@ body::before {
   }
 }
 
-/* Futuristic glow animations */
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow:
-      0 0 10px rgba(0, 255, 255, 0.4), 0 0 20px rgba(0, 255, 255, 0.3),
-      0 0 30px rgba(0, 255, 255, 0.2), 0 0 40px rgba(138, 43, 226, 0.1),
-      inset 0 0 10px rgba(0, 255, 255, 0.2);
-  }
-  50% {
-    box-shadow:
-      0 0 20px rgba(0, 255, 255, 0.8), 0 0 40px rgba(0, 255, 255, 0.6),
-      0 0 60px rgba(0, 255, 255, 0.4), 0 0 80px rgba(138, 43, 226, 0.3),
-      inset 0 0 20px rgba(0, 255, 255, 0.3);
-  }
-}
-
-@keyframes border-glow {
-  0%, 100% {
-    border-color: rgba(0, 255, 255, 0.4);
-  }
-  50% {
-    border-color: rgba(0, 255, 255, 0.9);
-  }
-}
-
-/* New animation for subtle floating/shimmering of cards */
-@keyframes float-shimmer {
-  0%, 100% {
-    transform: translateY(0px) scale(1);
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.1), 0 0 20px rgba(138, 43, 226, 0.05);
-  }
-  50% {
-    transform: translateY(-5px) scale(1.005);
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2), 0 0 30px rgba(138, 43, 226, 0.1);
-  }
-}
-
-.dark-mode-card-glow {
-  animation: pulse-glow 3s ease-in-out infinite, float-shimmer 8s ease-in-out infinite; /* Combined animations */
-}
-
 /* Ensure fixed header stays on top */
 nav[class*="fixed"] {
   position: fixed !important;
@@ -228,11 +187,4 @@ main {
 /* Smooth scrolling for better UX */
 html {
   scroll-behavior: smooth;
-}
-
-/* Light mode border enhancements - keep dark mode unchanged */
-html:not(.dark) .border-gray-100,
-html:not(.dark) .border-gray-200,
-html:not(.dark) .border-gray-300 { /* Changed to a lighter cool grey for better visibility */
-  border-color: #a0b0c0 !important;
 }

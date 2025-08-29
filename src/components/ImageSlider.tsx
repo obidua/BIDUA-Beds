@@ -146,7 +146,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
                   }}
                 />
                 {/* Click to view overlay - only for images */}
-                <div className="absolute inset-0 bg-black/0 hover:bg-black/20 transition-all duration-300 flex items-center justify-center opacity-0 hover:opacity-100 pointer-events-none z-10">
+                    <div className="bg-white dark:bg-gray-800 rounded-full px-4 py-2 text-gray-900 dark:text-white font-medium text-sm shadow-lg">
                   <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full px-4 py-2 text-gray-900 dark:text-white font-medium text-sm shadow-lg">
                     Click to view full image
                   </div>
@@ -164,7 +164,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
                 e.stopPropagation();
                 goToPrevious();
               }}
-              className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full p-3 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white dark:hover:bg-gray-800 hover:scale-110 shadow-lg z-10"
+              className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white dark:bg-gray-800 rounded-full p-3 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white dark:hover:bg-gray-800 hover:scale-110 shadow-lg z-10"
               aria-label="Previous media"
             >
               <ChevronLeft className="h-5 w-5 text-gray-800 dark:text-white" />
@@ -175,7 +175,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
                 e.stopPropagation();
                 goToNext();
               }}
-              className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full p-3 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white dark:hover:bg-gray-800 hover:scale-110 shadow-lg z-10"
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white dark:bg-gray-800 rounded-full p-3 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white dark:hover:bg-gray-800 hover:scale-110 shadow-lg z-10"
               aria-label="Next media"
             >
               <ChevronRight className="h-5 w-5 text-gray-800 dark:text-white" />
