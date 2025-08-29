@@ -27,6 +27,10 @@ const Home: React.FC = () => {
     '/Pods_Images/Home Page Images/IMG_1651.JPG'
   ];
 
+  // Filter out the Made in India model and limit to main series
+  const featuredProducts = products
+    .filter(product => product.id !== 'indian-premium-single')
+    .slice(0, 6);
   return (
     <div className="min-h-screen bg-white dark:bg-gray-950 transition-colors duration-500">
       {/* Image Slider Section */}
@@ -206,7 +210,7 @@ const Home: React.FC = () => {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {products.map((product, index) => (
+            {featuredProducts.map((product, index) => (
               <motion.div
                 key={product.id}
                 initial={{ opacity: 0, y: 40, scale: 0.9 }}
