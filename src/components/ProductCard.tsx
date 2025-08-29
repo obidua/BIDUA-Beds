@@ -105,10 +105,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           whileTap={{ scale: 0.98 }}
         >
           <Link
-            to="/order-now"
+            to={`/products/${product.id}`}
             className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-4 rounded-2xl hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 flex items-center justify-center space-x-2 shadow-xl hover:shadow-cyan-500/30 font-semibold text-lg group/btn"
           >
-            <span>Order Now</span>
+            <span>View Details</span>
             <ChevronRight className="h-5 w-5 group-hover/btn:translate-x-2 transition-transform duration-300" />
           </Link>
         </motion.div>
