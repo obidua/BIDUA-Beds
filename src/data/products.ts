@@ -272,7 +272,7 @@ export const products: Product[] = [
     price: 'Contact for Quote',
     origin: 'imported',
     images: [
-      '/Pods_Images/ABS Flagship Series/Pod back view.jpeg',
+      '/Pods_Images/ABS Flagship Series/ABS Single Vertical.png',
       '/Pods_Images/ABS Flagship Series/inner view.png',
       '/Pods_Images/ABS Flagship Series/outer view .png'
     ],
