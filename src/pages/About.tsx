@@ -7,16 +7,14 @@ const About: React.FC = () => {
   const { theme } = useTheme();
 
   return (
-    <div className="min-h-screen bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl">
+    <div className="min-h-screen bg-white dark:bg-gray-900">
       {/* Header */}
       <motion.section 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="py-20 bg-gradient-to-br from-gray-50 via-blue-50/30 to-cyan-50/40 dark:from-gray-900 dark:via-blue-900/20 dark:to-cyan-900/30 relative overflow-hidden"
-        className="py-20 bg-gradient-to-br from-gray-50 via-blue-50/30 to-cyan-50/40 dark:from-gray-950 dark:via-blue-900/30 dark:to-cyan-900/40 relative overflow-hidden"
+        className="py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-cyan-50 dark:from-gray-950 dark:via-blue-900 dark:to-cyan-900 relative overflow-hidden"
       >
-        <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'var(--svg-background-pattern)' }}></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
@@ -38,7 +36,7 @@ const About: React.FC = () => {
       </motion.section>
 
       {/* Mission & Vision */}
-      <section className="py-20 bg-white/70 dark:bg-gray-950/70 backdrop-blur-xl">
+      <section className="py-20 bg-white dark:bg-gray-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -69,15 +67,15 @@ const About: React.FC = () => {
       </section>
 
       {/* Values */}
-      <section className="py-20 bg-gray-50/70 dark:bg-gray-900/70 backdrop-blur-xl">
+      <section className="py-20 bg-gray-50 dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Our Values</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className={`text-center ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}>
-              <div className="bg-gradient-to-br from-cyan-500/20 to-blue-600/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="text-center">
+              <div className="bg-gradient-to-br from-cyan-500 to-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Lightbulb className="h-8 w-8 text-cyan-400" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">Innovation</h3>
@@ -85,8 +83,8 @@ const About: React.FC = () => {
                 Continuously pushing boundaries to create breakthrough sleep technology solutions
               </p>
             </div>
-            <div className={`text-center ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}>
-              <div className="bg-gradient-to-br from-cyan-500/20 to-blue-600/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="text-center">
+              <div className="bg-gradient-to-br from-cyan-500 to-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award className="h-8 w-8 text-cyan-400" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">Quality</h3>
@@ -94,8 +92,8 @@ const About: React.FC = () => {
                 Uncompromising standards in materials, manufacturing, and customer experience
               </p>
             </div>
-            <div className={`text-center ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}>
-              <div className="bg-gradient-to-br from-cyan-500/20 to-blue-600/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="text-center">
+              <div className="bg-gradient-to-br from-cyan-500 to-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Users className="h-8 w-8 text-cyan-400" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">Customer Focus</h3>
@@ -103,8 +101,8 @@ const About: React.FC = () => {
                 Every decision we make is guided by what's best for our customers' sleep experience
               </p>
             </div>
-            <div className={`text-center ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}>
-              <div className="bg-gradient-to-br from-cyan-500/20 to-blue-600/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="text-center">
+              <div className="bg-gradient-to-br from-cyan-500 to-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Target className="h-8 w-8 text-cyan-400" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">Sustainability</h3>
@@ -117,7 +115,7 @@ const About: React.FC = () => {
       </section>
 
       {/* Company Stats */}
-      <section className="py-20 bg-gray-50/70 dark:bg-gray-900/70 backdrop-blur-xl">
+      <section className="py-20 bg-gray-50 dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>

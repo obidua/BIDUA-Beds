@@ -54,9 +54,9 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl">
+    <div className="min-h-screen bg-white dark:bg-gray-900">
       {/* Header */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 via-blue-50/30 to-cyan-50/40 dark:from-gray-950 dark:via-blue-900/30 dark:to-cyan-900/40">
+      <section className="py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-cyan-50 dark:from-gray-950 dark:via-blue-900 dark:to-cyan-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
             Get In <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Touch</span>
@@ -68,7 +68,7 @@ const Contact: React.FC = () => {
       </section>
 
       {/* Contact Content */}
-      <section className="py-20 bg-white/70 dark:bg-gray-950/70 backdrop-blur-xl">
+      <section className="py-20 bg-white dark:bg-gray-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Information */}
@@ -76,8 +76,8 @@ const Contact: React.FC = () => {
               <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">Let's Start a Conversation</h2>
               
               <div className="space-y-6 mb-12">
-                <div className={`flex items-center space-x-4 ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}>
-                  <div className="bg-gradient-to-br from-cyan-500/20 to-blue-600/20 w-12 h-12 rounded-lg flex items-center justify-center">
+                <div className="flex items-center space-x-4">
+                  <div className="bg-gradient-to-br from-cyan-500 to-blue-600 w-12 h-12 rounded-lg flex items-center justify-center">
                     <Phone className="h-6 w-6 text-cyan-400" />
                   </div>
                   <div>
@@ -86,8 +86,8 @@ const Contact: React.FC = () => {
                   </div>
                 </div>
                 
-                <div className={`flex items-center space-x-4 ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}>
-                  <div className="bg-gradient-to-br from-cyan-500/20 to-blue-600/20 w-12 h-12 rounded-lg flex items-center justify-center">
+                <div className="flex items-center space-x-4">
+                  <div className="bg-gradient-to-br from-cyan-500 to-blue-600 w-12 h-12 rounded-lg flex items-center justify-center">
                     <Mail className="h-6 w-6 text-cyan-400" />
                   </div>
                   <div>
@@ -97,8 +97,8 @@ const Contact: React.FC = () => {
                   </div>
                 </div>
                 
-                <div className={`flex items-center space-x-4 ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}>
-                  <div className="bg-gradient-to-br from-cyan-500/20 to-blue-600/20 w-12 h-12 rounded-lg flex items-center justify-center">
+                <div className="flex items-center space-x-4">
+                  <div className="bg-gradient-to-br from-cyan-500 to-blue-600 w-12 h-12 rounded-lg flex items-center justify-center">
                     <MapPin className="h-6 w-6 text-cyan-400" />
                   </div>
                   <div>
@@ -107,8 +107,8 @@ const Contact: React.FC = () => {
                   </div>
                 </div>
                 
-                <div className={`flex items-center space-x-4 ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}>
-                  <div className="bg-gradient-to-br from-cyan-500/20 to-blue-600/20 w-12 h-12 rounded-lg flex items-center justify-center">
+                <div className="flex items-center space-x-4">
+                  <div className="bg-gradient-to-br from-cyan-500 to-blue-600 w-12 h-12 rounded-lg flex items-center justify-center">
                     <Clock className="h-6 w-6 text-cyan-400" />
                   </div>
                   <div>
@@ -125,7 +125,7 @@ const Contact: React.FC = () => {
                   <span>Global Offices</span>
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className={`bg-gray-100 dark:bg-gray-900/40 p-4 rounded-lg border border-gray-300 dark:border-cyan-500/30 ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}>
+                  <div className="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg border border-gray-300 dark:border-gray-700">
                     <h4 className="text-gray-900 dark:text-white font-medium">India</h4>
                     <p className="text-gray-600 dark:text-gray-400 text-sm">Noida, Uttar Pradesh</p>
                   </div>
@@ -134,7 +134,7 @@ const Contact: React.FC = () => {
             </div>
 
             {/* Contact Form */}
-            <div className={`bg-white dark:bg-gray-900/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 dark:border-cyan-500/30 shadow-xl ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}>
+            <div className="bg-white dark:bg-gray-900 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 shadow-xl">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
@@ -144,7 +144,7 @@ const Contact: React.FC = () => {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full bg-gray-100 dark:bg-gray-700/50 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors"
+                      className="w-full bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors"
                       placeholder="Your name"
                       required
                     />
@@ -156,7 +156,7 @@ const Contact: React.FC = () => {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full bg-gray-100 dark:bg-gray-700/50 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors"
+                      className="w-full bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors"
                       placeholder="your@email.com"
                       required
                     />
@@ -171,7 +171,7 @@ const Contact: React.FC = () => {
                       name="company"
                       value={formData.company}
                       onChange={handleChange}
-                      className="w-full bg-gray-100 dark:bg-gray-700/50 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors"
+                      className="w-full bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors"
                       placeholder="Company name"
                     />
                   </div>
@@ -182,7 +182,7 @@ const Contact: React.FC = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full bg-gray-100 dark:bg-gray-700/50 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors"
+                      className="w-full bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors"
                       placeholder="+1 (555) 123-4567"
                     />
                   </div>
@@ -194,7 +194,7 @@ const Contact: React.FC = () => {
                     name="inquiry"
                     value={formData.inquiry}
                     onChange={handleChange}
-                    className="w-full bg-gray-100 dark:bg-gray-700/50 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-cyan-400 transition-colors"
+                    className="w-full bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-cyan-400 transition-colors"
                   >
                     <option value="general">General Information</option>
                     <option value="quote">Request Quote</option>
@@ -211,7 +211,7 @@ const Contact: React.FC = () => {
                     value={formData.message}
                     onChange={handleChange}
                     rows={6}
-                    className="w-full bg-gray-100 dark:bg-gray-700/50 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors resize-none"
+                    className="w-full bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors resize-none"
                     placeholder="Tell us about your project or questions..."
                     required
                   ></textarea>
@@ -231,7 +231,7 @@ const Contact: React.FC = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-gray-50/70 dark:bg-gray-900/70 backdrop-blur-xl">
+      <section className="py-20 bg-gray-50 dark:bg-gray-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -258,7 +258,7 @@ const Contact: React.FC = () => {
                 answer: 'Customization depends on the manufacturing partner from whom we import. In most cases, customization (colors, materials, or additional features) is possible but depends on order size and factory availability. Large orders usually allow more flexibility for custom options.'
               }
             ].map((faq, index) => (
-              <div key={index} className={`bg-white dark:bg-gray-900/40 rounded-lg p-6 border border-gray-200 dark:border-cyan-500/30 shadow-md ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}>
+              <div key={index} className="bg-white dark:bg-gray-900 rounded-lg p-6 border border-gray-200 dark:border-gray-700 shadow-md">
                 <h3 className="text-gray-900 dark:text-white font-semibold mb-3">{faq.question}</h3>
                 <p className="text-gray-600 dark:text-gray-400">{faq.answer}</p>
               </div>

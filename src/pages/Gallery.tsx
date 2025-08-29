@@ -177,9 +177,9 @@ const Gallery: React.FC = () => {
 
   return (
     <>
-      <div className="min-h-screen bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl">
+      <div className="min-h-screen bg-white dark:bg-gray-900">
         {/* Header */}
-        <section className="py-20 bg-gradient-to-br from-gray-50 via-blue-50/30 to-cyan-50/40 dark:from-gray-950 dark:via-blue-900/30 dark:to-cyan-900/40">
+        <section className="py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-cyan-50 dark:from-gray-950 dark:via-blue-900 dark:to-cyan-900">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
               Project <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Gallery</span>
@@ -191,14 +191,14 @@ const Gallery: React.FC = () => {
         </section>
 
         {/* Category Filter */}
-        <section className="py-8 bg-white/70 dark:bg-gray-950/70 backdrop-blur-xl">
+        <section className="py-8 bg-white dark:bg-gray-950">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-wrap justify-center gap-4">
               {categories.map((category) => (
                 <button
                   key={category}
                   onClick={() => setActiveCategory(category)}
-                  className={`px-6 py-2 rounded-full transition-all duration-200 ${theme === 'dark' ? 'dark-mode-card-glow' : ''} ${
+                  className={`px-6 py-2 rounded-full transition-all duration-200 ${
                     activeCategory === category
                       ? 'bg-cyan-500 text-white font-semibold shadow-lg'
                       : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-cyan-500 dark:hover:text-cyan-400 border border-gray-300 dark:border-gray-600'
@@ -212,13 +212,13 @@ const Gallery: React.FC = () => {
         </section>
 
         {/* Gallery Grid */}
-        <section className="py-12 bg-white/70 dark:bg-gray-950/70 backdrop-blur-xl">
+        <section className="py-12 bg-white dark:bg-gray-950">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {filteredImages.map((image, index) => (
                 <div
                   key={index}
-                  className={`group relative aspect-square overflow-hidden rounded-xl cursor-pointer transform hover:scale-105 transition-all duration-300 ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}
+                  className="group relative aspect-square overflow-hidden rounded-xl cursor-pointer transform hover:scale-105 transition-all duration-300"
                   onClick={() => openLightbox(image.url)}
                 >
                   <img

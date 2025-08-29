@@ -53,16 +53,14 @@ const Features: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl">
+    <div className="min-h-screen bg-white dark:bg-gray-900">
       {/* Header */}
       <motion.section 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="py-20 bg-gradient-to-br from-gray-50 via-blue-50/30 to-cyan-50/40 dark:from-gray-900 dark:via-blue-900/20 dark:to-cyan-900/30 relative overflow-hidden"
-        className="py-20 bg-gradient-to-br from-gray-50 via-blue-50/30 to-cyan-50/40 dark:from-gray-950 dark:via-blue-900/30 dark:to-cyan-900/40 relative overflow-hidden"
+        className="py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-cyan-50 dark:from-gray-950 dark:via-blue-900 dark:to-cyan-900 relative overflow-hidden"
       >
-        <div className="absolute inset-0 bg-[url('/features-background.svg')] opacity-20"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
@@ -85,7 +83,7 @@ const Features: React.FC = () => {
       </motion.section>
 
       {/* Core Technologies */}
-      <section className="py-20 bg-white/70 dark:bg-gray-950/70 backdrop-blur-xl">
+      <section className="py-20 bg-white dark:bg-gray-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -105,9 +103,9 @@ const Features: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`bg-white dark:bg-gray-900/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 dark:border-cyan-500/30 text-center hover:border-cyan-400/60 transition-all duration-300 transform hover:-translate-y-1 group shadow-lg hover:shadow-xl ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}
+                className="bg-white dark:bg-gray-900 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 text-center hover:border-gray-500 transition-all duration-300 transform hover:-translate-y-1 group shadow-lg hover:shadow-xl"
               >
-                <div className="bg-gradient-to-br from-cyan-500/20 to-blue-600/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="bg-gradient-to-br from-cyan-500 to-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                   <feature.icon className="h-8 w-8 text-cyan-400" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{feature.title}</h3>
@@ -143,7 +141,7 @@ const Features: React.FC = () => {
       </section>
 
       {/* Standard Features */}
-      <section className="py-20 bg-gray-50/70 dark:bg-gray-900/70 backdrop-blur-xl">
+      <section className="py-20 bg-gray-50 dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -166,7 +164,7 @@ const Features: React.FC = () => {
                 initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`flex items-center space-x-4 bg-white dark:bg-gray-900/60 backdrop-blur-sm rounded-xl p-4 border border-gray-200 dark:border-cyan-500/30 hover:border-cyan-400/60 transition-all duration-300 shadow-md hover:shadow-lg ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}
+                className="flex items-center space-x-4 bg-white dark:bg-gray-900 rounded-xl p-4 border border-gray-200 dark:border-gray-700 hover:border-gray-500 transition-all duration-300 shadow-md hover:shadow-lg"
               >
                 <div className="w-2 h-2 bg-cyan-400 rounded-full flex-shrink-0"></div>
                 <span className="text-gray-700 dark:text-gray-300">{feature}</span>
@@ -177,7 +175,7 @@ const Features: React.FC = () => {
       </section>
 
       {/* Materials & Safety */}
-      <section className="py-20 bg-white/70 dark:bg-gray-950/70 backdrop-blur-xl">
+      <section className="py-20 bg-white dark:bg-gray-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -189,7 +187,7 @@ const Features: React.FC = () => {
                 Materials & <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Safety</span>
               </h2>
               <div className="space-y-6">
-                <div className={`bg-white dark:bg-gray-900/60 backdrop-blur-sm rounded-xl p-6 border border-gray-200 dark:border-cyan-500/30 shadow-lg ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}>
+                <div className="bg-white dark:bg-gray-900 rounded-xl p-6 border border-gray-200 dark:border-gray-700 shadow-lg">
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3 flex items-center">
                     <Shield className="h-5 w-5 text-cyan-400 mr-2" />
                     Shell & Structure
@@ -200,7 +198,7 @@ const Features: React.FC = () => {
                     Non-toxic, fire-retardant; resistant to mildew, water and insects.
                   </p>
                 </div>
-                <div className={`bg-white dark:bg-gray-900/60 backdrop-blur-sm rounded-xl p-6 border border-gray-200 dark:border-cyan-500/30 shadow-lg ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}>
+                <div className="bg-white dark:bg-gray-900 rounded-xl p-6 border border-gray-200 dark:border-gray-700 shadow-lg">
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3 flex items-center">
                     <Zap className="h-5 w-5 text-cyan-400 mr-2" />
                     Electrical Systems
@@ -243,7 +241,7 @@ const Features: React.FC = () => {
       </section>
 
       {/* Innovation Timeline */}
-      <section className="py-20 bg-gray-50/70 dark:bg-gray-900/70 backdrop-blur-xl">
+      <section className="py-20 bg-gray-50 dark:bg-gray-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -278,7 +276,7 @@ const Features: React.FC = () => {
                 <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg">
                   <span className="text-white font-bold text-sm">{milestone.year}</span>
                 </div>
-                <div className={`flex-1 bg-white dark:bg-gray-900/60 backdrop-blur-sm rounded-xl p-6 border border-gray-200 dark:border-cyan-500/30 shadow-lg ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}>
+                <div className="flex-1 bg-white dark:bg-gray-900 rounded-xl p-6 border border-gray-200 dark:border-gray-700 shadow-lg">
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{milestone.title}</h3>
                   <p className="text-gray-600 dark:text-gray-400">{milestone.description}</p>
                 </div>

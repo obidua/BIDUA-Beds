@@ -262,9 +262,9 @@ const OrderNow: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl">
+    <div className="min-h-screen bg-white dark:bg-gray-900">
       {/* Header */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 via-blue-50/30 to-cyan-50/40 dark:from-gray-950 dark:via-blue-900/30 dark:to-cyan-900/40">
+      <section className="py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-cyan-50 dark:from-gray-950 dark:via-blue-900 dark:to-cyan-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
             Multi-Product <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Inquiry</span>
@@ -276,15 +276,15 @@ const OrderNow: React.FC = () => {
           
           {/* Key Badges */}
           <div className="flex flex-wrap justify-center gap-4 mb-8">
-            <div className={`bg-cyan-500/20 border border-cyan-400/40 rounded-full px-6 py-2 flex items-center space-x-2 ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}>
+            <div className="bg-cyan-500 border border-cyan-400 rounded-full px-6 py-2 flex items-center space-x-2">
               <Package className="h-5 w-5 text-cyan-400" />
               <span className="text-gray-900 dark:text-white font-semibold">1 set = 2 pods (upper + lower)</span>
             </div>
-            <div className={`bg-cyan-500/20 border border-cyan-400/40 rounded-full px-6 py-2 flex items-center space-x-2 ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}>
+            <div className="bg-cyan-500 border border-cyan-400 rounded-full px-6 py-2 flex items-center space-x-2">
               <Shield className="h-5 w-5 text-cyan-400" />
               <span className="text-gray-900 dark:text-white font-semibold">GST 18% applies</span>
             </div>
-            <div className={`bg-cyan-500/20 border border-cyan-400/40 rounded-full px-6 py-2 flex items-center space-x-2 ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}>
+            <div className="bg-cyan-500 border border-cyan-400 rounded-full px-6 py-2 flex items-center space-x-2">
               <Truck className="h-5 w-5 text-cyan-400" />
               <span className="text-gray-900 dark:text-white font-semibold">Delivery ₹15,000 / set (India)</span>
             </div>
@@ -293,9 +293,9 @@ const OrderNow: React.FC = () => {
       </section>
 
       {/* Order Form */}
-      <section className="py-12 bg-gray-50/70 dark:bg-gray-950/70 backdrop-blur-xl">
+      <section className="py-12 bg-gray-50 dark:bg-gray-950">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className={`bg-white dark:bg-gray-900/60 backdrop-blur-sm rounded-2xl border border-gray-200 dark:border-cyan-500/30 overflow-hidden shadow-2xl ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}>
+          <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden shadow-2xl">
             <div className="p-8">
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center space-x-3">
@@ -316,7 +316,7 @@ const OrderNow: React.FC = () => {
                     const selectedSeries = productSeries.find(s => s.id === item.seriesId);
                     
                     return (
-                      <div key={item.id} className={`bg-gray-50 dark:bg-gray-800/40 rounded-xl p-6 border border-gray-200 dark:border-cyan-500/30 relative ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}>
+                      <div key={item.id} className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 relative">
                         <div className="flex items-center justify-between mb-4">
                           <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
                             Product {index + 1}
@@ -339,7 +339,7 @@ const OrderNow: React.FC = () => {
                             <select
                               value={item.seriesId}
                               onChange={(e) => updateCartItem(item.id, 'seriesId', e.target.value)}
-                              className="w-full bg-white dark:bg-gray-600/50 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-cyan-400 transition-colors"
+                              className="w-full bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-cyan-400 transition-colors"
                               required
                             >
                               <option value="" disabled hidden>Select Product</option>
@@ -374,7 +374,7 @@ const OrderNow: React.FC = () => {
                               value={item.qty}
                               onChange={(e) => updateCartItem(item.id, 'qty', e.target.value === '' ? '' : Math.max(0, parseInt(e.target.value) || 0))}
                               min="0"
-                              className="w-full bg-white dark:bg-gray-600/50 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-cyan-400 transition-colors"
+                              className="w-full bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-cyan-400 transition-colors"
                               required
                             />
                           </div>
@@ -383,7 +383,7 @@ const OrderNow: React.FC = () => {
                             <select
                               value={item.color}
                               onChange={(e) => updateCartItem(item.id, 'color', e.target.value)}
-                              className="w-full bg-white dark:bg-gray-600/50 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-cyan-400 transition-colors"
+                              className="w-full bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-cyan-400 transition-colors"
                               required
                             >
                               <option>White</option>
@@ -400,7 +400,7 @@ const OrderNow: React.FC = () => {
                             <select
                               value={item.material}
                               onChange={(e) => updateCartItem(item.id, 'material', e.target.value)}
-                              className="w-full bg-white dark:bg-gray-600/50 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-cyan-400 transition-colors"
+                              className="w-full bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-cyan-400 transition-colors"
                               required
                             >
                               {selectedSeries?.availableMaterials.map((material) => (
