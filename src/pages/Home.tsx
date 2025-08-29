@@ -13,6 +13,8 @@ const Home: React.FC = () => {
 
   // Home page hero images
   const homePageImages = [
+    '/Pods_Images/ABS Flagship Series/Sleeping Pods Video.mp4',
+    '/Pods_Images/ABS Flagship Series/Sleeping Pod inner view.mp4',
     '/Pods_Images/Home Page Images/IMG_1642.JPG',
     '/Pods_Images/Home Page Images/IMG_1643.JPG',
     '/Pods_Images/Home Page Images/IMG_1644.JPG',
