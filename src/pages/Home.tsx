@@ -44,6 +44,7 @@ const Home: React.FC = () => {
           autoPlay={true}
           interval={5000}
         />
+        <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-cyan-50/10 to-blue-50/10 dark:from-gray-950/20 dark:via-blue-900/10 dark:to-cyan-900/10 backdrop-blur-sm"></div>
       </motion.section>
 
       {/* Premium Capsule Beds Section */}
