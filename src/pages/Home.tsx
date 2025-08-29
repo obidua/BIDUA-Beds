@@ -28,9 +28,7 @@ const Home: React.FC = () => {
   ];
 
   // Filter out the Made in India model and limit to main series
-  const featuredProducts = products
-    .filter(product => product.id !== 'indian-premium-single')
-    .slice(0, 6);
+  const featuredProducts = products; // Show all 9 product models
   return (
     <div className="min-h-screen bg-white dark:bg-gray-950 transition-colors duration-500">
       {/* Image Slider Section */}
