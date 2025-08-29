@@ -110,7 +110,7 @@ const Navbar: React.FC = () => {
               transition={{ duration: 0.2, ease: "easeOut" }}
               className="absolute top-16 left-0 w-full md:hidden z-50"
             >
-              <div className="mx-4 px-4 pt-4 pb-6 space-y-2 bg-white/95 dark:bg-gray-800/95 backdrop-blur-lg rounded-xl border border-gray-200 dark:border-cyan-500/20 shadow-2xl">
+              <div className="mx-4 px-4 pt-4 pb-6 space-y-2 bg-white/40 dark:bg-gray-800/40 backdrop-blur-xl rounded-xl border border-white/30 dark:border-cyan-500/20 shadow-2xl">
               {navItems.map((item) => (
                 <motion.div
                   key={item.path}
@@ -123,8 +123,8 @@ const Navbar: React.FC = () => {
                     onClick={() => setIsOpen(false)}
                     className={`block px-4 py-3 rounded-xl text-base font-medium transition-all duration-200 ${
                       isActive(item.path)
-                        ? 'text-cyan-500 bg-cyan-50 dark:text-cyan-400 dark:bg-cyan-400/10 shadow-sm'
-                        : 'text-gray-700 hover:text-cyan-600 dark:text-gray-300 dark:hover:text-cyan-400 hover:bg-gray-50 dark:hover:bg-cyan-400/5'
+                        ? 'text-cyan-500 bg-cyan-50/50 dark:text-cyan-400 dark:bg-cyan-400/20 shadow-sm backdrop-blur-sm'
+                        : 'text-gray-700 hover:text-cyan-600 dark:text-gray-300 dark:hover:text-cyan-400 hover:bg-gray-50/50 dark:hover:bg-cyan-400/10 backdrop-blur-sm'
                     }`}
                   >
                     {item.label}

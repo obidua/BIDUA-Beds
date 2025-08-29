@@ -30,7 +30,7 @@ const Home: React.FC = () => {
   // Show all product series (excluding any Made in India series for now)
   const featuredSeries = productSeries; // Show all 9 product series
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-950 transition-colors duration-500">
+    <div className="min-h-screen bg-transparent transition-colors duration-500">
       {/* Image Slider Section */}
       <motion.section 
         initial={{ opacity: 0 }}
@@ -44,7 +44,7 @@ const Home: React.FC = () => {
           autoPlay={true}
           interval={5000}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-cyan-50/5 to-blue-50/5 dark:from-gray-950/10 dark:via-blue-900/5 dark:to-cyan-900/5"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-cyan-50/10 to-blue-50/10 dark:from-gray-950/20 dark:via-blue-900/10 dark:to-cyan-900/10 backdrop-blur-sm"></div>
       </motion.section>
 
       {/* Premium Capsule Beds Section */}
@@ -52,9 +52,9 @@ const Home: React.FC = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.3 }}
-        className="pt-12 pb-20 text-center max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 bg-white/70 dark:bg-gray-950/70 backdrop-blur-xl relative overflow-hidden"
+        className="pt-12 pb-20 text-center max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 bg-white/30 dark:bg-gray-950/30 backdrop-blur-xl relative overflow-hidden"
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-cyan-50/30 via-transparent to-blue-50/30 dark:from-transparent dark:to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-cyan-50/20 via-transparent to-blue-50/20 dark:from-cyan-900/10 dark:via-transparent dark:to-blue-900/10 backdrop-blur-sm"></div>
         <div className="relative z-10">
           <motion.h1 
             initial={{ opacity: 0, y: 50 }}
@@ -143,9 +143,9 @@ const Home: React.FC = () => {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="py-20 bg-gray-50/70 dark:bg-gray-900/70 backdrop-blur-xl relative overflow-hidden transition-colors duration-500"
+        className="py-20 bg-gray-50/30 dark:bg-gray-900/30 backdrop-blur-xl relative overflow-hidden transition-colors duration-500"
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-cyan-50/30 to-blue-50/30 dark:from-transparent dark:to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-cyan-50/20 to-blue-50/20 dark:from-cyan-900/10 dark:to-blue-900/10 backdrop-blur-sm"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 relative z-10">
             {[
@@ -167,7 +167,7 @@ const Home: React.FC = () => {
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.6 }}
                 >
-                  <div className="p-4 bg-gradient-to-br from-cyan-100/80 to-blue-100/80 dark:from-cyan-500/30 dark:to-blue-500/30 backdrop-blur-sm rounded-2xl shadow-lg">
+                  <div className="p-4 bg-gradient-to-br from-cyan-100/50 to-blue-100/50 dark:from-cyan-500/20 dark:to-blue-500/20 backdrop-blur-lg rounded-2xl shadow-lg border border-white/20 dark:border-cyan-500/20">
                   </div>
                 </motion.div>
                 <motion.div 
@@ -190,7 +190,7 @@ const Home: React.FC = () => {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="py-24 bg-white/70 dark:bg-gray-950/70 backdrop-blur-xl"
+        className="py-24 bg-white/20 dark:bg-gray-950/20 backdrop-blur-xl"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
@@ -227,7 +227,7 @@ const Home: React.FC = () => {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="py-24 bg-gray-50/70 dark:bg-gray-900/70 backdrop-blur-xl transition-colors duration-500"
+        className="py-24 bg-gray-50/30 dark:bg-gray-900/30 backdrop-blur-xl transition-colors duration-500"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
@@ -264,9 +264,9 @@ const Home: React.FC = () => {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-      className="py-24 bg-white/70 dark:bg-gray-950/70 backdrop-blur-xl relative overflow-hidden"
+      className="py-24 bg-white/20 dark:bg-gray-950/20 backdrop-blur-xl relative overflow-hidden"
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-cyan-50/30 via-transparent to-blue-50/30 dark:from-transparent dark:to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-cyan-50/20 via-transparent to-blue-50/20 dark:from-cyan-900/10 dark:via-transparent dark:to-blue-900/10 backdrop-blur-sm"></div>
         <div className="max-w-5xl mx-auto text-center px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.h2 
             initial={{ opacity: 0, y: 30 }}

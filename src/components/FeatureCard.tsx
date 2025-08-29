@@ -18,7 +18,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ feature }) => {
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       whileHover={{ y: -8, scale: 1.03, rotateY: 5 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`bg-white dark:bg-gray-900/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-100 dark:border-cyan-500/30 hover:border-cyan-300/60 dark:hover:border-cyan-400/60 transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-500/20 group ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}
+      className={`bg-white/40 dark:bg-gray-900/40 backdrop-blur-lg rounded-2xl p-8 border border-white/30 dark:border-cyan-500/30 hover:border-cyan-300/60 dark:hover:border-cyan-400/60 transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-500/20 group ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}
     >
       <div className="flex items-center space-x-4 mb-6">
         <motion.div 

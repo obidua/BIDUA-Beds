@@ -19,7 +19,7 @@ const SeriesCard: React.FC<SeriesCardProps> = ({ series }) => {
       whileInView={{ opacity: 1, y: 0 }}
       whileHover={{ y: -12, scale: 1.03 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className={`bg-white dark:bg-gray-900/60 backdrop-blur-sm rounded-3xl overflow-hidden border border-gray-100 dark:border-cyan-500/30 hover:border-cyan-300/60 dark:hover:border-cyan-400/60 transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-500/20 group ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}
+      className={`bg-white/40 dark:bg-gray-900/40 backdrop-blur-lg rounded-3xl overflow-hidden border border-white/30 dark:border-cyan-500/30 hover:border-cyan-300/60 dark:hover:border-cyan-400/60 transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-500/20 group ${theme === 'dark' ? 'dark-mode-card-glow' : ''}`}
     >
       <div className="relative overflow-hidden">
         <ImageSlider
