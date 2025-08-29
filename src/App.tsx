@@ -29,7 +29,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-500">
+      <div className="min-h-screen bg-transparent backdrop-blur-xl transition-colors duration-500 relative z-20">
         <Navbar />
         <main className="pt-16">
           <Routes>

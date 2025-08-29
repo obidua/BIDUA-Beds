@@ -25,7 +25,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ feature }) => {
           initial={{ rotate: 0, scale: 1 }}
           whileHover={{ rotate: 360, scale: 1.2 }}
           transition={{ duration: 0.6, ease: "easeInOut" }}
-          className="p-4 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-2xl group-hover:from-cyan-400 group-hover:to-blue-500 transition-all duration-500 shadow-lg"
+          className="p-4 bg-gradient-to-br from-cyan-400/20 to-blue-500/20 rounded-2xl group-hover:from-cyan-400/30 group-hover:to-blue-500/30 transition-all duration-500 shadow-lg"
         >
           <IconComponent className="h-7 w-7 text-cyan-500" />
         </motion.div>
