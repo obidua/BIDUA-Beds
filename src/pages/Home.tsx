@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Star, Users, Award, Globe } from 'lucide-react';
 import { motion } from 'framer-motion';
 import ImageSlider from '../components/ImageSlider';
-import ProductCard from '../components/ProductCard';
+import SeriesCard from '../components/SeriesCard';
 import FeatureCard from '../components/FeatureCard';
-import { products } from '../data/products';
+import { productSeries } from '../data/products';
 import { features } from '../data/features';
 
 const Home: React.FC = () => {
@@ -27,8 +27,8 @@ const Home: React.FC = () => {
     '/Pods_Images/Home Page Images/IMG_1651.JPG'
   ];
 
-  // Filter out the Made in India model and limit to main series
-  const featuredProducts = products; // Show all 9 product models
+  // Show all product series (excluding any Made in India series for now)
+  const featuredSeries = productSeries; // Show all 9 product series
   return (
     <div className="min-h-screen bg-white dark:bg-gray-950 transition-colors duration-500">
       {/* Image Slider Section */}
@@ -200,22 +200,22 @@ const Home: React.FC = () => {
             className="text-center mb-20"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-              BIDUA <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Models</span>
+              BIDUA <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Series</span>
             </h2>
             <p className="text-gray-600 dark:text-gray-400 max-w-3xl mx-auto text-lg leading-relaxed">
-              Discover our range of premium capsule beds designed for commercial and hospitality applications
+              Discover our complete range of premium capsule bed series designed for commercial and hospitality applications
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {featuredProducts.map((product, index) => (
+            {featuredSeries.map((series, index) => (
               <motion.div
-                key={product.id}
+                key={series.id}
                 initial={{ opacity: 0, y: 40, scale: 0.9 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
               >
-                <ProductCard product={product} />
+                <SeriesCard series={series} />
               </motion.div>
             ))}
           </div>
