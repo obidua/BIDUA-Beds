@@ -111,9 +111,9 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
                 src={images[currentIndex]}
                 className="w-full h-full object-cover block"
                 autoPlay
+                loop
                 muted
                 playsInline
-                onEnded={goToNext}
                 whileHover={{ scale: 1.02 }}
                 onError={(e) => {
                   const target = e.target as HTMLVideoElement;
