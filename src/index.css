@@ -36,84 +36,111 @@ body::before {
   height: 1px;
   z-index: -1;
   pointer-events: none;
+  opacity: 0.35;
   box-shadow:
-    /* Existing stars (light mode) */
-    100px 200px 3px rgba(255, 255, 255, 0.4), 300px 150px 2px rgba(255, 255, 255, 0.3),
-    500px 300px 3px rgba(255, 255, 255, 0.5), 700px 100px 2px rgba(255, 255, 255, 0.3),
-    900px 250px 3px rgba(255, 255, 255, 0.4), 1100px 180px 1px rgba(255, 255, 255, 0.2),
-    1300px 320px 3px rgba(255, 255, 255, 0.5), 1500px 80px 2px rgba(255, 255, 255, 0.3),
-    200px 400px 2px rgba(255, 255, 255, 0.3), 400px 350px 3px rgba(255, 255, 255, 0.4),
-    600px 450px 2px rgba(255, 255, 255, 0.3), 800px 380px 3px rgba(255, 255, 255, 0.5),
-    1000px 420px 1px rgba(255, 255, 255, 0.2), 1200px 480px 3px rgba(255, 255, 255, 0.4),
-    1400px 360px 2px rgba(255, 255, 255, 0.3), 150px 50px 2px rgba(255, 255, 255, 0.3),
-    350px 80px 3px rgba(255, 255, 255, 0.5), 550px 120px 2px rgba(255, 255, 255, 0.3),
-    750px 60px 3px rgba(255, 255, 255, 0.4), 950px 90px 1px rgba(255, 255, 255, 0.2),
-    1150px 40px 3px rgba(255, 255, 255, 0.5), 1350px 110px 2px rgba(255, 255, 255, 0.3),
-    250px 500px 3px rgba(255, 255, 255, 0.4), 450px 520px 2px rgba(255, 255, 255, 0.3),
-    650px 480px 3px rgba(255, 255, 255, 0.5), 850px 540px 2px rgba(255, 255, 255, 0.3),
-    1050px 510px 3px rgba(255, 255, 255, 0.4), 1250px 490px 1px rgba(255, 255, 255, 0.2),
-    1450px 530px 3px rgba(255, 255, 255, 0.5), 80px 600px 2px rgba(255, 255, 255, 0.3),
-    280px 620px 3px rgba(255, 255, 255, 0.4), 480px 580px 2px rgba(255, 255, 255, 0.3),
-    680px 640px 3px rgba(255, 255, 255, 0.5), 880px 610px 1px rgba(255, 255, 255, 0.2),
-    1080px 590px 3px rgba(255, 255, 255, 0.4), 1280px 630px 2px rgba(255, 255, 255, 0.3),
-    1480px 600px 3px rgba(255, 255, 255, 0.5), 120px 700px 2px rgba(255, 255, 255, 0.3),
-    320px 720px 3px rgba(255, 255, 255, 0.4), 520px 680px 2px rgba(255, 255, 255, 0.3),
-    720px 740px 3px rgba(255, 255, 255, 0.5), 920px 710px 1px rgba(255, 255, 255, 0.2),
-    1120px 690px 3px rgba(255, 255, 255, 0.4), 1320px 730px 2px rgba(255, 255, 255, 0.3),
-    1520px 700px 3px rgba(255, 255, 255, 0.5),
-    /* New stars/nebulae for light mode - more varied sizes and positions */
-    100px 100px 5px rgba(255, 255, 255, 0.6), 250px 50px 4px rgba(255, 255, 255, 0.5),
-    400px 200px 6px rgba(255, 255, 255, 0.7), 600px 120px 5px rgba(255, 255, 255, 0.4),
-    800px 300px 7px rgba(255, 255, 255, 0.8), 1000px 250px 5px rgba(255, 255, 255, 0.6),
-    1200px 150px 4px rgba(255, 255, 255, 0.5), 1400px 350px 6px rgba(255, 255, 255, 0.7),
-    1600px 280px 5px rgba(255, 255, 255, 0.4), 1800px 180px 7px rgba(255, 255, 255, 0.8),
-    2000px 400px 5px rgba(255, 255, 255, 0.6), 2200px 100px 4px rgba(255, 255, 255, 0.5),
-    2400px 220px 6px rgba(255, 255, 255, 0.7), 2600px 320px 5px rgba(255, 255, 255, 0.4),
-    2800px 50px 7px rgba(255, 255, 255, 0.8);
+    /* Small twinkling stars */
+    100px 200px 1px rgba(255, 255, 255, 0.8), 300px 150px 1px rgba(255, 255, 255, 0.6),
+    500px 300px 1px rgba(255, 255, 255, 0.9), 700px 100px 1px rgba(255, 255, 255, 0.7),
+    900px 250px 1px rgba(255, 255, 255, 0.8), 1100px 180px 1px rgba(255, 255, 255, 0.5),
+    1300px 320px 1px rgba(255, 255, 255, 0.9), 1500px 80px 1px rgba(255, 255, 255, 0.6),
+    200px 400px 1px rgba(255, 255, 255, 0.7), 400px 350px 1px rgba(255, 255, 255, 0.8),
+    600px 450px 1px rgba(255, 255, 255, 0.6), 800px 380px 1px rgba(255, 255, 255, 0.9),
+    1000px 420px 1px rgba(255, 255, 255, 0.5), 1200px 480px 1px rgba(255, 255, 255, 0.8),
+    1400px 360px 1px rgba(255, 255, 255, 0.7), 150px 50px 1px rgba(255, 255, 255, 0.6),
+    350px 80px 1px rgba(255, 255, 255, 0.9), 550px 120px 1px rgba(255, 255, 255, 0.7),
+    750px 60px 1px rgba(255, 255, 255, 0.8), 950px 90px 1px rgba(255, 255, 255, 0.5),
+    1150px 40px 1px rgba(255, 255, 255, 0.9), 1350px 110px 1px rgba(255, 255, 255, 0.6),
+    /* Medium stars */
+    250px 500px 2px rgba(255, 255, 255, 0.7), 450px 520px 2px rgba(255, 255, 255, 0.6),
+    650px 480px 2px rgba(255, 255, 255, 0.8), 850px 540px 2px rgba(255, 255, 255, 0.5),
+    1050px 510px 2px rgba(255, 255, 255, 0.7), 1250px 490px 2px rgba(255, 255, 255, 0.6),
+    1450px 530px 2px rgba(255, 255, 255, 0.8), 80px 600px 2px rgba(255, 255, 255, 0.7),
+    280px 620px 2px rgba(255, 255, 255, 0.6), 480px 580px 2px rgba(255, 255, 255, 0.8),
+    680px 640px 2px rgba(255, 255, 255, 0.5), 880px 610px 2px rgba(255, 255, 255, 0.7),
+    1080px 590px 2px rgba(255, 255, 255, 0.6), 1280px 630px 2px rgba(255, 255, 255, 0.8),
+    1480px 600px 2px rgba(255, 255, 255, 0.7), 120px 700px 2px rgba(255, 255, 255, 0.6),
+    /* Large stars/planets */
+    100px 100px 4px rgba(255, 255, 255, 0.8), 250px 50px 3px rgba(255, 255, 255, 0.7),
+    400px 200px 5px rgba(255, 255, 255, 0.9), 600px 120px 4px rgba(255, 255, 255, 0.6),
+    800px 300px 6px rgba(255, 255, 255, 0.8), 1000px 250px 4px rgba(255, 255, 255, 0.7),
+    1200px 150px 3px rgba(255, 255, 255, 0.6), 1400px 350px 5px rgba(255, 255, 255, 0.8),
+    1600px 280px 4px rgba(255, 255, 255, 0.5), 1800px 180px 6px rgba(255, 255, 255, 0.9),
+    2000px 400px 4px rgba(255, 255, 255, 0.7), 2200px 100px 3px rgba(255, 255, 255, 0.6),
+    2400px 220px 5px rgba(255, 255, 255, 0.8), 2600px 320px 4px rgba(255, 255, 255, 0.5),
+    2800px 50px 6px rgba(255, 255, 255, 0.9),
+    /* Extra large planets/nebulae */
+    320px 720px 8px rgba(255, 255, 255, 0.4), 520px 680px 7px rgba(255, 255, 255, 0.5),
+    720px 740px 9px rgba(255, 255, 255, 0.6), 920px 710px 8px rgba(255, 255, 255, 0.3),
+    1120px 690px 10px rgba(255, 255, 255, 0.5), 1320px 730px 7px rgba(255, 255, 255, 0.4),
+    1520px 700px 9px rgba(255, 255, 255, 0.6), 1720px 650px 8px rgba(255, 255, 255, 0.5),
+    /* Additional scattered stars for density */
+    50px 350px 1px rgba(255, 255, 255, 0.7), 180px 280px 1px rgba(255, 255, 255, 0.6),
+    380px 420px 1px rgba(255, 255, 255, 0.8), 580px 380px 1px rgba(255, 255, 255, 0.5),
+    780px 520px 1px rgba(255, 255, 255, 0.7), 980px 480px 1px rgba(255, 255, 255, 0.6),
+    1180px 420px 1px rgba(255, 255, 255, 0.8), 1380px 380px 1px rgba(255, 255, 255, 0.7),
+    1580px 520px 1px rgba(255, 255, 255, 0.5), 1780px 480px 1px rgba(255, 255, 255, 0.8);
   animation: starFieldMove 180s linear infinite; /* Slower animation for light mode */
 }
 
 .dark body {
   background: linear-gradient(-45deg, #0f0f23, #1a1a2e, #16213e, #0f3460, #533483, #7209b7, #2d1b69);
-  background-size: 600% 600%; /* Increased size for more movement */
+  background-size: 800% 800%; /* Increased size for more movement */
   animation: moveBackground 40s ease infinite; /* Slower animation for a grander feel */
 }
 
 .dark body::before {
   box-shadow: 
-    /* Existing stars (dark mode) */
-    100px 200px 4px rgba(0, 255, 255, 1), 300px 150px 3px rgba(0, 191, 255, 0.9),
-    500px 300px 5px rgba(138, 43, 226, 1), 700px 100px 3px rgba(75, 0, 130, 0.8),
-    900px 250px 4px rgba(0, 255, 255, 0.9), 1100px 180px 2px rgba(0, 191, 255, 0.7),
-    1300px 320px 5px rgba(138, 43, 226, 1), 1500px 80px 3px rgba(75, 0, 130, 0.9),
-    200px 400px 3px rgba(0, 255, 255, 0.8), 400px 350px 4px rgba(0, 191, 255, 1),
-    600px 450px 3px rgba(138, 43, 226, 0.7), 800px 380px 5px rgba(75, 0, 130, 0.9),
-    1000px 420px 2px rgba(0, 255, 255, 0.6), 1200px 480px 4px rgba(0, 191, 255, 1),
-    1400px 360px 3px rgba(138, 43, 226, 0.8), 150px 50px 3px rgba(75, 0, 130, 0.7),
-    350px 80px 5px rgba(0, 255, 255, 1), 550px 120px 3px rgba(0, 191, 255, 0.8),
-    750px 60px 4px rgba(138, 43, 226, 0.9), 950px 90px 2px rgba(75, 0, 130, 0.6),
-    1150px 40px 5px rgba(0, 255, 255, 1), 1350px 110px 3px rgba(0, 191, 255, 0.7),
-    250px 500px 4px rgba(138, 43, 226, 0.9), 450px 520px 3px rgba(75, 0, 130, 0.8),
-    650px 480px 5px rgba(0, 255, 255, 1), 850px 540px 3px rgba(0, 191, 255, 0.7),
-    1050px 510px 4px rgba(138, 43, 226, 0.9), 1250px 490px 2px rgba(75, 0, 130, 0.6),
-    1450px 530px 5px rgba(0, 255, 255, 1), 80px 600px 3px rgba(0, 191, 255, 0.8),
-    280px 620px 4px rgba(138, 43, 226, 0.9), 480px 580px 3px rgba(75, 0, 130, 0.7),
-    680px 640px 5px rgba(0, 255, 255, 1), 880px 610px 2px rgba(0, 191, 255, 0.6),
-    1080px 590px 4px rgba(138, 43, 226, 0.9), 1280px 630px 3px rgba(75, 0, 130, 0.8),
-    1480px 600px 5px rgba(0, 255, 255, 1), 120px 700px 3px rgba(0, 191, 255, 0.7),
-    320px 720px 4px rgba(138, 43, 226, 0.9), 520px 680px 3px rgba(75, 0, 130, 0.8),
-    720px 740px 5px rgba(0, 255, 255, 1), 920px 710px 2px rgba(0, 191, 255, 0.6),
-    1120px 690px 4px rgba(138, 43, 226, 0.9), 1320px 730px 3px rgba(75, 0, 130, 0.8),
-    1520px 700px 5px rgba(0, 255, 255, 1),
-    /* New stars/nebulae for dark mode - more varied sizes and positions */
-    100px 100px 8px rgba(0, 255, 255, 0.8), 250px 50px 6px rgba(0, 191, 255, 0.7),
-    400px 200px 10px rgba(138, 43, 226, 0.9), 600px 120px 8px rgba(75, 0, 130, 0.6),
-    800px 300px 12px rgba(0, 255, 255, 0.9), 1000px 250px 8px rgba(0, 191, 255, 0.8),
-    1200px 150px 6px rgba(138, 43, 226, 0.7), 1400px 350px 10px rgba(75, 0, 130, 0.5),
-    1600px 280px 8px rgba(0, 255, 255, 0.7), 1800px 180px 12px rgba(0, 191, 255, 0.9),
-    2000px 400px 8px rgba(138, 43, 226, 0.8), 2200px 100px 6px rgba(75, 0, 130, 0.4),
-    2400px 220px 10px rgba(0, 255, 255, 0.8), 2600px 320px 8px rgba(0, 191, 255, 0.7),
-    2800px 50px 12px rgba(138, 43, 226, 0.9);
+    /* Small twinkling stars - electric cyan and blue */
+    100px 200px 1px rgba(0, 255, 255, 1), 300px 150px 1px rgba(0, 191, 255, 0.9),
+    500px 300px 1px rgba(0, 255, 255, 1), 700px 100px 1px rgba(0, 191, 255, 0.8),
+    900px 250px 1px rgba(0, 255, 255, 0.9), 1100px 180px 1px rgba(0, 191, 255, 0.7),
+    1300px 320px 1px rgba(0, 255, 255, 1), 1500px 80px 1px rgba(0, 191, 255, 0.9),
+    200px 400px 1px rgba(0, 255, 255, 0.8), 400px 350px 1px rgba(0, 191, 255, 1),
+    600px 450px 1px rgba(0, 255, 255, 0.7), 800px 380px 1px rgba(0, 191, 255, 0.9),
+    1000px 420px 1px rgba(0, 255, 255, 0.6), 1200px 480px 1px rgba(0, 191, 255, 1),
+    1400px 360px 1px rgba(0, 255, 255, 0.8), 150px 50px 1px rgba(0, 191, 255, 0.7),
+    350px 80px 1px rgba(0, 255, 255, 1), 550px 120px 1px rgba(0, 191, 255, 0.8),
+    750px 60px 1px rgba(0, 255, 255, 0.9), 950px 90px 1px rgba(0, 191, 255, 0.6),
+    1150px 40px 1px rgba(0, 255, 255, 1), 1350px 110px 1px rgba(0, 191, 255, 0.7),
+    /* Medium stars - purple and violet */
+    250px 500px 2px rgba(138, 43, 226, 0.9), 450px 520px 2px rgba(75, 0, 130, 0.8),
+    650px 480px 2px rgba(138, 43, 226, 1), 850px 540px 2px rgba(75, 0, 130, 0.7),
+    1050px 510px 2px rgba(138, 43, 226, 0.9), 1250px 490px 2px rgba(75, 0, 130, 0.6),
+    1450px 530px 2px rgba(138, 43, 226, 1), 80px 600px 2px rgba(75, 0, 130, 0.8),
+    280px 620px 2px rgba(138, 43, 226, 0.9), 480px 580px 2px rgba(75, 0, 130, 0.7),
+    680px 640px 2px rgba(138, 43, 226, 1), 880px 610px 2px rgba(75, 0, 130, 0.6),
+    1080px 590px 2px rgba(138, 43, 226, 0.9), 1280px 630px 2px rgba(75, 0, 130, 0.8),
+    1480px 600px 2px rgba(138, 43, 226, 1), 120px 700px 2px rgba(75, 0, 130, 0.7),
+    /* Large stars/planets - bright cyan and blue */
+    100px 100px 4px rgba(0, 255, 255, 0.8), 250px 50px 3px rgba(0, 191, 255, 0.7),
+    400px 200px 5px rgba(0, 255, 255, 0.9), 600px 120px 4px rgba(0, 191, 255, 0.6),
+    800px 300px 6px rgba(0, 255, 255, 0.8), 1000px 250px 4px rgba(0, 191, 255, 0.7),
+    1200px 150px 3px rgba(0, 255, 255, 0.6), 1400px 350px 5px rgba(0, 191, 255, 0.8),
+    1600px 280px 4px rgba(0, 255, 255, 0.5), 1800px 180px 6px rgba(0, 191, 255, 0.9),
+    2000px 400px 4px rgba(0, 255, 255, 0.7), 2200px 100px 3px rgba(0, 191, 255, 0.6),
+    2400px 220px 5px rgba(0, 255, 255, 0.8), 2600px 320px 4px rgba(0, 191, 255, 0.5),
+    2800px 50px 6px rgba(0, 255, 255, 0.9),
+    /* Extra large planets/nebulae - purple and violet */
+    320px 720px 8px rgba(138, 43, 226, 0.6), 520px 680px 7px rgba(75, 0, 130, 0.5),
+    720px 740px 9px rgba(138, 43, 226, 0.7), 920px 710px 8px rgba(75, 0, 130, 0.4),
+    1120px 690px 10px rgba(138, 43, 226, 0.8), 1320px 730px 7px rgba(75, 0, 130, 0.5),
+    1520px 700px 9px rgba(138, 43, 226, 0.7), 1720px 650px 8px rgba(75, 0, 130, 0.6),
+    /* Massive nebulae/distant galaxies */
+    180px 120px 12px rgba(0, 255, 255, 0.3), 580px 220px 15px rgba(138, 43, 226, 0.4),
+    980px 320px 18px rgba(0, 191, 255, 0.3), 1380px 420px 12px rgba(75, 0, 130, 0.3),
+    1780px 520px 16px rgba(0, 255, 255, 0.4), 380px 620px 14px rgba(138, 43, 226, 0.3),
+    780px 720px 20px rgba(0, 191, 255, 0.4), 1180px 820px 13px rgba(75, 0, 130, 0.3),
+    /* Additional scattered stars for density */
+    50px 350px 1px rgba(0, 255, 255, 0.7), 180px 280px 1px rgba(0, 191, 255, 0.6),
+    380px 420px 1px rgba(138, 43, 226, 0.8), 580px 380px 1px rgba(75, 0, 130, 0.5),
+    780px 520px 1px rgba(0, 255, 255, 0.7), 980px 480px 1px rgba(0, 191, 255, 0.6),
+    1180px 420px 1px rgba(138, 43, 226, 0.8), 1380px 380px 1px rgba(75, 0, 130, 0.7),
+    1580px 520px 1px rgba(0, 255, 255, 0.5), 1780px 480px 1px rgba(0, 191, 255, 0.8),
+    /* More medium stars for richness */
+    220px 160px 2px rgba(0, 255, 255, 0.6), 420px 260px 2px rgba(138, 43, 226, 0.7),
+    620px 360px 2px rgba(0, 191, 255, 0.5), 820px 460px 2px rgba(75, 0, 130, 0.8),
+    1020px 560px 2px rgba(0, 255, 255, 0.6), 1220px 660px 2px rgba(138, 43, 226, 0.7),
+    1420px 760px 2px rgba(0, 191, 255, 0.5), 1620px 860px 2px rgba(75, 0, 130, 0.8);
   animation: starFieldMove 240s linear infinite; /* Slower animation for dark mode */
 }
 
@@ -123,19 +150,19 @@ body::before {
     opacity: 1;
   }
   25% {
-    transform: translateX(-50px) translateY(-25px) scale(1.05) rotate(5deg);
+    transform: translateX(-100px) translateY(-50px) scale(1.05) rotate(5deg);
     opacity: 0.9;
   }
   50% {
-    transform: translateX(-100px) translateY(40px) scale(1) rotate(0deg);
+    transform: translateX(-200px) translateY(80px) scale(1) rotate(0deg);
     opacity: 1;
   }
   75% {
-    transform: translateX(-150px) translateY(-20px) scale(0.95) rotate(-5deg);
+    transform: translateX(-300px) translateY(-40px) scale(0.95) rotate(-5deg);
     opacity: 0.9;
   }
   100% {
-    transform: translateX(-200px) translateY(30px) scale(1) rotate(0deg);
+    transform: translateX(-400px) translateY(60px) scale(1) rotate(0deg);
     opacity: 1;
   }
 }
