@@ -13,18 +13,21 @@ const Home: React.FC = () => {
 
   // Home page hero images
   const homePageImages = [
-    'https://stackblitz.com/storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCTlFpeXdFPSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--c70c56156434444b90ed67cce580c5b4180a983e//Sleeping Pods Video.mp4',
-    'https://stackblitz.com/storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCTndpeXdFPSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--18d12206b2d7c53a674fcdde843acaa112a27793//Sleeping Pod inner view.mp4',
-    'https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg?auto=compress&cs=tinysrgb&w=800',
-    'https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=800',
-    'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800',
-    'https://images.pexels.com/photos/1743229/pexels-photo-1743229.jpeg?auto=compress&cs=tinysrgb&w=800',
-    'https://images.pexels.com/photos/1571463/pexels-photo-1571463.jpeg?auto=compress&cs=tinysrgb&w=800',
-    'https://images.pexels.com/photos/1743227/pexels-photo-1743227.jpeg?auto=compress&cs=tinysrgb&w=800',
-    'https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg?auto=compress&cs=tinysrgb&w=800',
-    'https://images.pexels.com/photos/1743231/pexels-photo-1743231.jpeg?auto=compress&cs=tinysrgb&w=800',
-    'https://images.pexels.com/photos/1571452/pexels-photo-1571452.jpeg?auto=compress&cs=tinysrgb&w=800',
-    'https://images.pexels.com/photos/1743228/pexels-photo-1743228.jpeg?auto=compress&cs=tinysrgb&w=800'
+    '/Pods_Images/ABS Flagship Series/Sleeping Pods Video.mp4',
+    '/Pods_Images/ABS Flagship Series/Sleeping Pod inner view.mp4',
+    '/Pods_Images/For Website main images/pod view.png',
+    '/Pods_Images/For Website main images/inside 2.png',
+    '/Pods_Images/For Website main images/loading .png',
+    '/Pods_Images/For Website main images/Reception.png',
+    '/Pods_Images/For Website main images/reception2.png',
+    '/Pods_Images/For Website main images/Pods Hall looks.jpg',
+    '/Pods_Images/For Website main images/Pods hall look3.png',
+    '/Pods_Images/For Website main images/interior looks.png',
+    '/Pods_Images/For Website main images/after loading.png',
+    '/Pods_Images/For Website main images/Main Pod Image2.png',
+    '/Pods_Images/For Website main images/Main Pods Image.png',
+    '/Pods_Images/For Website main images/Pods hall look5.png',
+    '/Pods_Images/For Website main images/interior looks2.png'
   ];
 
   // Show all product series (excluding any Made in India series for now)
