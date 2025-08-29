@@ -128,10 +128,6 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
                 playsInline
                 onEnded={handleVideoEnded}
                 whileHover={{ scale: 1.02 }}
-                onError={(e) => {
-                  const target = e.target as HTMLVideoElement;
-                  target.style.display = 'none';
-                }}
               />
             ) : (
               <>
