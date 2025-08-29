@@ -41,7 +41,7 @@ const Navbar: React.FC = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 w-full z-50 bg-white/90 dark:bg-gray-950/90 backdrop-blur-xl border-b border-gray-100 dark:border-cyan-500/30 transition-all duration-500 shadow-lg shadow-gray-200/50 dark:shadow-cyan-500/20">
+    <nav className="fixed top-0 left-0 right-0 w-full z-50 bg-white dark:bg-gray-950 border-b border-gray-200 dark:border-gray-800 transition-all duration-500 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center space-x-2 group">
@@ -108,9 +108,9 @@ const Navbar: React.FC = () => {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.95 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
-              className="absolute top-16 left-0 w-full md:hidden z-50"
+              className="absolute top-16 left-0 w-full md:hidden z-50 bg-white dark:bg-gray-950 shadow-lg"
             >
-              <div className="mx-4 px-4 pt-4 pb-6 space-y-2 bg-white/40 dark:bg-gray-800/40 backdrop-blur-xl rounded-xl border border-white/30 dark:border-cyan-500/20 shadow-2xl">
+              <div className="mx-4 px-4 pt-4 pb-6 space-y-2 rounded-xl shadow-2xl">
               {navItems.map((item) => (
                 <motion.div
                   key={item.path}
@@ -123,8 +123,8 @@ const Navbar: React.FC = () => {
                     onClick={() => setIsOpen(false)}
                     className={`block px-4 py-3 rounded-xl text-base font-medium transition-all duration-200 ${
                       isActive(item.path)
-                        ? 'text-cyan-500 bg-cyan-50/50 dark:text-cyan-400 dark:bg-cyan-400/20 shadow-sm backdrop-blur-sm'
-                        : 'text-gray-700 hover:text-cyan-600 dark:text-gray-300 dark:hover:text-cyan-400 hover:bg-gray-50/50 dark:hover:bg-cyan-400/10 backdrop-blur-sm'
+                        ? 'text-cyan-500 bg-cyan-50 dark:text-cyan-400 dark:bg-cyan-400/10 shadow-sm'
+                        : 'text-gray-700 hover:text-cyan-600 dark:text-gray-300 dark:hover:text-cyan-400 hover:bg-gray-50 dark:hover:bg-gray-800'
                     }`}
                   >
                     {item.label}
